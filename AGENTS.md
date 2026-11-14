@@ -16,6 +16,7 @@ Run every command from the repo root. `PY` is a Python with Playwright, faster-w
 6. **Shots and sound.** `visuals.json`: see "Shot list" below. Then `PY pipeline/mix_audio.py videos/<id>`, `PY pipeline/build_captions.py videos/<id>` and `PY pipeline/build_scenes.py videos/<id>`. Done when the build prints no WARNING and reports one shot about every 4 seconds per section.
 7. **Check.** In `videos/<id>`: `npm run check` must pass, then `npx hyperframes snapshot --at <one time inside every shot>` and read every contact sheet. Done when every shot is readable, shows what the narration is saying at that moment, and no text sits on a face or under the caption line.
 8. **Render.** `npx hyperframes render --output ../../<name>.mp4` from the video folder. Hand it to the user on `questions.html` with what to check while watching.
+9. **Upload kit.** Write `upload.json` (3 titles, summary, a chapter name per section, sources, disclaimer, tags) and `thumbnail.html` (1280x720: one photo, three or four huge words). Then `PY pipeline/upload_kit.py videos/<id>` and `PY pipeline/thumbnail.py videos/<id>`. Done when `upload_kit.py` prints no FIX line and you have looked at `thumbnail.jpg`. The user uploads the video themselves.
 
 ## Channel rules
 
