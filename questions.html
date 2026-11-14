@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Smart Money After 50: first 2 minutes</title>
+<title>Smart Money After 50: full video</title>
 <style>
   :root { --bg:#f6f4ef; --card:#fff; --ink:#1d2430; --soft:#5b6472; --line:#ddd8cc; --accent:#0b6b4f; --accent-bg:#e4f3ec; --warn:#8a4b00; --warn-bg:#fdf1dc; }
   @media (prefers-color-scheme: dark) {
@@ -33,7 +33,6 @@
   textarea, input[type=text], input[type=number] { font:inherit; color:inherit; background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:8px 10px; width:100%; }
   input[type=number] { width:90px; }
   textarea { min-height:60px; margin-top:8px; }
-  textarea.big { min-height:330px; }
   .row { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin:8px 0; }
   .calc { background:var(--accent-bg); border-radius:10px; padding:10px 14px; margin-top:10px; }
   button { font:inherit; font-weight:700; background:var(--accent); color:var(--bg); border:0; border-radius:10px; padding:14px 26px; cursor:pointer; }
@@ -43,107 +42,96 @@
 </head>
 <body>
 <main>
-<h1>Smart Money After 50: first 2 minutes</h1>
+<h1>Smart Money After 50: full video</h1>
 <p class="soft">14 Nov 2026 · watch, answer, press Copy answers and paste it back to me.</p>
 
 <h2>1. The video</h2>
 <div class="card">
-  <video src="first-2min.mp4" controls playsinline preload="metadata"></video>
-  <p class="soft">File: <code>C:\code\smart-money-50\first-2min.mp4</code> · 1 minute 58 seconds · 1920×1080 · 112 MB</p>
-  <p><b>What is in it:</b> the hook (28 s), the intro (6 s), then "Change 1: the raise" (85 s). 31 visuals, one every 3.5–3.7 seconds: 9 photos, 6 video clips, 8 shots of the real SSA release with words highlighted as they are read, 7 text and number cards, and one chart. Captions and particles throughout.</p>
-  <p><b>The voice is Chatterbox on your GPU.</b> No Gemini key or any other voice service is used anywhere in this project. The main part runs at 0.85× with your pauses and measures about 135 words a minute.</p>
-  <p>I looked at a frame from 28 of the 31 visuals and the video passes the HyperFrames check. I cannot hear it, so the voice and music are yours to judge.</p>
+  <video src="social-security-2027.mp4" controls playsinline preload="metadata"></video>
+  <p class="soft">File: <code>C:\code\smart-money-50\social-security-2027.mp4</code> · 15 minutes 29 seconds · 1920×1080</p>
+  <p><b>"Social Security 2027: 4 Changes Every Retiree Should Check Before January"</b>, complete: hook, intro, the four changes, "which apply to you", "why the numbers move", and the checklist. 223 visuals, one about every 4.2 seconds.</p>
+  <div class="scroll"><table>
+    <tr><th>Starts at</th><th>Section</th><th>Length</th></tr>
+    <tr><td>0:00</td><td>Hook</td><td>0:28</td></tr>
+    <tr><td>0:28</td><td>Intro</td><td>0:06</td></tr>
+    <tr><td>0:34</td><td>1. The raise</td><td>1:25</td></tr>
+    <tr><td>1:59</td><td>2. Working while you collect</td><td>4:48</td></tr>
+    <tr><td>6:47</td><td>3. The tax cap</td><td>2:36</td></tr>
+    <tr><td>9:23</td><td>4. The work credit</td><td>2:23</td></tr>
+    <tr><td>11:45</td><td>Which apply to you</td><td>1:16</td></tr>
+    <tr><td>13:01</td><td>Why these numbers move</td><td>0:51</td></tr>
+    <tr><td>13:52</td><td>Checklist and sign-off</td><td>1:37</td></tr>
+  </table></div>
+  <p class="soft">These are also the chapter timestamps for the YouTube description.</p>
 </div>
 
 <div class="card">
-  <h3>The pipeline now exists</h3>
-  <p><code>C:\code\smart-money-50\AGENTS.md</code> describes the eight steps (topic, research, script, voice, media, shots, check, render), the channel rules, the look, and every shot type. Any agent, including the Antigravity CLI, can follow it. This video was built by those steps, not by hand:</p>
-  <div class="scroll"><table>
-    <tr><th>File in the video folder</th><th>What it holds</th></tr>
-    <tr><td><code>research.md</code>, <code>sources/</code></td><td>Each claim beside the exact words from the saved SSA page</td></tr>
-    <tr><td><code>script.md</code>, <code>say.json</code></td><td>The narration, and how each number is pronounced</td></tr>
-    <tr><td><code>visuals.json</code></td><td>The shot list: what is on screen when which words are spoken</td></tr>
-  </table></div>
+  <h3>Your sound changes</h3>
+  <ul>
+    <li><b>Voice compressed</b> so quiet and loud words come out at a steadier level.</li>
+    <li><b>Music EQ:</b> the mid-range (500 Hz to 2 kHz) is cut by 9 dB to leave room for the voice.</li>
+    <li><b>Music level:</b> set 25 dB under the voice's peak. Measured in the mix: about 21.6 dB under the voice.</li>
+    <li><b>Ducking:</b> the music drops further whenever the narrator speaks and comes back in the gaps.</li>
+  </ul>
+  <p class="soft">I measured the levels but cannot hear the result. Q2 lets you adjust.</p>
+</div>
+
+<div class="card">
+  <h3>Pushed to GitHub</h3>
+  <p><a href="https://github.com/sakaspar/smart-money" target="_blank" rel="noopener">https://github.com/sakaspar/smart-money</a>, branch <code>main</code>.</p>
+  <p><b>In the repo:</b> <code>AGENTS.md</code>, the pipeline scripts, the intro project, and video 001's script, sources, research table, shot list and page screenshots.</p>
+  <p><b>Left out on purpose:</b> the <code>.env</code> file with your Pexels key (I checked the key is not in any pushed file), rendered videos (over GitHub's 100 MB file limit), downloaded stock footage and the music tracks (their licences do not allow redistributing the files), and generated voice audio. All of these are rebuilt by the pipeline.</p>
 </div>
 
 <div class="card warn">
-  <p><b>Things to look at while you watch.</b></p>
-  <p><b>1. Text without a panel.</b> You chose text straight on the photo. On bright photos it was hard to read, so I added a soft dark glow behind the words. It is not a box, but it is not nothing either. Q2 asks if that is acceptable.</p>
-  <p><b>2. The chart at 1:02.</b> The $2,000 and $2,072 bars are drawn to true scale, so they are almost the same height. That is honest, and it also looks flat. Q3.</p>
-  <p><b>3. Pace is 3.7 seconds a visual,</b> a little faster than the 4.5 you set, because shots follow sentence breaks. Q4.</p>
-  <p><b>4. Changes 2, 3 and 4 are not sourced yet.</b> The earnings limits, the taxable maximum and the credit amount came from a search summary of ssa.gov, which blocks automated reading. Before I write those sections I need another official page for each, or you confirm the numbers yourself. Q6.</p>
+  <p><b>Four things you should know.</b></p>
+  <p><b>1. It is 15½ minutes, not 20.</b> That is everything I could source from official pages, said once. Reaching 20 would mean repeating points or adding claims I cannot back. It is inside your 15–30 minute range. Q3.</p>
+  <p><b>2. All numbers are now verified.</b> Changes 2, 3 and 4 come from the official Federal Register notice (the Government Publishing Office copy), the federal regulations and two IRS pages. Each claim sits beside its source words in <code>research.md</code>.</p>
+  <p><b>3. The regulations appear as cards, not screenshots.</b> The regulations website shows a captcha to automated browsers, so I read the text through its public data service and show those facts as cards with the section number.</p>
+  <p><b>4. I checked sample frames, not every one.</b> I looked at 54 frames spread across the new sections, fixed what I found (a clip with a green laptop screen, a cropped IRS page, labels appearing before their number), and the whole video passes the HyperFrames check. About three quarters of the new visuals I have not seen individually.</p>
 </div>
 
 <h2>2. Questions</h2>
 
 <div class="card q">
-  <h3>Q1. Do I finish the video in this style?</h3>
-  <label class="opt"><input type="radio" name="q1"><span>Yes, finish it</span></label>
-  <label class="opt"><input type="radio" name="q1"><span>Yes, with the changes I mark below</span></label>
-  <label class="opt"><input type="radio" name="q1"><span>Not yet (say what is wrong in the note)</span></label>
-  <textarea data-label="note" placeholder="Time in the video + what to change, for example: 0:52 text too small"></textarea>
+  <h3>Q1. Is the video ready to upload?</h3>
+  <label class="opt"><input type="radio" name="q1"><span>Yes, upload as it is</span></label>
+  <label class="opt"><input type="radio" name="q1"><span>Fix the things I list below, then it is ready</span></label>
+  <label class="opt"><input type="radio" name="q1"><span>Not ready (say why in the note)</span></label>
+  <textarea data-label="note" placeholder="Time in the video + what to change, for example: 7:12 wrong photo"></textarea>
 </div>
 
 <div class="card q">
-  <h3>Q2. Text on photos</h3>
-  <label class="opt"><input type="radio" name="q2" checked><span>Keep the soft glow behind the words<span class="pick">my pick</span></span></label>
-  <label class="opt"><input type="radio" name="q2"><span>Remove the glow: only a shadow on the letters, even if some photos are harder to read</span></label>
-  <label class="opt"><input type="radio" name="q2"><span>Go back to the dark panel from round 2</span></label>
+  <h3>Q2. Sound</h3>
+  <div class="row">Music level under the voice peak <input type="number" id="musicdb" data-label="Music below voice (dB)" value="25" min="15" max="40"> dB <span class="soft">(higher number = quieter music; you asked for 20–30)</span></div>
+  <div class="calc" id="musiccalc"></div>
+  <textarea data-label="note" placeholder="Voice, music, ducking, chime: anything to change?"></textarea>
+</div>
+
+<div class="card q">
+  <h3>Q3. Length</h3>
+  <label class="opt"><input type="radio" name="q3" checked><span>Let the verified content set the length, anywhere from 12 to 25 minutes<span class="pick">my pick</span></span></label>
+  <label class="opt"><input type="radio" name="q3"><span>Always reach 20 minutes: pick broader topics or add more examples to get there</span></label>
   <textarea data-label="note" placeholder="Your own answer or note"></textarea>
 </div>
 
 <div class="card q">
-  <h3>Q3. Charts where the difference is small</h3>
-  <label class="opt"><input type="radio" name="q3" checked><span>Show the difference as a big number ("+$72 a month") and skip bars when they would look the same<span class="pick">my pick</span></span></label>
-  <label class="opt"><input type="radio" name="q3"><span>Keep true-scale bars as they are now</span></label>
-  <textarea data-label="note" placeholder="Your own answer or note"></textarea>
-  <p class="soft">I will not stretch a chart's scale to make a small difference look large.</p>
-</div>
-
-<div class="card q">
-  <h3>Q4. Pace of the visuals</h3>
-  <div class="row">A new visual every <input type="number" id="shotlen" data-label="Seconds per visual" value="4" min="2" max="8" step="0.5"> seconds <span class="soft">(this sample: 3.7)</span></div>
-  <div class="row">Video length <input type="number" id="len" data-label="Video length (min)" value="20" min="5" max="40"> minutes</div>
-  <div class="calc" id="calc"></div>
-  <textarea data-label="note" placeholder="Too fast, too slow, or fine"></textarea>
-</div>
-
-<div class="card q">
-  <h3>Q5. The script for "Change 1"</h3>
-  <p class="soft">This is what the narrator says after the intro. Edit anything; I re-check every number you change and re-voice only the edited part.</p>
-  <textarea class="big" data-label="Change 1 script">Change number one. The raise.
-
-On October 14, Social Security announced a 3.6% increase for 2027. On average, retirement benefits go up by $75 a month.
-
-But $75 is an average. Your raise is 3.6% of your own benefit. If you receive $2,000 a month today, that is $72 more.
-
-And that is before deductions. Your notice lists any deductions, and for people on Medicare, the 2027 premium amount arrives in the same place.
-
-So the number that matters is not 3.6%. It is the dollar amount on your own notice.
-
-Here is what to check. Social Security sends every beneficiary a one-page notice, with the exact dates and dollar amounts of the new benefit.
-
-People who enrolled in paperless notices by November 18 see it online first, in late November. That is up to three weeks before the paper copy.
-
-Everyone else gets the notice by mail in December. When it arrives, read the dollar amount, not the percentage.</textarea>
-</div>
-
-<div class="card q">
-  <h3>Q6. Sources for changes 2, 3 and 4</h3>
-  <p class="soft">These numbers are not verified yet: earnings limits ($25,560 and $67,920), taxable maximum ($192,300), credit amount ($1,970). They are on SSA's 2027 fact sheet, which my tools cannot open.</p>
-  <label class="opt"><input type="radio" name="q6" checked><span>You open the fact sheet, save it as a PDF into the video's <code>sources</code> folder, and I check the numbers against that file<span class="pick">my pick</span></span></label>
-  <label class="opt"><input type="radio" name="q6"><span>I look for the same numbers on other official pages that allow reading, and use only what I can confirm</span></label>
-  <label class="opt"><input type="radio" name="q6"><span>Both: I search first, and you save the PDF for anything I cannot confirm</span></label>
-  <p class="soft">Fact sheet: <a href="https://www.ssa.gov/news/en/cola/factsheets/2027.html" target="_blank" rel="noopener">https://www.ssa.gov/news/en/cola/factsheets/2027.html</a> (in the browser: Ctrl+P, then "Save as PDF").</p>
+  <h3>Q4. Upload kit</h3>
+  <p class="soft">The title, description with chapters and sources, tags and thumbnail are not made yet.</p>
+  <label class="opt"><input type="radio" name="q4" checked><span>Make it now: 3 title options, description with chapters, source links and photo credits, tags, and 2 thumbnail designs<span class="pick">my pick</span></span></label>
+  <label class="opt"><input type="radio" name="q4"><span>Title and description only; you make the thumbnail</span></label>
+  <label class="opt"><input type="radio" name="q4"><span>Not yet</span></label>
   <textarea data-label="note" placeholder="Your own answer or note"></textarea>
 </div>
 
 <div class="card q">
-  <h3>Q7. How do you want to review the rest?</h3>
-  <label class="opt"><input type="radio" name="q7" checked><span>I send the full script first; after you approve it I build the whole video<span class="pick">my pick</span></span></label>
-  <label class="opt"><input type="radio" name="q7"><span>Build the whole video straight away; you review the finished video</span></label>
+  <h3>Q5. What next?</h3>
+  <label class="opt"><input type="radio" name="q5" checked><span>Video 2: "Medicare Open Enrollment Ends December 7: 5 Mistakes to Avoid", because its deadline is three weeks away<span class="pick">my pick</span></span></label>
+  <label class="opt"><input type="radio" name="q5"><span>Video 2: "7 Year-End Money Moves for People Over 60"</span></label>
+  <label class="opt"><input type="radio" name="q5"><span>Video 2: "Average Net Worth by Age: How Do You Compare at 50, 60 and 70?"</span></label>
+  <label class="opt"><input type="radio" name="q5"><span>Video 2: "9 Things Retirees Say They Regret Buying"</span></label>
+  <label class="opt"><input type="radio" name="q5"><span>Stay on video 1 until it is uploaded</span></label>
   <textarea data-label="note" placeholder="Your own answer or note"></textarea>
-  <p class="soft">Why my pick: voicing 20 minutes takes about 80 minutes on your GPU, so a script change after that is expensive.</p>
 </div>
 
 <h2>3. Decided so far</h2>
@@ -152,14 +140,15 @@ Everyone else gets the notice by mail in December. When it arrives, read the dol
     <li>Format C: numbered lists. Long-form only, made for TV viewers over 50 in the USA and Canada.</li>
     <li>Faceless. Narrator: Voice 1 (warm man), Chatterbox on your GPU, no outside voice service. Hook at 1.05×; the rest at 0.85× with 0.5 s and 1.2 s pauses.</li>
     <li>Look: black, cream, red for titles and list numbers; gains in cream or green.</li>
-    <li>Full-screen stock photos that zoom, with text on top and no panel. About one visual in three is a video clip.</li>
+    <li>Full-screen stock photos that zoom, text on top with a soft glow and no panel. About one visual in three is a video clip. A new visual about every 4 seconds.</li>
     <li>Captions: up to 5 words, 58 px, each word brightening as spoken. Quiet particle overlay throughout.</li>
     <li>Articles shown full screen with the important words highlighted as the narrator reaches them.</li>
+    <li>Small differences are shown as a big number, not as bars that look the same height.</li>
+    <li>Sound: voice compressed; music mid-range cut, 20–30 dB under the voice, ducked under speech. No hip-hop.</li>
     <li>Stock from Pexels (<code>pexel-api</code> in <code>.env</code>). Only pages the script can capture; blocked sites are skipped.</li>
-    <li>Hook, then the 6-second intro with the chime, then the sections. Videos about 20 minutes. Four a week.</li>
     <li>Urgency only from real deadlines and amounts. Every number is quoted from its saved source page.</li>
-    <li>Music from <code>music</code> at 8%; no hip-hop. "Secret Garden" for video one.</li>
-    <li>Pipeline: <code>AGENTS.md</code> in <code>C:\code\smart-money-50</code>, built with HyperFrames, runnable by any agent.</li>
+    <li>You review finished videos, not scripts.</li>
+    <li>Pipeline: <code>AGENTS.md</code> in <code>C:\code\smart-money-50</code>, on GitHub at <code>sakaspar/smart-money</code>.</li>
   </ul>
 </div>
 
@@ -175,12 +164,12 @@ const num = id => Number(byId(id).value) || 0;
 const inputs = () => [...document.querySelectorAll('main input, main textarea')];
 
 function recalc() {
-  const visuals = num('shotlen') ? Math.round(num('len') * 60 / num('shotlen')) : 0;
-  byId('calc').textContent = 'A ' + num('len') + '-minute video needs about ' + visuals + ' visuals, of which about ' +
-    Math.round(visuals / 3) + ' are video clips. Four videos a week: about ' + (visuals * 4).toLocaleString() + ' visuals.';
+  const percent = Math.pow(10, -num('musicdb') / 20) * 100;
+  byId('musiccalc').textContent = 'At ' + num('musicdb') + ' dB under the voice, the music plays at about ' +
+    percent.toFixed(1) + '% of the voice\'s peak level before ducking.';
 }
 
-const STORE = 'sma50-first2min-v1';
+const STORE = 'sma50-fullvideo-v1';
 const isToggle = f => f.type === 'radio' || f.type === 'checkbox';
 function save() {
   const state = inputs().map(f => isToggle(f) ? f.checked : f.value);
@@ -195,7 +184,7 @@ function load() {
 }
 
 function answersText() {
-  const lines = ['ANSWERS: Smart Money After 50, first 2 minutes', ''];
+  const lines = ['ANSWERS: Smart Money After 50, full video', ''];
   document.querySelectorAll('.q').forEach(card => {
     lines.push(card.querySelector('h3').textContent.trim());
     let picked = false;
