@@ -1,0 +1,190 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #000; font-family: "Inter", sans-serif;
+      --ink: #f4eedd; --accent: #d23232; --mark: #ffe14d; --up: #5fbf7f; }
+    .sc-shot { position: absolute; inset: 0; overflow: hidden; color: var(--ink);
+      background: radial-gradient(ellipse 70% 60% at 50% 40%, #1c1c1c 0%, #000 100%); }
+    .sc-shot.sc-clear { background: none; }
+    .sc-video { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+    .sc-photo { position: absolute; inset: 0; }
+    .sc-photo img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+    .sc-over { position: absolute; top: 140px; width: 860px; display: flex; flex-direction: column; gap: 16px; isolation: isolate;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.95), 0 0 26px rgba(0, 0, 0, 0.9), 0 0 70px rgba(0, 0, 0, 0.75); }
+    /* No panel: a soft dark glow behind the words keeps them readable on bright photos. */
+    .sc-over::before { content: ""; position: absolute; left: -160px; top: -130px; right: -120px; bottom: -150px; z-index: -1;
+      background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.4) 45%, rgba(0, 0, 0, 0) 100%); }
+    .sc-over.left { left: 110px; }
+    .sc-over.right { left: 950px; }
+    .sc-num { font-family: "Playfair Display", serif; font-weight: 700; font-size: 190px; line-height: 0.95; color: var(--accent); }
+    .sc-big { font-family: "Playfair Display", serif; font-weight: 700; font-size: 120px; line-height: 1; }
+    .sc-text { font-size: 66px; font-weight: 700; line-height: 1.14; }
+    .sc-small { font-size: 46px; font-weight: 700; line-height: 1.22; }
+    .sc-paper { background: #fff; }
+    .sc-pan { position: absolute; left: 0; top: 0; }
+    .sc-page { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+    .sc-page img { position: absolute; left: 0; top: 0; }
+    .sc-mark { position: absolute; background: var(--mark); mix-blend-mode: multiply; border-radius: 4px; }
+    .sc-source { position: absolute; left: 60px; top: 44px; padding: 12px 24px; border-radius: 12px;
+      background: rgba(0, 0, 0, 0.85); color: var(--ink); font-size: 32px; font-weight: 700; }
+    .sc-center { position: absolute; left: 160px; top: 150px; width: 1600px; height: 700px; display: flex;
+      flex-direction: column; align-items: center; justify-content: center; gap: 26px; text-align: center; }
+    .sc-hero { font-family: "Playfair Display", serif; font-weight: 700; font-size: 300px; line-height: 0.95; }
+    .sc-statement { font-family: "Playfair Display", serif; font-weight: 700; font-size: 128px; line-height: 1.08; }
+    .sc-statement em, .sc-text em, .sc-big em { font-style: normal; color: var(--accent); }
+    .sc-rule { width: 140px; height: 8px; background: var(--accent); }
+    .sc-title { position: absolute; left: 0; top: 110px; width: 1920px; text-align: center;
+      font-family: "Playfair Display", serif; font-weight: 700; font-size: 104px; }
+    .sc-title span { display: inline-block; }
+    .sc-title em { font-style: normal; color: var(--accent); }
+    .sc-tile { position: absolute; top: 350px; width: 400px; height: 440px; border-radius: 18px;
+      border: 3px solid rgba(244, 238, 221, 0.28); background: #141414; padding: 30px 34px; }
+    .sc-tile .n { font-family: "Playfair Display", serif; font-weight: 700; font-size: 150px; line-height: 1; color: var(--accent); }
+    .sc-tile .t { margin-top: 26px; font-size: 46px; font-weight: 700; line-height: 1.15; }
+    .sc-tile .q { display: inline-block; margin-top: 6px; font-family: "Playfair Display", serif; font-size: 150px;
+      line-height: 1; opacity: 0.35; }
+    .sc-bars { position: absolute; left: 0; top: 300px; width: 1920px; height: 560px; }
+    .sc-bar { position: absolute; bottom: 70px; width: 320px; border-radius: 10px 10px 0 0; background: var(--ink); opacity: 0.45; }
+    .sc-bar.strong { opacity: 1; }
+    .sc-bar-value { position: absolute; width: 480px; text-align: center; font-family: "Playfair Display", serif;
+      font-weight: 700; font-size: 84px; }
+    .sc-bar-label { position: absolute; bottom: 0; width: 480px; text-align: center; font-size: 42px; font-weight: 700; opacity: 0.85; }
+    .sc-delta { position: absolute; left: 0; top: 250px; width: 1920px; text-align: center;
+      font-family: "Playfair Display", serif; font-weight: 700; font-size: 92px; color: var(--up); }
+    .sc-note { position: absolute; left: 0; top: 860px; width: 1920px; text-align: center; font-size: 30px; opacity: 0.7; }
+  </style>
+  <div id="root" data-composition-id="change-3" data-width="1920" data-height="1080">
+    <div id="change-3-k0" class="sc-shot clip" data-start="0.0" data-duration="4.011" data-track-index="1"><div class="sc-center"><div id="change-3-k0-v" class="sc-hero" style="font-size: 300px">3</div><div class="sc-rule"></div><div id="change-3-k0-t0" class="sc-statement">The tax cap</div></div></div>
+    <video id="change-3-k1-vid" class="sc-video clip" data-start="4.011" data-duration="5.96" data-track-index="0" muted playsinline src="assets/stock/office-meeting-business-people-1.mp4"></video>
+    <div id="change-3-k1" class="sc-shot sc-clear clip" data-start="4.011" data-duration="5.96" data-track-index="1"><div class="sc-over left"><div id="change-3-k1-t0" class="sc-text">Still working</div><div id="change-3-k1-t1" class="sc-big">high income</div></div></div>
+    <div id="change-3-k2" class="sc-shot clip" data-start="9.971" data-duration="4.78" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-3-k2-img" src="assets/stock/dollar-bills-money-1.jpg" alt="" /></div><div class="sc-over left"><div id="change-3-k2-t0" class="sc-text">Not every dollar is taxed</div></div></div>
+    <div id="change-3-k3" class="sc-shot clip" data-start="14.751" data-duration="2.62" data-track-index="1"><div class="sc-center"><div id="change-3-k3-t0" class="sc-statement">It stops at a <em>ceiling</em></div></div></div>
+    <div id="change-3-k4" class="sc-shot sc-paper clip" data-start="17.371" data-duration="5.18" data-track-index="1"><div id="change-3-k4-pan" class="sc-pan" data-layout-allow-overflow><div class="sc-page" style="width: 2400px; height: 17289px; transform: scale(1.7455) translate(-0px, -1200px)"><img src="assets/shots/federal-register.png" alt="" style="width: 2400px; height: 17289px" /><div id="change-3-k4-m0-0" class="sc-mark" style="left: 8px; top: 1290px; width: 501px; height: 30px"></div></div></div><div class="sc-source" data-layout-allow-occlusion>Federal Register · October 26, 2026 · Social Security Administration</div></div>
+    <div id="change-3-k5" class="sc-shot clip" data-start="22.551" data-duration="2.38" data-track-index="1"><div class="sc-center"><div id="change-3-k5-t0" class="sc-statement">The ceiling in <em>2026</em></div></div></div>
+    <div id="change-3-k6" class="sc-shot clip" data-start="24.931" data-duration="4.26" data-track-index="1"><div class="sc-center"><div id="change-3-k6-v" class="sc-hero" style="font-size: 230px">$184,500</div><div class="sc-rule"></div><div id="change-3-k6-t0" class="sc-text">in 2026</div></div></div>
+    <div id="change-3-k7" class="sc-shot sc-paper clip" data-start="29.191" data-duration="6.36" data-track-index="1"><div id="change-3-k7-pan" class="sc-pan" data-layout-allow-overflow><div class="sc-page" style="width: 2400px; height: 17289px; transform: scale(1.7455) translate(-0px, -8800px)"><img src="assets/shots/federal-register.png" alt="" style="width: 2400px; height: 17289px" /><div id="change-3-k7-m0-0" class="sc-mark" style="left: 8px; top: 8896px; width: 255px; height: 30px"></div></div></div><div class="sc-source" data-layout-allow-occlusion>Federal Register · October 26, 2026 · Social Security Administration</div></div>
+    <div id="change-3-k8" class="sc-shot clip" data-start="35.551" data-duration="6.26" data-track-index="1"><div class="sc-center"><div id="change-3-k8-v" class="sc-hero" style="font-size: 230px">+$7,800</div><div class="sc-rule"></div><div id="change-3-k8-t0" class="sc-text">more of your pay can be taxed</div></div><div class="sc-note">Source: Federal Register, October 26, 2026</div></div>
+    <div id="change-3-k9" class="sc-shot sc-paper clip" data-start="41.811" data-duration="3.3" data-track-index="1"><div id="change-3-k9-pan" class="sc-pan" data-layout-allow-overflow><div class="sc-page" style="width: 2400px; height: 2524px; transform: scale(1.28) translate(-600px, -560px)"><img src="assets/shots/irs-751.png" alt="" style="width: 2400px; height: 2524px" /><div id="change-3-k9-m0-0" class="sc-mark" style="left: 1186px; top: 747px; width: 501px; height: 40px"></div></div></div><div class="sc-source" data-layout-allow-occlusion>Internal Revenue Service · Topic no. 751</div></div>
+    <div id="change-3-k10" class="sc-shot clip" data-start="45.111" data-duration="6.4" data-track-index="1"><div class="sc-center"><div id="change-3-k10-v" class="sc-hero" style="font-size: 300px">6.2%</div><div class="sc-rule"></div><div id="change-3-k10-t0" class="sc-text">from the employee, and 6.2% from the employer</div></div><div class="sc-note">Source: IRS Topic no. 751</div></div>
+    <div id="change-3-k11" class="sc-shot clip" data-start="51.511" data-duration="2.18" data-track-index="1"><div class="sc-center"><div id="change-3-k11-t0" class="sc-statement">The <em>math</em></div></div></div>
+    <div id="change-3-k12" class="sc-shot clip" data-start="53.691" data-duration="3.46" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-3-k12-img" src="assets/stock/dollar-bills-money-2.jpg" alt="" /></div><div class="sc-over left"><div id="change-3-k12-t0" class="sc-text">At a pay of</div><div id="change-3-k12-t1" class="sc-big">$184,500</div></div></div>
+    <div id="change-3-k13" class="sc-shot clip" data-start="57.151" data-duration="5.64" data-track-index="1"><div class="sc-center"><div id="change-3-k13-v" class="sc-hero" style="font-size: 230px">$11,439</div><div class="sc-rule"></div><div id="change-3-k13-t0" class="sc-text">the most an employee pays in 2026</div></div></div>
+    <video id="change-3-k14-vid" class="sc-video clip" data-start="62.791" data-duration="3.46" data-track-index="0" muted playsinline src="assets/stock/accountant-calculator-laptop-1.mp4"></video>
+    <div id="change-3-k14" class="sc-shot sc-clear clip" data-start="62.791" data-duration="3.46" data-track-index="1"><div class="sc-over left"><div id="change-3-k14-t0" class="sc-text">At a pay of</div><div id="change-3-k14-t1" class="sc-big">$192,300</div></div></div>
+    <div id="change-3-k15" class="sc-shot clip" data-start="66.251" data-duration="5.06" data-track-index="1"><div class="sc-center"><div id="change-3-k15-v" class="sc-hero" style="font-size: 170px">$11,922.60</div><div class="sc-rule"></div><div id="change-3-k15-t0" class="sc-text">the most in 2027</div></div></div>
+    <div id="change-3-k16" class="sc-shot clip" data-start="71.311" data-duration="5.54" data-track-index="1"><div class="sc-center"><div id="change-3-k16-v" class="sc-hero" style="font-size: 230px">+$483.60</div><div class="sc-rule"></div><div id="change-3-k16-t0" class="sc-text">more in 2027</div></div></div>
+    <div id="change-3-k17" class="sc-shot clip" data-start="76.851" data-duration="5.1" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-3-k17-img" src="assets/stock/employer-office-building-3.jpg" alt="" /></div><div class="sc-over left"><div id="change-3-k17-t0" class="sc-text">for earnings at or above the new ceiling</div></div></div>
+    <div id="change-3-k18" class="sc-shot clip" data-start="81.951" data-duration="2.16" data-track-index="1"><div class="sc-center"><div id="change-3-k18-t0" class="sc-statement">Two <em>examples</em></div></div></div>
+    <video id="change-3-k19-vid" class="sc-video clip" data-start="84.111" data-duration="4.82" data-track-index="0" muted playsinline src="assets/stock/senior-man-working-office-1.mp4"></video>
+    <div id="change-3-k19" class="sc-shot sc-clear clip" data-start="84.111" data-duration="4.82" data-track-index="1"><div class="sc-over left"><div id="change-3-k19-t0" class="sc-big">$150,000</div><div id="change-3-k19-t1" class="sc-text">nothing changes</div></div></div>
+    <div id="change-3-k20" class="sc-shot clip" data-start="88.931" data-duration="3.74" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-3-k20-img" src="assets/stock/senior-man-working-3.jpg" alt="" /></div><div class="sc-over right"><div id="change-3-k20-t0" class="sc-text">Already under the ceiling</div></div></div>
+    <video id="change-3-k21-vid" class="sc-video clip" data-start="92.671" data-duration="3.28" data-track-index="0" muted playsinline src="assets/stock/office-meeting-business-people-2.mp4"></video>
+    <div id="change-3-k21" class="sc-shot sc-clear clip" data-start="92.671" data-duration="3.28" data-track-index="1"><div class="sc-over left"><div id="change-3-k21-t0" class="sc-text">Earning</div><div id="change-3-k21-t1" class="sc-big">$250,000</div></div></div>
+    <div id="change-3-k22" class="sc-shot clip" data-start="95.951" data-duration="5.28" data-track-index="1"><div class="sc-center"><div id="change-3-k22-v" class="sc-hero" style="font-size: 230px">+$483.60</div><div class="sc-rule"></div><div id="change-3-k22-t0" class="sc-text">the full increase</div></div></div>
+    <div id="change-3-k23" class="sc-shot clip" data-start="101.231" data-duration="3.32" data-track-index="1"><div class="sc-center"><div id="change-3-k23-t0" class="sc-statement">A <em>second</em> side</div></div></div>
+    <div id="change-3-k24" class="sc-shot sc-paper clip" data-start="104.551" data-duration="4.32" data-track-index="1"><div id="change-3-k24-pan" class="sc-pan" data-layout-allow-overflow><div class="sc-page" style="width: 2400px; height: 17289px; transform: scale(1.7455) translate(-0px, -8420px)"><img src="assets/shots/federal-register.png" alt="" style="width: 2400px; height: 17289px" /><div id="change-3-k24-m0-0" class="sc-mark" style="left: 8px; top: 8490px; width: 566px; height: 30px"></div></div></div><div class="sc-source" data-layout-allow-occlusion>Federal Register · October 26, 2026 · Social Security Administration</div></div>
+    <div id="change-3-k25" class="sc-shot clip" data-start="108.871" data-duration="2.28" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-3-k25-img" src="assets/stock/senior-woman-paperwork-1.jpg" alt="" /></div><div class="sc-over left"><div id="change-3-k25-t0" class="sc-text">when your benefit is worked out</div></div></div>
+    <div id="change-3-k26" class="sc-shot clip" data-start="111.151" data-duration="3.8" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-3-k26-img" src="assets/stock/senior-couple-planning-finances-1.jpg" alt="" /></div><div class="sc-over left"><div id="change-3-k26-t0" class="sc-text">High earners pay more in</div></div></div>
+    <video id="change-3-k27-vid" class="sc-video clip" data-start="114.951" data-duration="5.06" data-track-index="0" muted playsinline src="assets/stock/senior-people-walking-park-3.mp4"></video>
+    <div id="change-3-k27" class="sc-shot sc-clear clip" data-start="114.951" data-duration="5.06" data-track-index="1"><div class="sc-over left"><div id="change-3-k27-t0" class="sc-text">More earnings counted</div><div id="change-3-k27-t1" class="sc-big">toward the benefit</div></div></div>
+    <div id="change-3-k28" class="sc-shot clip" data-start="120.011" data-duration="1.64" data-track-index="1"><div class="sc-center"><div id="change-3-k28-t0" class="sc-statement">What to <em>check</em></div></div></div>
+    <div id="change-3-k29" class="sc-shot clip" data-start="121.651" data-duration="3.88" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-3-k29-img" src="assets/stock/handshake-office-1.jpg" alt="" /></div><div class="sc-over left"><div id="change-3-k29-t0" class="sc-text">One employer</div><div id="change-3-k29-t1" class="sc-small">payroll handles it</div></div></div>
+    <div id="change-3-k30" class="sc-shot clip" data-start="125.531" data-duration="3.44" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-3-k30-img" src="assets/stock/pay-stub-paycheck-3.jpg" alt="" /></div><div class="sc-over left"><div id="change-3-k30-t0" class="sc-text">The Social Security line on your pay stub</div></div></div>
+    <div id="change-3-k31" class="sc-shot clip" data-start="128.971" data-duration="6.12" data-track-index="1"><div class="sc-center"><div id="change-3-k31-v" class="sc-hero" style="font-size: 230px">$192,300</div><div class="sc-rule"></div><div id="change-3-k31-t0" class="sc-text">where that line should stop</div></div></div>
+    <div id="change-3-k32" class="sc-shot clip" data-start="135.091" data-duration="3.86" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-3-k32-img" src="assets/stock/employer-office-building-2.jpg" alt="" /></div><div class="sc-over left"><div id="change-3-k32-t0" class="sc-text">Two or more employers?</div><div id="change-3-k32-t1" class="sc-big">Look closer</div></div></div>
+    <div id="change-3-k33" class="sc-shot sc-paper clip" data-start="138.951" data-duration="3.82" data-track-index="1"><div id="change-3-k33-pan" class="sc-pan" data-layout-allow-overflow><div class="sc-page" style="width: 2400px; height: 2550px; transform: scale(1.4769) translate(-780px, -980px)"><img src="assets/shots/irs-608.png" alt="" style="width: 2400px; height: 2550px" /><div id="change-3-k33-m0-0" class="sc-mark" style="left: 919px; top: 1083px; width: 255px; height: 40px"></div></div></div><div class="sc-source" data-layout-allow-occlusion>Internal Revenue Service · Topic no. 608</div></div>
+    <div id="change-3-k34" class="sc-shot clip" data-start="142.771" data-duration="3.84" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-3-k34-img" src="assets/stock/tax-form-calculator-2.jpg" alt="" /></div><div class="sc-over left"><div id="change-3-k34-t0" class="sc-text">The total withheld can pass the maximum</div></div></div>
+    <div id="change-3-k35" class="sc-shot sc-paper clip" data-start="146.611" data-duration="4.82" data-track-index="1"><div id="change-3-k35-pan" class="sc-pan" data-layout-allow-overflow><div class="sc-page" style="width: 2400px; height: 2550px; transform: scale(1.4769) translate(-780px, -1000px)"><img src="assets/shots/irs-608.png" alt="" style="width: 2400px; height: 2550px" /><div id="change-3-k35-m0-0" class="sc-mark" style="left: 1970px; top: 1083px; width: 63px; height: 40px"></div><div id="change-3-k35-m0-1" class="sc-mark" style="left: 816px; top: 1119px; width: 459px; height: 40px"></div></div></div><div class="sc-source" data-layout-allow-occlusion>Internal Revenue Service · Topic no. 608</div></div>
+    <div id="change-3-k36" class="sc-shot clip" data-start="151.431" data-duration="2.24" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-3-k36-img" src="assets/stock/tax-form-calculator-4.jpg" alt="" /></div><div class="sc-over left"><div id="change-3-k36-t0" class="sc-text">A credit on your tax return</div></div></div>
+    <video id="change-3-k37-vid" class="sc-video clip" data-start="153.671" data-duration="2.436" data-track-index="0" muted playsinline src="assets/stock/signing-tax-form-2.mp4"></video>
+    <div id="change-3-k37" class="sc-shot sc-clear clip" data-start="153.671" data-duration="2.436" data-track-index="1"><div class="sc-over left"><div id="change-3-k37-t0" class="sc-text">Keep every</div><div id="change-3-k37-t1" class="sc-big">W-2</div></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const land = (selector, at) => tl.fromTo(selector, { opacity: 0, x: 30, filter: "blur(10px)" },
+      { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, at);
+    const pop = (selector, at) => tl.fromTo(selector, { opacity: 0, scale: 0.8 },
+      { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)" }, at);
+    const zoom = (selector, at, duration, from, to) => tl.fromTo(selector, { scale: from }, { scale: to, duration, ease: "none" }, at);
+    const sweep = (selector, at) => tl.fromTo(selector, { scaleX: 0, transformOrigin: "0 50%" },
+      { scaleX: 1, duration: 0.55, ease: "power2.out" }, at);
+    const grow = (selector, at) => tl.fromTo(selector, { scaleY: 0, transformOrigin: "50% 100%" },
+      { scaleY: 1, duration: 0.8, ease: "power3.out" }, at);
+    const drift = (selector, at, duration, to) => tl.fromTo(selector, { y: 0 }, { y: to, duration, ease: "none" }, at);
+
+    pop("#change-3-k0-v", 0.3);
+    land("#change-3-k0-t0", 1.701);
+    land("#change-3-k1-t0", 4.311);
+    land("#change-3-k1-t1", 7.941);
+    land("#change-3-k2-t0", 10.271);
+    zoom("#change-3-k2-img", 9.971, 4.78, 1.02, 1.12);
+    land("#change-3-k3-t0", 15.051);
+    sweep("#change-3-k4-m0-0", 17.771);
+    drift("#change-3-k4-pan", 17.371, 5.18, -61);
+    land("#change-3-k5-t0", 22.851);
+    pop("#change-3-k6-v", 25.231);
+    land("#change-3-k6-t0", 25.781);
+    sweep("#change-3-k7-m0-0", 29.591);
+    drift("#change-3-k7-pan", 29.191, 6.36, -61);
+    pop("#change-3-k8-v", 35.851);
+    land("#change-3-k8-t0", 36.401);
+    sweep("#change-3-k9-m0-0", 42.211);
+    drift("#change-3-k9-pan", 41.811, 3.3, -45);
+    pop("#change-3-k10-v", 45.411);
+    land("#change-3-k10-t0", 45.961);
+    land("#change-3-k11-t0", 51.811);
+    land("#change-3-k12-t0", 53.991);
+    land("#change-3-k12-t1", 54.541);
+    zoom("#change-3-k12-img", 53.691, 3.46, 1.02, 1.12);
+    pop("#change-3-k13-v", 59.361);
+    land("#change-3-k13-t0", 59.661);
+    land("#change-3-k14-t0", 63.091);
+    land("#change-3-k14-t1", 63.641);
+    pop("#change-3-k15-v", 66.551);
+    land("#change-3-k15-t0", 67.101);
+    pop("#change-3-k16-v", 71.611);
+    land("#change-3-k16-t0", 72.161);
+    land("#change-3-k17-t0", 77.151);
+    zoom("#change-3-k17-img", 76.851, 5.1, 1.12, 1.02);
+    land("#change-3-k18-t0", 82.251);
+    land("#change-3-k19-t0", 84.411);
+    land("#change-3-k19-t1", 87.501);
+    land("#change-3-k20-t0", 89.231);
+    zoom("#change-3-k20-img", 88.931, 3.74, 1.02, 1.12);
+    land("#change-3-k21-t0", 92.971);
+    land("#change-3-k21-t1", 93.521);
+    pop("#change-3-k22-v", 96.251);
+    land("#change-3-k22-t0", 96.801);
+    land("#change-3-k23-t0", 101.531);
+    sweep("#change-3-k24-m0-0", 104.951);
+    drift("#change-3-k24-pan", 104.551, 4.32, -61);
+    land("#change-3-k25-t0", 108.971);
+    zoom("#change-3-k25-img", 108.871, 2.28, 1.12, 1.02);
+    land("#change-3-k26-t0", 111.451);
+    zoom("#change-3-k26-img", 111.151, 3.8, 1.02, 1.12);
+    land("#change-3-k27-t0", 115.251);
+    land("#change-3-k27-t1", 115.801);
+    land("#change-3-k28-t0", 120.151);
+    land("#change-3-k29-t0", 121.951);
+    land("#change-3-k29-t1", 123.701);
+    zoom("#change-3-k29-img", 121.651, 3.88, 1.12, 1.02);
+    land("#change-3-k30-t0", 125.831);
+    zoom("#change-3-k30-img", 125.531, 3.44, 1.02, 1.12);
+    pop("#change-3-k31-v", 129.271);
+    land("#change-3-k31-t0", 129.821);
+    land("#change-3-k32-t0", 135.391);
+    land("#change-3-k32-t1", 137.661);
+    zoom("#change-3-k32-img", 135.091, 3.86, 1.02, 1.12);
+    sweep("#change-3-k33-m0-0", 139.351);
+    drift("#change-3-k33-pan", 138.951, 3.82, -52);
+    land("#change-3-k34-t0", 143.071);
+    zoom("#change-3-k34-img", 142.771, 3.84, 1.02, 1.12);
+    sweep("#change-3-k35-m0-0", 147.011);
+    sweep("#change-3-k35-m0-1", 147.461);
+    drift("#change-3-k35-pan", 146.611, 4.82, -52);
+    land("#change-3-k36-t0", 151.531);
+    zoom("#change-3-k36-img", 151.431, 2.24, 1.02, 1.12);
+    land("#change-3-k37-t0", 153.971);
+    land("#change-3-k37-t1", 154.521);
+    window.__timelines["change-3"] = tl;
+  </script>
+</template>

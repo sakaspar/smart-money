@@ -1,0 +1,184 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #000; font-family: "Inter", sans-serif;
+      --ink: #f4eedd; --accent: #d23232; --mark: #ffe14d; --up: #5fbf7f; }
+    .sc-shot { position: absolute; inset: 0; overflow: hidden; color: var(--ink);
+      background: radial-gradient(ellipse 70% 60% at 50% 40%, #1c1c1c 0%, #000 100%); }
+    .sc-shot.sc-clear { background: none; }
+    .sc-video { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+    .sc-photo { position: absolute; inset: 0; }
+    .sc-photo img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+    .sc-over { position: absolute; top: 140px; width: 860px; display: flex; flex-direction: column; gap: 16px; isolation: isolate;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.95), 0 0 26px rgba(0, 0, 0, 0.9), 0 0 70px rgba(0, 0, 0, 0.75); }
+    /* No panel: a soft dark glow behind the words keeps them readable on bright photos. */
+    .sc-over::before { content: ""; position: absolute; left: -160px; top: -130px; right: -120px; bottom: -150px; z-index: -1;
+      background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.4) 45%, rgba(0, 0, 0, 0) 100%); }
+    .sc-over.left { left: 110px; }
+    .sc-over.right { left: 950px; }
+    .sc-num { font-family: "Playfair Display", serif; font-weight: 700; font-size: 190px; line-height: 0.95; color: var(--accent); }
+    .sc-big { font-family: "Playfair Display", serif; font-weight: 700; font-size: 120px; line-height: 1; }
+    .sc-text { font-size: 66px; font-weight: 700; line-height: 1.14; }
+    .sc-small { font-size: 46px; font-weight: 700; line-height: 1.22; }
+    .sc-paper { background: #fff; }
+    .sc-pan { position: absolute; left: 0; top: 0; }
+    .sc-page { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+    .sc-page img { position: absolute; left: 0; top: 0; }
+    .sc-mark { position: absolute; background: var(--mark); mix-blend-mode: multiply; border-radius: 4px; }
+    .sc-source { position: absolute; left: 60px; top: 44px; padding: 12px 24px; border-radius: 12px;
+      background: rgba(0, 0, 0, 0.85); color: var(--ink); font-size: 32px; font-weight: 700; }
+    .sc-center { position: absolute; left: 160px; top: 150px; width: 1600px; height: 700px; display: flex;
+      flex-direction: column; align-items: center; justify-content: center; gap: 26px; text-align: center; }
+    .sc-hero { font-family: "Playfair Display", serif; font-weight: 700; font-size: 300px; line-height: 0.95; }
+    .sc-statement { font-family: "Playfair Display", serif; font-weight: 700; font-size: 128px; line-height: 1.08; }
+    .sc-statement em, .sc-text em, .sc-big em { font-style: normal; color: var(--accent); }
+    .sc-rule { width: 140px; height: 8px; background: var(--accent); }
+    .sc-title { position: absolute; left: 0; top: 110px; width: 1920px; text-align: center;
+      font-family: "Playfair Display", serif; font-weight: 700; font-size: 104px; }
+    .sc-title span { display: inline-block; }
+    .sc-title em { font-style: normal; color: var(--accent); }
+    .sc-tile { position: absolute; top: 350px; width: 400px; height: 440px; border-radius: 18px;
+      border: 3px solid rgba(244, 238, 221, 0.28); background: #141414; padding: 30px 34px; }
+    .sc-tile .n { font-family: "Playfair Display", serif; font-weight: 700; font-size: 150px; line-height: 1; color: var(--accent); }
+    .sc-tile .t { margin-top: 26px; font-size: 46px; font-weight: 700; line-height: 1.15; }
+    .sc-tile .q { display: inline-block; margin-top: 6px; font-family: "Playfair Display", serif; font-size: 150px;
+      line-height: 1; opacity: 0.35; }
+    .sc-bars { position: absolute; left: 0; top: 300px; width: 1920px; height: 560px; }
+    .sc-bar { position: absolute; bottom: 70px; width: 320px; border-radius: 10px 10px 0 0; background: var(--ink); opacity: 0.45; }
+    .sc-bar.strong { opacity: 1; }
+    .sc-bar-value { position: absolute; width: 480px; text-align: center; font-family: "Playfair Display", serif;
+      font-weight: 700; font-size: 84px; }
+    .sc-bar-label { position: absolute; bottom: 0; width: 480px; text-align: center; font-size: 42px; font-weight: 700; opacity: 0.85; }
+    .sc-delta { position: absolute; left: 0; top: 250px; width: 1920px; text-align: center;
+      font-family: "Playfair Display", serif; font-weight: 700; font-size: 92px; color: var(--up); }
+    .sc-note { position: absolute; left: 0; top: 860px; width: 1920px; text-align: center; font-size: 30px; opacity: 0.7; }
+  </style>
+  <div id="root" data-composition-id="change-4" data-width="1920" data-height="1080">
+    <div id="change-4-k0" class="sc-shot clip" data-start="0.0" data-duration="3.844" data-track-index="1"><div class="sc-center"><div id="change-4-k0-v" class="sc-hero" style="font-size: 300px">4</div><div class="sc-rule"></div><div id="change-4-k0-t0" class="sc-statement">The work credit</div></div></div>
+    <video id="change-4-k1-vid" class="sc-video clip" data-start="3.844" data-duration="5.38" data-track-index="0" muted playsinline src="assets/stock/senior-cashier-store-2.mp4"></video>
+    <div id="change-4-k1" class="sc-shot sc-clear clip" data-start="3.844" data-duration="5.38" data-track-index="1"><div class="sc-over left"><div id="change-4-k1-t0" class="sc-text">You need enough</div><div id="change-4-k1-t1" class="sc-big">work credits</div></div></div>
+    <div id="change-4-k2" class="sc-shot clip" data-start="9.224" data-duration="3.32" data-track-index="1"><div class="sc-center"><div id="change-4-k2-t0" class="sc-small">The official name</div><div id="change-4-k2-t1" class="sc-statement"><em>quarters of coverage</em></div></div></div>
+    <video id="change-4-k3-vid" class="sc-video clip" data-start="12.544" data-duration="4.68" data-track-index="0" muted playsinline src="assets/stock/senior-craftsman-workshop-1.mp4"></video>
+    <div id="change-4-k3" class="sc-shot sc-clear clip" data-start="12.544" data-duration="4.68" data-track-index="1"><div class="sc-over left"><div id="change-4-k3-t0" class="sc-text">Earned by working and paying in</div></div></div>
+    <div id="change-4-k4" class="sc-shot sc-paper clip" data-start="17.224" data-duration="2.22" data-track-index="1"><div id="change-4-k4-pan" class="sc-pan" data-layout-allow-overflow><div class="sc-page" style="width: 2400px; height: 17289px; transform: scale(1.7455) translate(-0px, -13130px)"><img src="assets/shots/federal-register.png" alt="" style="width: 2400px; height: 17289px" /><div id="change-4-k4-m0-0" class="sc-mark" style="left: 383px; top: 13238px; width: 265px; height: 30px"></div></div></div><div class="sc-source" data-layout-allow-occlusion>Federal Register · October 26, 2026 · Social Security Administration</div></div>
+    <div id="change-4-k5" class="sc-shot clip" data-start="19.444" data-duration="4.86" data-track-index="1"><div class="sc-center"><div id="change-4-k5-v" class="sc-hero" style="font-size: 230px">$1,890</div><div class="sc-rule"></div><div id="change-4-k5-t0" class="sc-text">for one credit in 2026</div></div></div>
+    <div id="change-4-k6" class="sc-shot clip" data-start="24.304" data-duration="6.6" data-track-index="1"><div class="sc-center"><div id="change-4-k6-v" class="sc-hero" style="font-size: 230px">$1,970</div><div class="sc-rule"></div><div id="change-4-k6-t0" class="sc-text">for one credit in 2027</div></div><div class="sc-note">Source: Federal Register, October 26, 2026</div></div>
+    <div id="change-4-k7" class="sc-shot clip" data-start="30.904" data-duration="3.16" data-track-index="1"><div class="sc-center"><div id="change-4-k7-t0" class="sc-statement">At most <em>four</em> credits a year</div></div></div>
+    <video id="change-4-k8-vid" class="sc-video clip" data-start="34.064" data-duration="2.44" data-track-index="0" muted playsinline src="assets/stock/counting-money-cash-1.mp4"></video>
+    <div id="change-4-k8" class="sc-shot sc-clear clip" data-start="34.064" data-duration="2.44" data-track-index="1"><div class="sc-over left"><div id="change-4-k8-t0" class="sc-text">no matter how much you make</div><div id="change-4-k8-t1" class="sc-small">Source: 20 CFR 404.143</div></div></div>
+    <video id="change-4-k9-vid" class="sc-video clip" data-start="36.504" data-duration="3.62" data-track-index="0" muted playsinline src="assets/stock/calendar-pages-1.mp4"></video>
+    <div id="change-4-k9" class="sc-shot sc-clear clip" data-start="36.504" data-duration="3.62" data-track-index="1"><div class="sc-over left"><div id="change-4-k9-t0" class="sc-text">A full year of credits in 2027</div></div></div>
+    <div id="change-4-k10" class="sc-shot clip" data-start="40.124" data-duration="4.18" data-track-index="1"><div class="sc-center"><div id="change-4-k10-v" class="sc-hero" style="font-size: 230px">$7,880</div><div class="sc-rule"></div><div id="change-4-k10-t0" class="sc-text">in earnings, for all four credits</div></div></div>
+    <div id="change-4-k11" class="sc-shot clip" data-start="44.304" data-duration="4.36" data-track-index="1"><div class="sc-center"><div id="change-4-k11-v" class="sc-hero" style="font-size: 300px">+$320</div><div class="sc-rule"></div><div id="change-4-k11-t0" class="sc-text">more than this year</div></div></div>
+    <div id="change-4-k12" class="sc-shot clip" data-start="48.664" data-duration="2.14" data-track-index="1"><div class="sc-center"><div id="change-4-k12-t0" class="sc-statement">How many do you <em>need</em>?</div></div></div>
+    <div id="change-4-k13" class="sc-shot clip" data-start="50.804" data-duration="5.92" data-track-index="1"><div class="sc-center"><div id="change-4-k13-v" class="sc-hero" style="font-size: 300px">40</div><div class="sc-rule"></div><div id="change-4-k13-t0" class="sc-text">credits, for anyone reaching 62 now</div></div><div class="sc-note">Source: 20 CFR 404.110</div></div>
+    <video id="change-4-k14-vid" class="sc-video clip" data-start="56.724" data-duration="4.18" data-track-index="0" muted playsinline src="assets/stock/senior-man-working-office-2.mp4"></video>
+    <div id="change-4-k14" class="sc-shot sc-clear clip" data-start="56.724" data-duration="4.18" data-track-index="1"><div class="sc-over left"><div id="change-4-k14-t0" class="sc-big">10 years</div><div id="change-4-k14-t1" class="sc-text">of work</div></div></div>
+    <div id="change-4-k15" class="sc-shot clip" data-start="60.904" data-duration="1.98" data-track-index="1"><div class="sc-center"><div id="change-4-k15-t0" class="sc-statement">Who should <em>care</em>?</div></div></div>
+    <video id="change-4-k16-vid" class="sc-video clip" data-start="62.884" data-duration="5.4" data-track-index="0" muted playsinline src="assets/stock/senior-people-walking-park-2.mp4"></video>
+    <div id="change-4-k16" class="sc-shot sc-clear clip" data-start="62.884" data-duration="5.4" data-track-index="1"><div class="sc-over left"><div id="change-4-k16-t0" class="sc-text">Worked full time for decades?</div><div id="change-4-k16-t1" class="sc-big">Already past 40</div></div></div>
+    <div id="change-4-k17" class="sc-shot clip" data-start="68.284" data-duration="3.6" data-track-index="1"><div class="sc-center"><div id="change-4-k17-t0" class="sc-statement">For them, <em>nothing</em> changes</div></div></div>
+    <div id="change-4-k18" class="sc-shot clip" data-start="71.884" data-duration="2.64" data-track-index="1"><div class="sc-center"><div id="change-4-k18-t0" class="sc-statement">But it matters for <em>some</em></div></div></div>
+    <div id="change-4-k19" class="sc-shot clip" data-start="74.524" data-duration="3.58" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-4-k19-img" src="assets/stock/mother-with-children-home-1.jpg" alt="" /></div><div class="sc-over left"><div id="change-4-k19-t0" class="sc-text">Years out of paid work</div><div id="change-4-k19-t1" class="sc-small">raising children</div></div></div>
+    <video id="change-4-k20-vid" class="sc-video clip" data-start="78.104" data-duration="2.06" data-track-index="0" muted playsinline src="assets/stock/caring-for-elderly-parent-1.mp4"></video>
+    <div id="change-4-k20" class="sc-shot sc-clear clip" data-start="78.104" data-duration="2.06" data-track-index="1"><div class="sc-over left"><div id="change-4-k20-t0" class="sc-text">or caring for a parent</div></div></div>
+    <div id="change-4-k21" class="sc-shot clip" data-start="80.164" data-duration="4.04" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-4-k21-img" src="assets/stock/senior-man-working-2.jpg" alt="" /></div><div class="sc-over left"><div id="change-4-k21-t0" class="sc-text">A job that did not pay into Social Security</div></div></div>
+    <video id="change-4-k22-vid" class="sc-video clip" data-start="84.204" data-duration="3.92" data-track-index="0" muted playsinline src="assets/stock/family-arriving-airport-1.mp4"></video>
+    <div id="change-4-k22" class="sc-shot sc-clear clip" data-start="84.204" data-duration="3.92" data-track-index="1"><div class="sc-over left"><div id="change-4-k22-t0" class="sc-text">Came to the United States later in life</div></div></div>
+    <div id="change-4-k23" class="sc-shot clip" data-start="88.124" data-duration="3.14" data-track-index="1"><div class="sc-center"><div id="change-4-k23-t0" class="sc-statement">How the <em>math</em> works</div></div></div>
+    <div id="change-4-k24" class="sc-shot clip" data-start="91.264" data-duration="3.42" data-track-index="1"><div class="sc-center"><div id="change-4-k24-v" class="sc-hero" style="font-size: 300px">36</div><div class="sc-rule"></div><div id="change-4-k24-t0" class="sc-text">credits: you need four more</div></div></div>
+    <div id="change-4-k25" class="sc-shot clip" data-start="94.684" data-duration="5.16" data-track-index="1"><div class="sc-center"><div id="change-4-k25-v" class="sc-hero" style="font-size: 230px">$7,880</div><div class="sc-rule"></div><div id="change-4-k25-t0" class="sc-text">one year of earnings</div></div></div>
+    <div id="change-4-k26" class="sc-shot clip" data-start="99.844" data-duration="3.28" data-track-index="1"><div class="sc-center"><div id="change-4-k26-v" class="sc-hero" style="font-size: 300px">30</div><div class="sc-rule"></div><div id="change-4-k26-t0" class="sc-text">credits: you need ten more</div></div></div>
+    <video id="change-4-k27-vid" class="sc-video clip" data-start="103.124" data-duration="3.3" data-track-index="0" muted playsinline src="assets/stock/calendar-pages-1.mp4"></video>
+    <div id="change-4-k27" class="sc-shot sc-clear clip" data-start="103.124" data-duration="3.3" data-track-index="1"><div class="sc-over left"><div id="change-4-k27-t0" class="sc-big">2½ years</div><div id="change-4-k27-t1" class="sc-text">of work</div></div></div>
+    <div id="change-4-k28" class="sc-shot clip" data-start="106.424" data-duration="6.14" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-4-k28-img" src="assets/stock/january-calendar-1.jpg" alt="" /></div><div class="sc-over left"><div id="change-4-k28-t0" class="sc-text">Based on the year&#x27;s earnings</div><div id="change-4-k28-t1" class="sc-small">not on which months you worked</div></div></div>
+    <video id="change-4-k29-vid" class="sc-video clip" data-start="112.564" data-duration="6.32" data-track-index="0" muted playsinline src="assets/stock/senior-woman-working-shop-1.mp4"></video>
+    <div id="change-4-k29" class="sc-shot sc-clear clip" data-start="112.564" data-duration="6.32" data-track-index="1"><div class="sc-over left"><div id="change-4-k29-t0" class="sc-big">$7,880</div><div id="change-4-k29-t1" class="sc-text">even in a few months: all four credits</div></div></div>
+    <div id="change-4-k30" class="sc-shot clip" data-start="118.884" data-duration="3.2" data-track-index="1"><div class="sc-center"><div id="change-4-k30-t0" class="sc-statement">All <em>four</em> credits</div></div></div>
+    <div id="change-4-k31" class="sc-shot clip" data-start="122.084" data-duration="4.98" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-4-k31-img" src="assets/stock/senior-business-owner-1.jpg" alt="" /></div><div class="sc-over right"><div id="change-4-k31-t0" class="sc-text">Self-employment counts too</div><div id="change-4-k31-t1" class="sc-small">if the income is reported</div></div></div>
+    <div id="change-4-k32" class="sc-shot clip" data-start="127.064" data-duration="1.84" data-track-index="1"><div class="sc-center"><div id="change-4-k32-t0" class="sc-statement">What to <em>check</em></div></div></div>
+    <video id="change-4-k33-vid" class="sc-video clip" data-start="128.904" data-duration="5.0" data-track-index="0" muted playsinline src="assets/stock/senior-using-laptop-3.mp4"></video>
+    <div id="change-4-k33" class="sc-shot sc-clear clip" data-start="128.904" data-duration="5.0" data-track-index="1"><div class="sc-over left"><div id="change-4-k33-t0" class="sc-text">my Social Security account</div><div id="change-4-k33-t1" class="sc-big">earnings record</div></div></div>
+    <div id="change-4-k34" class="sc-shot clip" data-start="133.904" data-duration="1.54" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-4-k34-img" src="assets/stock/checklist-clipboard-pen-3.jpg" alt="" /></div><div class="sc-over left"><div id="change-4-k34-t0" class="sc-text">Count your credits</div></div></div>
+    <div id="change-4-k35" class="sc-shot clip" data-start="135.444" data-duration="3.22" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-4-k35-img" src="assets/stock/senior-woman-laptop-home-2.jpg" alt="" /></div><div class="sc-over right"><div id="change-4-k35-t0" class="sc-text">Check each year for mistakes</div></div></div>
+    <div id="change-4-k36" class="sc-shot clip" data-start="138.664" data-duration="3.864" data-track-index="1"><div class="sc-center"><div id="change-4-k36-t0" class="sc-statement">A missing year can mean <em>missing credits</em></div></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const land = (selector, at) => tl.fromTo(selector, { opacity: 0, x: 30, filter: "blur(10px)" },
+      { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, at);
+    const pop = (selector, at) => tl.fromTo(selector, { opacity: 0, scale: 0.8 },
+      { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)" }, at);
+    const zoom = (selector, at, duration, from, to) => tl.fromTo(selector, { scale: from }, { scale: to, duration, ease: "none" }, at);
+    const sweep = (selector, at) => tl.fromTo(selector, { scaleX: 0, transformOrigin: "0 50%" },
+      { scaleX: 1, duration: 0.55, ease: "power2.out" }, at);
+    const grow = (selector, at) => tl.fromTo(selector, { scaleY: 0, transformOrigin: "50% 100%" },
+      { scaleY: 1, duration: 0.8, ease: "power3.out" }, at);
+    const drift = (selector, at, duration, to) => tl.fromTo(selector, { y: 0 }, { y: to, duration, ease: "none" }, at);
+
+    pop("#change-4-k0-v", 0.3);
+    land("#change-4-k0-t0", 1.294);
+    land("#change-4-k1-t0", 4.144);
+    land("#change-4-k1-t1", 7.334);
+    land("#change-4-k2-t0", 9.524);
+    land("#change-4-k2-t1", 10.614);
+    land("#change-4-k3-t0", 12.844);
+    sweep("#change-4-k4-m0-0", 18.744);
+    drift("#change-4-k4-pan", 17.224, 2.22, -61);
+    pop("#change-4-k5-v", 19.744);
+    land("#change-4-k5-t0", 20.294);
+    pop("#change-4-k6-v", 26.554);
+    land("#change-4-k6-t0", 26.854);
+    land("#change-4-k7-t0", 31.204);
+    land("#change-4-k8-t0", 34.164);
+    land("#change-4-k8-t1", 34.704);
+    land("#change-4-k9-t0", 36.804);
+    pop("#change-4-k10-v", 40.424);
+    land("#change-4-k10-t0", 40.974);
+    pop("#change-4-k11-v", 44.604);
+    land("#change-4-k11-t0", 45.154);
+    land("#change-4-k12-t0", 48.764);
+    pop("#change-4-k13-v", 55.094);
+    land("#change-4-k13-t0", 55.394);
+    land("#change-4-k14-t0", 57.024);
+    land("#change-4-k14-t1", 57.574);
+    land("#change-4-k15-t0", 61.204);
+    land("#change-4-k16-t0", 63.184);
+    land("#change-4-k16-t1", 65.534);
+    land("#change-4-k17-t0", 68.584);
+    land("#change-4-k18-t0", 72.184);
+    land("#change-4-k19-t0", 74.824);
+    land("#change-4-k19-t1", 76.904);
+    zoom("#change-4-k19-img", 74.524, 3.58, 1.12, 1.02);
+    land("#change-4-k20-t0", 78.204);
+    land("#change-4-k21-t0", 80.464);
+    zoom("#change-4-k21-img", 80.164, 4.04, 1.12, 1.02);
+    land("#change-4-k22-t0", 84.504);
+    land("#change-4-k23-t0", 88.424);
+    pop("#change-4-k24-v", 91.494);
+    land("#change-4-k24-t0", 92.114);
+    pop("#change-4-k25-v", 94.984);
+    land("#change-4-k25-t0", 95.534);
+    pop("#change-4-k26-v", 100.074);
+    land("#change-4-k26-t0", 100.694);
+    land("#change-4-k27-t0", 103.424);
+    land("#change-4-k27-t1", 103.974);
+    land("#change-4-k28-t0", 106.724);
+    land("#change-4-k28-t1", 110.054);
+    zoom("#change-4-k28-img", 106.424, 6.14, 1.02, 1.12);
+    land("#change-4-k29-t0", 112.864);
+    land("#change-4-k29-t1", 115.884);
+    land("#change-4-k30-t0", 119.184);
+    land("#change-4-k31-t0", 122.384);
+    land("#change-4-k31-t1", 122.934);
+    zoom("#change-4-k31-img", 122.084, 4.98, 1.12, 1.02);
+    land("#change-4-k32-t0", 127.364);
+    land("#change-4-k33-t0", 129.204);
+    land("#change-4-k33-t1", 132.474);
+    land("#change-4-k34-t0", 134.004);
+    zoom("#change-4-k34-img", 133.904, 1.54, 1.02, 1.12);
+    land("#change-4-k35-t0", 135.744);
+    zoom("#change-4-k35-img", 135.444, 3.22, 1.12, 1.02);
+    land("#change-4-k36-t0", 138.964);
+    window.__timelines["change-4"] = tl;
+  </script>
+</template>

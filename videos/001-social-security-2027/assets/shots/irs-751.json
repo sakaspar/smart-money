@@ -1,0 +1,41 @@
+{
+ "url": "https://www.irs.gov/taxtopics/tc751",
+ "width": 2400,
+ "height": 2524,
+ "phrases": {
+  "6.2% for the employer and 6.2% for the employee": [
+   [
+    1190,
+    751,
+    493,
+    32
+   ]
+  ],
+  "wage base limit": [
+   [
+    784,
+    1183,
+    248,
+    48
+   ],
+   [
+    1118,
+    1243,
+    156,
+    32
+   ],
+   [
+    1327,
+    1243,
+    155,
+    32
+   ],
+   [
+    893,
+    1366,
+    155,
+    32
+   ]
+  ]
+ }
+}

@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Money After 50: first 2 minutes</title>
+<style>
+  :root { --bg:#f6f4ef; --card:#fff; --ink:#1d2430; --soft:#5b6472; --line:#ddd8cc; --accent:#0b6b4f; --accent-bg:#e4f3ec; --warn:#8a4b00; --warn-bg:#fdf1dc; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#14181d; --card:#1d232b; --ink:#e9ecef; --soft:#9aa5b1; --line:#333c47; --accent:#5fd0a5; --accent-bg:#17382d; --warn:#f2c078; --warn-bg:#3a2c12; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.55 system-ui,"Segoe UI",sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:24px 16px 80px; }
+  h1 { font-size:30px; margin:0 0 4px; }
+  h2 { font-size:22px; margin:44px 0 12px; padding-top:20px; border-top:2px solid var(--line); }
+  h3 { font-size:18px; margin:0 0 6px; }
+  p { margin:8px 0; }
+  a { color:var(--accent); overflow-wrap:anywhere; }
+  code { background:var(--accent-bg); padding:1px 6px; border-radius:5px; font-size:15px; overflow-wrap:anywhere; }
+  .soft { color:var(--soft); font-size:15px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin:14px 0; }
+  .warn { background:var(--warn-bg); border-color:transparent; }
+  .warn b { color:var(--warn); }
+  video { width:100%; border-radius:10px; background:#000; display:block; }
+  table { border-collapse:collapse; width:100%; font-size:15px; }
+  th,td { text-align:left; padding:7px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+  .scroll { overflow-x:auto; }
+  label.opt { display:flex; gap:10px; padding:9px 12px; border:1px solid var(--line); border-radius:10px; margin:6px 0; cursor:pointer; }
+  label.opt:has(input:checked) { border-color:var(--accent); background:var(--accent-bg); }
+  label.opt input { margin-top:5px; flex:none; width:18px; height:18px; }
+  .pick { display:inline-block; background:var(--accent); color:var(--bg); font-size:12px; font-weight:700; padding:1px 8px; border-radius:20px; margin-left:6px; vertical-align:middle; }
+  textarea, input[type=text], input[type=number] { font:inherit; color:inherit; background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:8px 10px; width:100%; }
+  input[type=number] { width:90px; }
+  textarea { min-height:60px; margin-top:8px; }
+  textarea.big { min-height:330px; }
+  .row { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin:8px 0; }
+  .calc { background:var(--accent-bg); border-radius:10px; padding:10px 14px; margin-top:10px; }
+  button { font:inherit; font-weight:700; background:var(--accent); color:var(--bg); border:0; border-radius:10px; padding:14px 26px; cursor:pointer; }
+  #copied { margin-left:12px; color:var(--accent); font-weight:600; }
+  #answers-out { min-height:240px; margin-top:16px; }
+</style>
+</head>
+<body>
+<main>
+<h1>Smart Money After 50: first 2 minutes</h1>
+<p class="soft">14 Nov 2026 · watch, answer, press Copy answers and paste it back to me.</p>
+
+<h2>1. The video</h2>
+<div class="card">
+  <video src="first-2min.mp4" controls playsinline preload="metadata"></video>
+  <p class="soft">File: <code>C:\code\smart-money-50\first-2min.mp4</code> · 1 minute 58 seconds · 1920×1080 · 112 MB</p>
+  <p><b>What is in it:</b> the hook (28 s), the intro (6 s), then "Change 1: the raise" (85 s). 31 visuals, one every 3.5–3.7 seconds: 9 photos, 6 video clips, 8 shots of the real SSA release with words highlighted as they are read, 7 text and number cards, and one chart. Captions and particles throughout.</p>
+  <p><b>The voice is Chatterbox on your GPU.</b> No Gemini key or any other voice service is used anywhere in this project. The main part runs at 0.85× with your pauses and measures about 135 words a minute.</p>
+  <p>I looked at a frame from 28 of the 31 visuals and the video passes the HyperFrames check. I cannot hear it, so the voice and music are yours to judge.</p>
+</div>
+
+<div class="card">
+  <h3>The pipeline now exists</h3>
+  <p><code>C:\code\smart-money-50\AGENTS.md</code> describes the eight steps (topic, research, script, voice, media, shots, check, render), the channel rules, the look, and every shot type. Any agent, including the Antigravity CLI, can follow it. This video was built by those steps, not by hand:</p>
+  <div class="scroll"><table>
+    <tr><th>File in the video folder</th><th>What it holds</th></tr>
+    <tr><td><code>research.md</code>, <code>sources/</code></td><td>Each claim beside the exact words from the saved SSA page</td></tr>
+    <tr><td><code>script.md</code>, <code>say.json</code></td><td>The narration, and how each number is pronounced</td></tr>
+    <tr><td><code>visuals.json</code></td><td>The shot list: what is on screen when which words are spoken</td></tr>
+  </table></div>
+</div>
+
+<div class="card warn">
+  <p><b>Things to look at while you watch.</b></p>
+  <p><b>1. Text without a panel.</b> You chose text straight on the photo. On bright photos it was hard to read, so I added a soft dark glow behind the words. It is not a box, but it is not nothing either. Q2 asks if that is acceptable.</p>
+  <p><b>2. The chart at 1:02.</b> The $2,000 and $2,072 bars are drawn to true scale, so they are almost the same height. That is honest, and it also looks flat. Q3.</p>
+  <p><b>3. Pace is 3.7 seconds a visual,</b> a little faster than the 4.5 you set, because shots follow sentence breaks. Q4.</p>
+  <p><b>4. Changes 2, 3 and 4 are not sourced yet.</b> The earnings limits, the taxable maximum and the credit amount came from a search summary of ssa.gov, which blocks automated reading. Before I write those sections I need another official page for each, or you confirm the numbers yourself. Q6.</p>
+</div>
+
+<h2>2. Questions</h2>
+
+<div class="card q">
+  <h3>Q1. Do I finish the video in this style?</h3>
+  <label class="opt"><input type="radio" name="q1"><span>Yes, finish it</span></label>
+  <label class="opt"><input type="radio" name="q1"><span>Yes, with the changes I mark below</span></label>
+  <label class="opt"><input type="radio" name="q1"><span>Not yet (say what is wrong in the note)</span></label>
+  <textarea data-label="note" placeholder="Time in the video + what to change, for example: 0:52 text too small"></textarea>
+</div>
+
+<div class="card q">
+  <h3>Q2. Text on photos</h3>
+  <label class="opt"><input type="radio" name="q2" checked><span>Keep the soft glow behind the words<span class="pick">my pick</span></span></label>
+  <label class="opt"><input type="radio" name="q2"><span>Remove the glow: only a shadow on the letters, even if some photos are harder to read</span></label>
+  <label class="opt"><input type="radio" name="q2"><span>Go back to the dark panel from round 2</span></label>
+  <textarea data-label="note" placeholder="Your own answer or note"></textarea>
+</div>
+
+<div class="card q">
+  <h3>Q3. Charts where the difference is small</h3>
+  <label class="opt"><input type="radio" name="q3" checked><span>Show the difference as a big number ("+$72 a month") and skip bars when they would look the same<span class="pick">my pick</span></span></label>
+  <label class="opt"><input type="radio" name="q3"><span>Keep true-scale bars as they are now</span></label>
+  <textarea data-label="note" placeholder="Your own answer or note"></textarea>
+  <p class="soft">I will not stretch a chart's scale to make a small difference look large.</p>
+</div>
+
+<div class="card q">
+  <h3>Q4. Pace of the visuals</h3>
+  <div class="row">A new visual every <input type="number" id="shotlen" data-label="Seconds per visual" value="4" min="2" max="8" step="0.5"> seconds <span class="soft">(this sample: 3.7)</span></div>
+  <div class="row">Video length <input type="number" id="len" data-label="Video length (min)" value="20" min="5" max="40"> minutes</div>
+  <div class="calc" id="calc"></div>
+  <textarea data-label="note" placeholder="Too fast, too slow, or fine"></textarea>
+</div>
+
+<div class="card q">
+  <h3>Q5. The script for "Change 1"</h3>
+  <p class="soft">This is what the narrator says after the intro. Edit anything; I re-check every number you change and re-voice only the edited part.</p>
+  <textarea class="big" data-label="Change 1 script">Change number one. The raise.
+
+On October 14, Social Security announced a 3.6% increase for 2027. On average, retirement benefits go up by $75 a month.
+
+But $75 is an average. Your raise is 3.6% of your own benefit. If you receive $2,000 a month today, that is $72 more.
+
+And that is before deductions. Your notice lists any deductions, and for people on Medicare, the 2027 premium amount arrives in the same place.
+
+So the number that matters is not 3.6%. It is the dollar amount on your own notice.
+
+Here is what to check. Social Security sends every beneficiary a one-page notice, with the exact dates and dollar amounts of the new benefit.
+
+People who enrolled in paperless notices by November 18 see it online first, in late November. That is up to three weeks before the paper copy.
+
+Everyone else gets the notice by mail in December. When it arrives, read the dollar amount, not the percentage.</textarea>
+</div>
+
+<div class="card q">
+  <h3>Q6. Sources for changes 2, 3 and 4</h3>
+  <p class="soft">These numbers are not verified yet: earnings limits ($25,560 and $67,920), taxable maximum ($192,300), credit amount ($1,970). They are on SSA's 2027 fact sheet, which my tools cannot open.</p>
+  <label class="opt"><input type="radio" name="q6" checked><span>You open the fact sheet, save it as a PDF into the video's <code>sources</code> folder, and I check the numbers against that file<span class="pick">my pick</span></span></label>
+  <label class="opt"><input type="radio" name="q6"><span>I look for the same numbers on other official pages that allow reading, and use only what I can confirm</span></label>
+  <label class="opt"><input type="radio" name="q6"><span>Both: I search first, and you save the PDF for anything I cannot confirm</span></label>
+  <p class="soft">Fact sheet: <a href="https://www.ssa.gov/news/en/cola/factsheets/2027.html" target="_blank" rel="noopener">https://www.ssa.gov/news/en/cola/factsheets/2027.html</a> (in the browser: Ctrl+P, then "Save as PDF").</p>
+  <textarea data-label="note" placeholder="Your own answer or note"></textarea>
+</div>
+
+<div class="card q">
+  <h3>Q7. How do you want to review the rest?</h3>
+  <label class="opt"><input type="radio" name="q7" checked><span>I send the full script first; after you approve it I build the whole video<span class="pick">my pick</span></span></label>
+  <label class="opt"><input type="radio" name="q7"><span>Build the whole video straight away; you review the finished video</span></label>
+  <textarea data-label="note" placeholder="Your own answer or note"></textarea>
+  <p class="soft">Why my pick: voicing 20 minutes takes about 80 minutes on your GPU, so a script change after that is expensive.</p>
+</div>
+
+<h2>3. Decided so far</h2>
+<div class="card">
+  <ul>
+    <li>Format C: numbered lists. Long-form only, made for TV viewers over 50 in the USA and Canada.</li>
+    <li>Faceless. Narrator: Voice 1 (warm man), Chatterbox on your GPU, no outside voice service. Hook at 1.05×; the rest at 0.85× with 0.5 s and 1.2 s pauses.</li>
+    <li>Look: black, cream, red for titles and list numbers; gains in cream or green.</li>
+    <li>Full-screen stock photos that zoom, with text on top and no panel. About one visual in three is a video clip.</li>
+    <li>Captions: up to 5 words, 58 px, each word brightening as spoken. Quiet particle overlay throughout.</li>
+    <li>Articles shown full screen with the important words highlighted as the narrator reaches them.</li>
+    <li>Stock from Pexels (<code>pexel-api</code> in <code>.env</code>). Only pages the script can capture; blocked sites are skipped.</li>
+    <li>Hook, then the 6-second intro with the chime, then the sections. Videos about 20 minutes. Four a week.</li>
+    <li>Urgency only from real deadlines and amounts. Every number is quoted from its saved source page.</li>
+    <li>Music from <code>music</code> at 8%; no hip-hop. "Secret Garden" for video one.</li>
+    <li>Pipeline: <code>AGENTS.md</code> in <code>C:\code\smart-money-50</code>, built with HyperFrames, runnable by any agent.</li>
+  </ul>
+</div>
+
+<h2>4. Anything else</h2>
+<textarea id="more" placeholder="Anything I missed…" style="min-height:110px"></textarea>
+<p style="margin-top:20px"><button id="copy">Copy answers</button><span id="copied"></span></p>
+<p class="soft">Answers save automatically in this browser. The copied text also appears in a box below.</p>
+</main>
+
+<script>
+const byId = id => document.getElementById(id);
+const num = id => Number(byId(id).value) || 0;
+const inputs = () => [...document.querySelectorAll('main input, main textarea')];
+
+function recalc() {
+  const visuals = num('shotlen') ? Math.round(num('len') * 60 / num('shotlen')) : 0;
+  byId('calc').textContent = 'A ' + num('len') + '-minute video needs about ' + visuals + ' visuals, of which about ' +
+    Math.round(visuals / 3) + ' are video clips. Four videos a week: about ' + (visuals * 4).toLocaleString() + ' visuals.';
+}
+
+const STORE = 'sma50-first2min-v1';
+const isToggle = f => f.type === 'radio' || f.type === 'checkbox';
+function save() {
+  const state = inputs().map(f => isToggle(f) ? f.checked : f.value);
+  try { localStorage.setItem(STORE, JSON.stringify(state)); } catch (e) { /* page works without saving */ }
+}
+function load() {
+  let state;
+  try { state = JSON.parse(localStorage.getItem(STORE)); } catch (e) { return; }
+  const all = inputs();
+  if (!Array.isArray(state) || state.length !== all.length) return;
+  all.forEach((f, i) => { if (isToggle(f)) f.checked = state[i]; else f.value = state[i]; });
+}
+
+function answersText() {
+  const lines = ['ANSWERS: Smart Money After 50, first 2 minutes', ''];
+  document.querySelectorAll('.q').forEach(card => {
+    lines.push(card.querySelector('h3').textContent.trim());
+    let picked = false;
+    card.querySelectorAll('label.opt').forEach(label => {
+      if (!label.querySelector('input').checked) return;
+      picked = true;
+      const text = label.querySelector('span').cloneNode(true);
+      text.querySelectorAll('.pick').forEach(p => p.remove());
+      lines.push('  -> ' + text.textContent.trim());
+    });
+    if (!picked && card.querySelector('label.opt')) lines.push('  -> (nothing picked)');
+    card.querySelectorAll('[data-label]').forEach(f => {
+      const value = f.value.trim();
+      if (f.dataset.label === 'note') { if (value) lines.push('  note: ' + value); }
+      else lines.push('  ' + f.dataset.label + ': ' + value);
+    });
+    lines.push('');
+  });
+  const more = byId('more').value.trim();
+  if (more) lines.push('Anything else: ' + more);
+  return lines.join('\n');
+}
+
+byId('copy').addEventListener('click', async () => {
+  const done = byId('copied');
+  let out = byId('answers-out');
+  if (!out) {
+    out = document.createElement('textarea');
+    out.id = 'answers-out';
+    out.readOnly = true;
+    document.querySelector('main').append(out);
+  }
+  try {
+    out.value = answersText();
+  } catch (e) {
+    done.textContent = 'Could not build the answers: ' + e.message;
+    return;
+  }
+  out.select();
+  try {
+    await navigator.clipboard.writeText(out.value);
+    done.textContent = 'Copied. Paste it back to Claude.';
+  } catch (e) {
+    done.textContent = document.execCommand('copy')
+      ? 'Copied. Paste it back to Claude.'
+      : 'Copy blocked by the browser. The text is selected below: press Ctrl+C.';
+  }
+});
+
+load();
+recalc();
+document.addEventListener('input', () => { recalc(); save(); });
+document.addEventListener('change', save);
+</script>
+</body>
+</html>

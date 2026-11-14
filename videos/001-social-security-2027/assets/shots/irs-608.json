@@ -1,0 +1,47 @@
+{
+ "url": "https://www.irs.gov/taxtopics/tc608",
+ "width": 2400,
+ "height": 2550,
+ "phrases": {
+  "more than one employer": [
+   [
+    1154,
+    892,
+    247,
+    32
+   ],
+   [
+    923,
+    1087,
+    247,
+    32
+   ],
+   [
+    923,
+    1339,
+    247,
+    32
+   ]
+  ],
+  "claim the excess as a credit against your income tax": [
+   [
+    839,
+    769,
+    511,
+    32
+   ],
+   [
+    1974,
+    1087,
+    55,
+    32
+   ],
+   [
+    820,
+    1123,
+    451,
+    32
+   ]
+  ]
+ }
+}

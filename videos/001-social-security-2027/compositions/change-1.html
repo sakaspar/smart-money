@@ -1,0 +1,155 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #000; font-family: "Inter", sans-serif;
+      --ink: #f4eedd; --accent: #d23232; --mark: #ffe14d; --up: #5fbf7f; }
+    .sc-shot { position: absolute; inset: 0; overflow: hidden; color: var(--ink);
+      background: radial-gradient(ellipse 70% 60% at 50% 40%, #1c1c1c 0%, #000 100%); }
+    .sc-shot.sc-clear { background: none; }
+    .sc-video { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+    .sc-photo { position: absolute; inset: 0; }
+    .sc-photo img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+    .sc-over { position: absolute; top: 140px; width: 860px; display: flex; flex-direction: column; gap: 16px; isolation: isolate;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.95), 0 0 26px rgba(0, 0, 0, 0.9), 0 0 70px rgba(0, 0, 0, 0.75); }
+    /* No panel: a soft dark glow behind the words keeps them readable on bright photos. */
+    .sc-over::before { content: ""; position: absolute; left: -160px; top: -130px; right: -120px; bottom: -150px; z-index: -1;
+      background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.4) 45%, rgba(0, 0, 0, 0) 100%); }
+    .sc-over.left { left: 110px; }
+    .sc-over.right { left: 950px; }
+    .sc-num { font-family: "Playfair Display", serif; font-weight: 700; font-size: 190px; line-height: 0.95; color: var(--accent); }
+    .sc-big { font-family: "Playfair Display", serif; font-weight: 700; font-size: 120px; line-height: 1; }
+    .sc-text { font-size: 66px; font-weight: 700; line-height: 1.14; }
+    .sc-small { font-size: 46px; font-weight: 700; line-height: 1.22; }
+    .sc-paper { background: #fff; }
+    .sc-pan { position: absolute; left: 0; top: 0; }
+    .sc-page { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+    .sc-page img { position: absolute; left: 0; top: 0; }
+    .sc-mark { position: absolute; background: var(--mark); mix-blend-mode: multiply; border-radius: 4px; }
+    .sc-source { position: absolute; left: 60px; top: 44px; padding: 12px 24px; border-radius: 12px;
+      background: rgba(0, 0, 0, 0.85); color: var(--ink); font-size: 32px; font-weight: 700; }
+    .sc-center { position: absolute; left: 160px; top: 150px; width: 1600px; height: 700px; display: flex;
+      flex-direction: column; align-items: center; justify-content: center; gap: 26px; text-align: center; }
+    .sc-hero { font-family: "Playfair Display", serif; font-weight: 700; font-size: 300px; line-height: 0.95; }
+    .sc-statement { font-family: "Playfair Display", serif; font-weight: 700; font-size: 128px; line-height: 1.08; }
+    .sc-statement em, .sc-text em, .sc-big em { font-style: normal; color: var(--accent); }
+    .sc-rule { width: 140px; height: 8px; background: var(--accent); }
+    .sc-title { position: absolute; left: 0; top: 110px; width: 1920px; text-align: center;
+      font-family: "Playfair Display", serif; font-weight: 700; font-size: 104px; }
+    .sc-title span { display: inline-block; }
+    .sc-title em { font-style: normal; color: var(--accent); }
+    .sc-tile { position: absolute; top: 350px; width: 400px; height: 440px; border-radius: 18px;
+      border: 3px solid rgba(244, 238, 221, 0.28); background: #141414; padding: 30px 34px; }
+    .sc-tile .n { font-family: "Playfair Display", serif; font-weight: 700; font-size: 150px; line-height: 1; color: var(--accent); }
+    .sc-tile .t { margin-top: 26px; font-size: 46px; font-weight: 700; line-height: 1.15; }
+    .sc-tile .q { display: inline-block; margin-top: 6px; font-family: "Playfair Display", serif; font-size: 150px;
+      line-height: 1; opacity: 0.35; }
+    .sc-bars { position: absolute; left: 0; top: 300px; width: 1920px; height: 560px; }
+    .sc-bar { position: absolute; bottom: 70px; width: 320px; border-radius: 10px 10px 0 0; background: var(--ink); opacity: 0.45; }
+    .sc-bar.strong { opacity: 1; }
+    .sc-bar-value { position: absolute; width: 480px; text-align: center; font-family: "Playfair Display", serif;
+      font-weight: 700; font-size: 84px; }
+    .sc-bar-label { position: absolute; bottom: 0; width: 480px; text-align: center; font-size: 42px; font-weight: 700; opacity: 0.85; }
+    .sc-delta { position: absolute; left: 0; top: 250px; width: 1920px; text-align: center;
+      font-family: "Playfair Display", serif; font-weight: 700; font-size: 92px; color: var(--up); }
+    .sc-note { position: absolute; left: 0; top: 860px; width: 1920px; text-align: center; font-size: 30px; opacity: 0.7; }
+  </style>
+  <div id="root" data-composition-id="change-1" data-width="1920" data-height="1080">
+    <div id="change-1-k0" class="sc-shot clip" data-start="0.0" data-duration="3.932" data-track-index="1"><div class="sc-center"><div id="change-1-k0-v" class="sc-hero" style="font-size: 300px">1</div><div class="sc-rule"></div><div id="change-1-k0-t0" class="sc-statement">The raise</div></div></div>
+    <div id="change-1-k1" class="sc-shot sc-paper clip" data-start="3.932" data-duration="2.62" data-track-index="1"><div id="change-1-k1-pan" class="sc-pan" data-layout-allow-overflow><div class="sc-page" style="width: 2400px; height: 2901px; transform: scale(1.8824) translate(-690px, -390px)"><img src="assets/shots/ssa-release.png" alt="" style="width: 2400px; height: 2901px" /><div id="change-1-k1-m0-0" class="sc-mark" style="left: 776px; top: 439px; width: 206px; height: 26px"></div></div></div><div class="sc-source" data-layout-allow-occlusion>Social Security Administration · news release</div></div>
+    <div id="change-1-k2" class="sc-shot sc-paper clip" data-start="6.552" data-duration="4.74" data-track-index="1"><div id="change-1-k2-pan" class="sc-pan" data-layout-allow-overflow><div class="sc-page" style="width: 2400px; height: 2901px; transform: scale(1.8824) translate(-690px, -720px)"><img src="assets/shots/ssa-release.png" alt="" style="width: 2400px; height: 2901px" /><div id="change-1-k2-m0-0" class="sc-mark" style="left: 1269px; top: 846px; width: 347px; height: 54px"></div><div id="change-1-k2-m0-1" class="sc-mark" style="left: 1042px; top: 892px; width: 317px; height: 54px"></div></div></div><div class="sc-source" data-layout-allow-occlusion>Social Security Administration · news release · October 14, 2026</div></div>
+    <div id="change-1-k3" class="sc-shot sc-paper clip" data-start="11.292" data-duration="2.44" data-track-index="1"><div id="change-1-k3-pan" class="sc-pan" data-layout-allow-overflow><div class="sc-page" style="width: 2400px; height: 2901px; transform: scale(1.8824) translate(-690px, -840px)"><img src="assets/shots/ssa-release.png" alt="" style="width: 2400px; height: 2901px" /><div id="change-1-k3-m0-0" class="sc-mark" style="left: 1244px; top: 1066px; width: 263px; height: 34px"></div></div></div><div class="sc-source" data-layout-allow-occlusion>Social Security Administration · news release · October 14, 2026</div></div>
+    <div id="change-1-k4" class="sc-shot clip" data-start="13.732" data-duration="3.12" data-track-index="1"><div class="sc-center"><div id="change-1-k4-v" class="sc-hero" style="font-size: 300px">+$75</div><div class="sc-rule"></div><div id="change-1-k4-t0" class="sc-text">a month, on average</div></div><div class="sc-note">Source: Social Security Administration news release, October 14, 2026</div></div>
+    <video id="change-1-k5-vid" class="sc-video clip" data-start="16.852" data-duration="3.16" data-track-index="0" muted playsinline src="assets/stock/senior-people-walking-park-3.mp4"></video>
+    <div id="change-1-k5" class="sc-shot sc-clear clip" data-start="16.852" data-duration="3.16" data-track-index="1"><div class="sc-over left"><div id="change-1-k5-t0" class="sc-big">$75</div><div id="change-1-k5-t1" class="sc-text">is only an average</div></div></div>
+    <div id="change-1-k6" class="sc-shot clip" data-start="20.012" data-duration="4.36" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-1-k6-img" src="assets/stock/senior-woman-paperwork-2.jpg" alt="" /></div><div class="sc-over right"><div id="change-1-k6-t0" class="sc-small">Your raise is</div><div id="change-1-k6-t1" class="sc-big">3.6%</div><div id="change-1-k6-t2" class="sc-text">of your own benefit</div></div></div>
+    <video id="change-1-k7-vid" class="sc-video clip" data-start="24.372" data-duration="3.72" data-track-index="0" muted playsinline src="assets/stock/calculator-paperwork-hands-3.mp4"></video>
+    <div id="change-1-k7" class="sc-shot sc-clear clip" data-start="24.372" data-duration="3.72" data-track-index="1"><div class="sc-over left"><div id="change-1-k7-t0" class="sc-small">For example</div><div id="change-1-k7-t1" class="sc-big">$2,000</div><div id="change-1-k7-t2" class="sc-text">a month today</div></div></div>
+    <div id="change-1-k8" class="sc-shot clip" data-start="28.092" data-duration="3.38" data-track-index="1"><div class="sc-center"><div id="change-1-k8-v" class="sc-hero" style="font-size: 300px">+$72</div><div class="sc-rule"></div><div id="change-1-k8-t0" class="sc-text">a month, on a $2,000 benefit</div></div></div>
+    <div id="change-1-k9" class="sc-shot clip" data-start="31.472" data-duration="3.14" data-track-index="1"><div class="sc-center"><div id="change-1-k9-t0" class="sc-small">And that is</div><div id="change-1-k9-t1" class="sc-statement">before <em>deductions</em></div></div></div>
+    <div id="change-1-k10" class="sc-shot sc-paper clip" data-start="34.612" data-duration="2.6" data-track-index="1"><div id="change-1-k10-pan" class="sc-pan" data-layout-allow-overflow><div class="sc-page" style="width: 2400px; height: 2901px; transform: scale(1.8824) translate(-690px, -1690px)"><img src="assets/shots/ssa-release.png" alt="" style="width: 2400px; height: 2901px" /><div id="change-1-k10-m0-0" class="sc-mark" style="left: 1161px; top: 1850px; width: 153px; height: 34px"></div></div></div><div class="sc-source" data-layout-allow-occlusion>Social Security Administration · news release</div></div>
+    <div id="change-1-k11" class="sc-shot sc-paper clip" data-start="37.212" data-duration="3.78" data-track-index="1"><div id="change-1-k11-pan" class="sc-pan" data-layout-allow-overflow><div class="sc-page" style="width: 2400px; height: 2901px; transform: scale(1.8824) translate(-690px, -1840px)"><img src="assets/shots/ssa-release.png" alt="" style="width: 2400px; height: 2901px" /><div id="change-1-k11-m0-0" class="sc-mark" style="left: 1011px; top: 1940px; width: 262px; height: 34px"></div></div></div><div class="sc-source" data-layout-allow-occlusion>Social Security Administration · news release</div></div>
+    <video id="change-1-k12-vid" class="sc-video clip" data-start="40.992" data-duration="3.08" data-track-index="0" muted playsinline src="assets/stock/senior-using-laptop-3.mp4"></video>
+    <div id="change-1-k12" class="sc-shot sc-clear clip" data-start="40.992" data-duration="3.08" data-track-index="1"><div class="sc-over left"><div id="change-1-k12-t0" class="sc-text">Medicare premium for 2027:</div><div id="change-1-k12-t1" class="sc-big">same place</div></div></div>
+    <div id="change-1-k13" class="sc-shot clip" data-start="44.072" data-duration="4.02" data-track-index="1"><div class="sc-center"><div id="change-1-k13-t0" class="sc-small">The number that matters is</div><div id="change-1-k13-t1" class="sc-statement">not <em>3.6%</em></div></div></div>
+    <div id="change-1-k14" class="sc-shot clip" data-start="48.092" data-duration="3.98" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-1-k14-img" src="assets/stock/elderly-man-reading-document-3.jpg" alt="" /></div><div class="sc-over left"><div id="change-1-k14-t0" class="sc-small">It is the</div><div id="change-1-k14-t1" class="sc-big">dollar amount</div><div id="change-1-k14-t2" class="sc-text">on your own notice</div></div></div>
+    <div id="change-1-k15" class="sc-shot clip" data-start="52.072" data-duration="2.6" data-track-index="1"><div class="sc-center"><div id="change-1-k15-t0" class="sc-statement">What to <em>check</em></div></div></div>
+    <div id="change-1-k16" class="sc-shot clip" data-start="54.672" data-duration="4.16" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-1-k16-img" src="assets/stock/senior-reading-letter-1.jpg" alt="" /></div><div class="sc-over left"><div id="change-1-k16-t0" class="sc-small">Every beneficiary gets</div><div id="change-1-k16-t1" class="sc-big">a one-page notice</div></div></div>
+    <div id="change-1-k17" class="sc-shot sc-paper clip" data-start="58.832" data-duration="4.96" data-track-index="1"><div id="change-1-k17-pan" class="sc-pan" data-layout-allow-overflow><div class="sc-page" style="width: 2400px; height: 2901px; transform: scale(1.8824) translate(-690px, -1690px)"><img src="assets/shots/ssa-release.png" alt="" style="width: 2400px; height: 2901px" /><div id="change-1-k17-m0-0" class="sc-mark" style="left: 1301px; top: 1783px; width: 231px; height: 34px"></div><div id="change-1-k17-m1-0" class="sc-mark" style="left: 1273px; top: 1817px; width: 304px; height: 34px"></div></div></div><div class="sc-source" data-layout-allow-occlusion>Social Security Administration · news release</div></div>
+    <div id="change-1-k18" class="sc-shot sc-paper clip" data-start="63.792" data-duration="4.8" data-track-index="1"><div id="change-1-k18-pan" class="sc-pan" data-layout-allow-overflow><div class="sc-page" style="width: 2400px; height: 2901px; transform: scale(1.8824) translate(-690px, -1420px)"><img src="assets/shots/ssa-release.png" alt="" style="width: 2400px; height: 2901px" /><div id="change-1-k18-m0-0" class="sc-mark" style="left: 1040px; top: 1604px; width: 425px; height: 34px"></div></div></div><div class="sc-source" data-layout-allow-occlusion>Social Security Administration · news release</div></div>
+    <video id="change-1-k19-vid" class="sc-video clip" data-start="68.592" data-duration="3.34" data-track-index="0" muted playsinline src="assets/stock/senior-using-laptop-2.mp4"></video>
+    <div id="change-1-k19" class="sc-shot sc-clear clip" data-start="68.592" data-duration="3.34" data-track-index="1"><div class="sc-over left"><div id="change-1-k19-t0" class="sc-text">Online first</div><div id="change-1-k19-t1" class="sc-big">late November</div></div></div>
+    <div id="change-1-k20" class="sc-shot clip" data-start="71.932" data-duration="4.18" data-track-index="1"><div class="sc-center"><div id="change-1-k20-v" class="sc-hero" style="font-size: 230px">3 weeks</div><div class="sc-rule"></div><div id="change-1-k20-t0" class="sc-text">before the paper copy</div></div><div class="sc-note">Source: Social Security Administration news release, October 14, 2026</div></div>
+    <video id="change-1-k21-vid" class="sc-video clip" data-start="76.112" data-duration="3.8" data-track-index="0" muted playsinline src="assets/stock/opening-mailbox-letters-1.mp4"></video>
+    <div id="change-1-k21" class="sc-shot sc-clear clip" data-start="76.112" data-duration="3.8" data-track-index="1"><div class="sc-over left"><div id="change-1-k21-t0" class="sc-text">Everyone else: by mail</div><div id="change-1-k21-t1" class="sc-big">in December</div></div></div>
+    <video id="change-1-k22-vid" class="sc-video clip" data-start="79.912" data-duration="4.678" data-track-index="0" muted playsinline src="assets/stock/senior-people-walking-park-2.mp4"></video>
+    <div id="change-1-k22" class="sc-shot sc-clear clip" data-start="79.912" data-duration="4.678" data-track-index="1"><div class="sc-over left"><div id="change-1-k22-t0" class="sc-small">When it arrives, read the</div><div id="change-1-k22-t1" class="sc-big">dollar amount</div><div id="change-1-k22-t2" class="sc-text">not the percentage</div></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const land = (selector, at) => tl.fromTo(selector, { opacity: 0, x: 30, filter: "blur(10px)" },
+      { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, at);
+    const pop = (selector, at) => tl.fromTo(selector, { opacity: 0, scale: 0.8 },
+      { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)" }, at);
+    const zoom = (selector, at, duration, from, to) => tl.fromTo(selector, { scale: from }, { scale: to, duration, ease: "none" }, at);
+    const sweep = (selector, at) => tl.fromTo(selector, { scaleX: 0, transformOrigin: "0 50%" },
+      { scaleX: 1, duration: 0.55, ease: "power2.out" }, at);
+    const grow = (selector, at) => tl.fromTo(selector, { scaleY: 0, transformOrigin: "50% 100%" },
+      { scaleY: 1, duration: 0.8, ease: "power3.out" }, at);
+    const drift = (selector, at, duration, to) => tl.fromTo(selector, { y: 0 }, { y: to, duration, ease: "none" }, at);
+
+    pop("#change-1-k0-v", 0.3);
+    land("#change-1-k0-t0", 1.802);
+    sweep("#change-1-k1-m0-0", 4.182);
+    drift("#change-1-k1-pan", 3.932, 2.62, -66);
+    sweep("#change-1-k2-m0-0", 7.482);
+    sweep("#change-1-k2-m0-1", 7.932);
+    drift("#change-1-k2-pan", 6.552, 4.74, -66);
+    sweep("#change-1-k3-m0-0", 12.482);
+    drift("#change-1-k3-pan", 11.292, 2.44, -66);
+    pop("#change-1-k4-v", 14.032);
+    land("#change-1-k4-t0", 14.582);
+    land("#change-1-k5-t0", 17.152);
+    land("#change-1-k5-t1", 18.212);
+    land("#change-1-k6-t0", 20.312);
+    land("#change-1-k6-t1", 21.042);
+    land("#change-1-k6-t2", 22.572);
+    zoom("#change-1-k6-img", 20.012, 4.36, 1.02, 1.12);
+    land("#change-1-k7-t0", 24.672);
+    land("#change-1-k7-t1", 25.502);
+    land("#change-1-k7-t2", 26.592);
+    pop("#change-1-k8-v", 28.642);
+    land("#change-1-k8-t0", 28.942);
+    land("#change-1-k9-t0", 31.772);
+    land("#change-1-k9-t1", 32.602);
+    sweep("#change-1-k10-m0-0", 35.862);
+    drift("#change-1-k10-pan", 34.612, 2.6, -66);
+    sweep("#change-1-k11-m0-0", 39.062);
+    drift("#change-1-k11-pan", 37.212, 3.78, -66);
+    land("#change-1-k12-t0", 41.292);
+    land("#change-1-k12-t1", 42.082);
+    land("#change-1-k13-t0", 44.372);
+    land("#change-1-k13-t1", 45.882);
+    land("#change-1-k14-t0", 48.392);
+    land("#change-1-k14-t1", 48.962);
+    land("#change-1-k14-t2", 49.862);
+    zoom("#change-1-k14-img", 48.092, 3.98, 1.02, 1.12);
+    land("#change-1-k15-t0", 52.372);
+    land("#change-1-k16-t0", 54.972);
+    land("#change-1-k16-t1", 57.332);
+    zoom("#change-1-k16-img", 54.672, 4.16, 1.02, 1.12);
+    sweep("#change-1-k17-m0-0", 59.232);
+    sweep("#change-1-k17-m1-0", 59.562);
+    drift("#change-1-k17-pan", 58.832, 4.96, -66);
+    sweep("#change-1-k18-m0-0", 65.362);
+    drift("#change-1-k18-pan", 63.792, 4.8, -66);
+    land("#change-1-k19-t0", 68.892);
+    land("#change-1-k19-t1", 70.602);
+    pop("#change-1-k20-v", 72.842);
+    land("#change-1-k20-t0", 73.602);
+    land("#change-1-k21-t0", 76.412);
+    land("#change-1-k21-t1", 78.712);
+    land("#change-1-k22-t0", 80.212);
+    land("#change-1-k22-t1", 81.902);
+    land("#change-1-k22-t2", 83.062);
+    window.__timelines["change-1"] = tl;
+  </script>
+</template>

@@ -1,0 +1,137 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #000; font-family: "Inter", sans-serif;
+      --ink: #f4eedd; --accent: #d23232; --mark: #ffe14d; --up: #5fbf7f; }
+    .sc-shot { position: absolute; inset: 0; overflow: hidden; color: var(--ink);
+      background: radial-gradient(ellipse 70% 60% at 50% 40%, #1c1c1c 0%, #000 100%); }
+    .sc-shot.sc-clear { background: none; }
+    .sc-video { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+    .sc-photo { position: absolute; inset: 0; }
+    .sc-photo img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+    .sc-over { position: absolute; top: 140px; width: 860px; display: flex; flex-direction: column; gap: 16px; isolation: isolate;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.95), 0 0 26px rgba(0, 0, 0, 0.9), 0 0 70px rgba(0, 0, 0, 0.75); }
+    /* No panel: a soft dark glow behind the words keeps them readable on bright photos. */
+    .sc-over::before { content: ""; position: absolute; left: -160px; top: -130px; right: -120px; bottom: -150px; z-index: -1;
+      background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.4) 45%, rgba(0, 0, 0, 0) 100%); }
+    .sc-over.left { left: 110px; }
+    .sc-over.right { left: 950px; }
+    .sc-num { font-family: "Playfair Display", serif; font-weight: 700; font-size: 190px; line-height: 0.95; color: var(--accent); }
+    .sc-big { font-family: "Playfair Display", serif; font-weight: 700; font-size: 120px; line-height: 1; }
+    .sc-text { font-size: 66px; font-weight: 700; line-height: 1.14; }
+    .sc-small { font-size: 46px; font-weight: 700; line-height: 1.22; }
+    .sc-paper { background: #fff; }
+    .sc-pan { position: absolute; left: 0; top: 0; }
+    .sc-page { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+    .sc-page img { position: absolute; left: 0; top: 0; }
+    .sc-mark { position: absolute; background: var(--mark); mix-blend-mode: multiply; border-radius: 4px; }
+    .sc-source { position: absolute; left: 60px; top: 44px; padding: 12px 24px; border-radius: 12px;
+      background: rgba(0, 0, 0, 0.85); color: var(--ink); font-size: 32px; font-weight: 700; }
+    .sc-center { position: absolute; left: 160px; top: 150px; width: 1600px; height: 700px; display: flex;
+      flex-direction: column; align-items: center; justify-content: center; gap: 26px; text-align: center; }
+    .sc-hero { font-family: "Playfair Display", serif; font-weight: 700; font-size: 300px; line-height: 0.95; }
+    .sc-statement { font-family: "Playfair Display", serif; font-weight: 700; font-size: 128px; line-height: 1.08; }
+    .sc-statement em, .sc-text em, .sc-big em { font-style: normal; color: var(--accent); }
+    .sc-rule { width: 140px; height: 8px; background: var(--accent); }
+    .sc-title { position: absolute; left: 0; top: 110px; width: 1920px; text-align: center;
+      font-family: "Playfair Display", serif; font-weight: 700; font-size: 104px; }
+    .sc-title span { display: inline-block; }
+    .sc-title em { font-style: normal; color: var(--accent); }
+    .sc-tile { position: absolute; top: 350px; width: 400px; height: 440px; border-radius: 18px;
+      border: 3px solid rgba(244, 238, 221, 0.28); background: #141414; padding: 30px 34px; }
+    .sc-tile .n { font-family: "Playfair Display", serif; font-weight: 700; font-size: 150px; line-height: 1; color: var(--accent); }
+    .sc-tile .t { margin-top: 26px; font-size: 46px; font-weight: 700; line-height: 1.15; }
+    .sc-tile .q { display: inline-block; margin-top: 6px; font-family: "Playfair Display", serif; font-size: 150px;
+      line-height: 1; opacity: 0.35; }
+    .sc-bars { position: absolute; left: 0; top: 300px; width: 1920px; height: 560px; }
+    .sc-bar { position: absolute; bottom: 70px; width: 320px; border-radius: 10px 10px 0 0; background: var(--ink); opacity: 0.45; }
+    .sc-bar.strong { opacity: 1; }
+    .sc-bar-value { position: absolute; width: 480px; text-align: center; font-family: "Playfair Display", serif;
+      font-weight: 700; font-size: 84px; }
+    .sc-bar-label { position: absolute; bottom: 0; width: 480px; text-align: center; font-size: 42px; font-weight: 700; opacity: 0.85; }
+    .sc-delta { position: absolute; left: 0; top: 250px; width: 1920px; text-align: center;
+      font-family: "Playfair Display", serif; font-weight: 700; font-size: 92px; color: var(--up); }
+    .sc-note { position: absolute; left: 0; top: 860px; width: 1920px; text-align: center; font-size: 30px; opacity: 0.7; }
+  </style>
+  <div id="root" data-composition-id="recap" data-width="1920" data-height="1080">
+    <div id="recap-k0" class="sc-shot clip" data-start="0.0" data-duration="5.61" data-track-index="1"><div class="sc-center"><div id="recap-k0-t0" class="sc-statement">Before January: <em>4 checks</em></div></div></div>
+    <div id="recap-k1" class="sc-shot clip" data-start="5.61" data-duration="2.38" data-track-index="1"><div class="sc-center"><div id="recap-k1-v" class="sc-hero" style="font-size: 300px">1</div><div class="sc-rule"></div><div id="recap-k1-t0" class="sc-text">Your notice</div></div></div>
+    <div id="recap-k2" class="sc-shot clip" data-start="7.99" data-duration="2.86" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="recap-k2-img" src="assets/stock/elderly-man-reading-document-3.jpg" alt="" /></div><div class="sc-over left"><div id="recap-k2-t0" class="sc-text">Read the dollar amount</div><div id="recap-k2-t1" class="sc-small">after deductions</div></div></div>
+    <video id="recap-k3-vid" class="sc-video clip" data-start="10.85" data-duration="6.64" data-track-index="0" muted playsinline src="assets/stock/senior-using-laptop-3.mp4"></video>
+    <div id="recap-k3" class="sc-shot sc-clear clip" data-start="10.85" data-duration="6.64" data-track-index="1"><div class="sc-over left"><div id="recap-k3-t0" class="sc-text">Online in late November</div><div id="recap-k3-t1" class="sc-small">or by mail in December</div></div></div>
+    <div id="recap-k4" class="sc-shot clip" data-start="17.49" data-duration="5.98" data-track-index="1"><div class="sc-center"><div id="recap-k4-v" class="sc-hero" style="font-size: 300px">2</div><div class="sc-rule"></div><div id="recap-k4-t0" class="sc-text">Know your earnings limit</div></div></div>
+    <div id="recap-k5" class="sc-shot clip" data-start="23.47" data-duration="3.98" data-track-index="1"><div class="sc-center"><div id="recap-k5-v" class="sc-hero" style="font-size: 230px">$25,560</div><div class="sc-rule"></div><div id="recap-k5-t0" class="sc-text">under full retirement age all year</div></div></div>
+    <div id="recap-k6" class="sc-shot clip" data-start="27.45" data-duration="6.92" data-track-index="1"><div class="sc-center"><div id="recap-k6-v" class="sc-hero" style="font-size: 230px">$67,920</div><div class="sc-rule"></div><div id="recap-k6-t0" class="sc-text">in the year you reach it</div></div></div>
+    <video id="recap-k7-vid" class="sc-video clip" data-start="34.37" data-duration="3.94" data-track-index="0" muted playsinline src="assets/stock/senior-phone-call-1.mp4"></video>
+    <div id="recap-k7" class="sc-shot sc-clear clip" data-start="34.37" data-duration="3.94" data-track-index="1"><div class="sc-over left"><div id="recap-k7-t0" class="sc-text">Update your estimate with Social Security</div></div></div>
+    <div id="recap-k8" class="sc-shot clip" data-start="38.31" data-duration="6.48" data-track-index="1"><div class="sc-center"><div id="recap-k8-v" class="sc-hero" style="font-size: 300px">3</div><div class="sc-rule"></div><div id="recap-k8-t0" class="sc-text">The tax ceiling</div></div></div>
+    <div id="recap-k9" class="sc-shot clip" data-start="44.79" data-duration="4.76" data-track-index="1"><div class="sc-center"><div id="recap-k9-v" class="sc-hero" style="font-size: 230px">+$483.60</div><div class="sc-rule"></div><div id="recap-k9-t0" class="sc-text">more tax if you earn over $184,500</div></div></div>
+    <div id="recap-k10" class="sc-shot clip" data-start="49.55" data-duration="3.18" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="recap-k10-img" src="assets/stock/dollar-bills-money-2.jpg" alt="" /></div><div class="sc-over left"><div id="recap-k10-t0" class="sc-text">in Social Security tax next year</div></div></div>
+    <video id="recap-k11-vid" class="sc-video clip" data-start="52.73" data-duration="3.3" data-track-index="0" muted playsinline src="assets/stock/signing-tax-form-1.mp4"></video>
+    <div id="recap-k11" class="sc-shot sc-clear clip" data-start="52.73" data-duration="3.3" data-track-index="1"><div class="sc-over left"><div id="recap-k11-t0" class="sc-text">Two employers?</div><div id="recap-k11-t1" class="sc-big">Keep your W-2s</div></div></div>
+    <div id="recap-k12" class="sc-shot clip" data-start="56.03" data-duration="5.06" data-track-index="1"><div class="sc-center"><div id="recap-k12-v" class="sc-hero" style="font-size: 300px">4</div><div class="sc-rule"></div><div id="recap-k12-t0" class="sc-text">Your work credits</div></div></div>
+    <div id="recap-k13" class="sc-shot clip" data-start="61.09" data-duration="4.86" data-track-index="1"><div class="sc-center"><div id="recap-k13-v" class="sc-hero" style="font-size: 230px">$7,880</div><div class="sc-rule"></div><div id="recap-k13-t0" class="sc-text">earns all four credits in 2027</div></div></div>
+    <video id="recap-k14-vid" class="sc-video clip" data-start="65.95" data-duration="4.5" data-track-index="0" muted playsinline src="assets/stock/senior-using-laptop-2.mp4"></video>
+    <div id="recap-k14" class="sc-shot sc-clear clip" data-start="65.95" data-duration="4.5" data-track-index="1"><div class="sc-over left"><div id="recap-k14-t0" class="sc-text">Check your earnings record</div><div id="recap-k14-t1" class="sc-small">for missing years</div></div></div>
+    <div id="recap-k15" class="sc-shot clip" data-start="70.45" data-duration="4.16" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="recap-k15-img" src="assets/stock/senior-couple-laptop-2.jpg" alt="" /></div><div class="sc-over left"><div id="recap-k15-t0" class="sc-text">Pick the ones that apply to you</div></div></div>
+    <div id="recap-k16" class="sc-shot clip" data-start="74.61" data-duration="3.5" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="recap-k16-img" src="assets/stock/january-calendar-1.jpg" alt="" /></div><div class="sc-over left"><div id="recap-k16-t0" class="sc-text">Put a date on your calendar</div></div></div>
+    <div id="recap-k17" class="sc-shot clip" data-start="78.11" data-duration="6.54" data-track-index="1"><div class="sc-center"><div id="recap-k17-t0" class="sc-small">This video explains the published rules.</div><div id="recap-k17-t1" class="sc-small">It is not personal financial advice.</div></div></div>
+    <div id="recap-k18" class="sc-shot clip" data-start="84.65" data-duration="3.48" data-track-index="1"><div class="sc-center"><div id="recap-k18-t0" class="sc-statement">Sources in the <em>description</em></div></div></div>
+    <video id="recap-k19-vid" class="sc-video clip" data-start="88.13" data-duration="2.78" data-track-index="0" muted playsinline src="assets/stock/senior-people-walking-park-3.mp4"></video>
+    <div id="recap-k19" class="sc-shot sc-clear clip" data-start="88.13" data-duration="2.78" data-track-index="1"><div class="sc-over left"><div id="recap-k19-t0" class="sc-big">Subscribe</div><div id="recap-k19-t1" class="sc-text">One set of rules every week</div></div></div>
+    <div id="recap-k20" class="sc-shot clip" data-start="90.91" data-duration="5.736" data-track-index="1"><div class="sc-center"><div id="recap-k20-t0" class="sc-statement">One set of rules, <em>every week</em></div></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const land = (selector, at) => tl.fromTo(selector, { opacity: 0, x: 30, filter: "blur(10px)" },
+      { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, at);
+    const pop = (selector, at) => tl.fromTo(selector, { opacity: 0, scale: 0.8 },
+      { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)" }, at);
+    const zoom = (selector, at, duration, from, to) => tl.fromTo(selector, { scale: from }, { scale: to, duration, ease: "none" }, at);
+    const sweep = (selector, at) => tl.fromTo(selector, { scaleX: 0, transformOrigin: "0 50%" },
+      { scaleX: 1, duration: 0.55, ease: "power2.out" }, at);
+    const grow = (selector, at) => tl.fromTo(selector, { scaleY: 0, transformOrigin: "50% 100%" },
+      { scaleY: 1, duration: 0.8, ease: "power3.out" }, at);
+    const drift = (selector, at, duration, to) => tl.fromTo(selector, { y: 0 }, { y: to, duration, ease: "none" }, at);
+
+    land("#recap-k0-t0", 0.3);
+    pop("#recap-k1-v", 5.91);
+    land("#recap-k1-t0", 6.46);
+    land("#recap-k2-t0", 8.29);
+    land("#recap-k2-t1", 9.65);
+    zoom("#recap-k2-img", 7.99, 2.86, 1.02, 1.12);
+    land("#recap-k3-t0", 11.15);
+    land("#recap-k3-t1", 14.04);
+    pop("#recap-k4-v", 17.79);
+    land("#recap-k4-t0", 18.34);
+    pop("#recap-k5-v", 23.77);
+    land("#recap-k5-t0", 24.32);
+    pop("#recap-k6-v", 27.75);
+    land("#recap-k6-t0", 28.3);
+    land("#recap-k7-t0", 34.67);
+    pop("#recap-k8-v", 38.61);
+    land("#recap-k8-t0", 39.16);
+    pop("#recap-k9-v", 45.09);
+    land("#recap-k9-t0", 45.64);
+    land("#recap-k10-t0", 49.85);
+    zoom("#recap-k10-img", 49.55, 3.18, 1.02, 1.12);
+    land("#recap-k11-t0", 53.03);
+    land("#recap-k11-t1", 54.4);
+    pop("#recap-k12-v", 56.33);
+    land("#recap-k12-t0", 56.88);
+    pop("#recap-k13-v", 61.39);
+    land("#recap-k13-t0", 61.94);
+    land("#recap-k14-t0", 66.25);
+    land("#recap-k14-t1", 67.8);
+    land("#recap-k15-t0", 70.75);
+    zoom("#recap-k15-img", 70.45, 4.16, 1.12, 1.02);
+    land("#recap-k16-t0", 74.91);
+    zoom("#recap-k16-img", 74.61, 3.5, 1.02, 1.12);
+    land("#recap-k17-t0", 78.41);
+    land("#recap-k17-t1", 81.52);
+    land("#recap-k18-t0", 84.95);
+    land("#recap-k19-t0", 88.43);
+    land("#recap-k19-t1", 88.51);
+    land("#recap-k20-t0", 91.21);
+    window.__timelines["recap"] = tl;
+  </script>
+</template>

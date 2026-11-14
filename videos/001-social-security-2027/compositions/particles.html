@@ -1,0 +1,74 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    #particles-field {
+      position: absolute;
+      inset: 0;
+      mix-blend-mode: screen;
+    }
+    .particles-dot {
+      position: absolute;
+      left: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(244, 238, 221, 0.95) 0%, rgba(244, 238, 221, 0) 70%);
+    }
+  </style>
+  <div id="root" data-composition-id="particles" data-width="1920" data-height="1080">
+    <div id="particles-field" data-layout-ignore></div>
+  </div>
+  <script>
+    // Soft dust drifting upward over the whole video. Seeded, so every render is identical.
+    const DOTS = 54;
+    const LENGTH_S = 928.95;
+    const SEED = 5050;
+    const TOP = -60;
+    const BOTTOM = 1140;
+    const tl = gsap.timeline({ paused: true });
+    const field = document.querySelector("#particles-field");
+
+    let state = SEED;
+    const random = () => {
+      state = (state + 0x6d2b79f5) | 0;
+      let t = Math.imul(state ^ (state >>> 15), 1 | state);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+
+    for (let index = 0; index < DOTS; index += 1) {
+      const dot = document.createElement("div");
+      dot.className = "particles-dot";
+      const size = 10 + random() * 34;
+      const startY = random() * (BOTTOM - TOP) + TOP;
+      const speed = 5 + random() * 11; // pixels a second
+      const glow = 0.3 + random() * 0.45;
+      const twinkle = 3 + random() * 4; // seconds per fade
+      dot.style.width = size + "px";
+      dot.style.height = size + "px";
+      dot.style.top = "0px";
+      gsap.set(dot, { x: random() * 1920 });
+      field.appendChild(dot);
+
+      // First the rest of the way up from where it starts, then full passes from the bottom.
+      const firstLeg = (startY - TOP) / speed;
+      const fullLeg = (BOTTOM - TOP) / speed;
+      tl.fromTo(dot, { y: startY }, { y: TOP, duration: firstLeg, ease: "none" }, 0);
+      if (firstLeg < LENGTH_S) {
+        const passes = Math.ceil((LENGTH_S - firstLeg) / fullLeg);
+        tl.fromTo(dot, { y: BOTTOM }, { y: TOP, duration: fullLeg, ease: "none", repeat: passes - 1, immediateRender: false }, firstLeg);
+      }
+      tl.fromTo(
+        dot,
+        { opacity: glow * 0.35 },
+        { opacity: glow, duration: twinkle, ease: "sine.inOut", repeat: Math.ceil(LENGTH_S / twinkle), yoyo: true },
+        0,
+      );
+    }
+
+    window.__timelines["particles"] = tl;
+  </script>
+</template>

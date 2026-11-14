@@ -1,0 +1,289 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #000; font-family: "Inter", sans-serif;
+      --ink: #f4eedd; --accent: #d23232; --mark: #ffe14d; --up: #5fbf7f; }
+    .sc-shot { position: absolute; inset: 0; overflow: hidden; color: var(--ink);
+      background: radial-gradient(ellipse 70% 60% at 50% 40%, #1c1c1c 0%, #000 100%); }
+    .sc-shot.sc-clear { background: none; }
+    .sc-video { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+    .sc-photo { position: absolute; inset: 0; }
+    .sc-photo img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+    .sc-over { position: absolute; top: 140px; width: 860px; display: flex; flex-direction: column; gap: 16px; isolation: isolate;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.95), 0 0 26px rgba(0, 0, 0, 0.9), 0 0 70px rgba(0, 0, 0, 0.75); }
+    /* No panel: a soft dark glow behind the words keeps them readable on bright photos. */
+    .sc-over::before { content: ""; position: absolute; left: -160px; top: -130px; right: -120px; bottom: -150px; z-index: -1;
+      background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.4) 45%, rgba(0, 0, 0, 0) 100%); }
+    .sc-over.left { left: 110px; }
+    .sc-over.right { left: 950px; }
+    .sc-num { font-family: "Playfair Display", serif; font-weight: 700; font-size: 190px; line-height: 0.95; color: var(--accent); }
+    .sc-big { font-family: "Playfair Display", serif; font-weight: 700; font-size: 120px; line-height: 1; }
+    .sc-text { font-size: 66px; font-weight: 700; line-height: 1.14; }
+    .sc-small { font-size: 46px; font-weight: 700; line-height: 1.22; }
+    .sc-paper { background: #fff; }
+    .sc-pan { position: absolute; left: 0; top: 0; }
+    .sc-page { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+    .sc-page img { position: absolute; left: 0; top: 0; }
+    .sc-mark { position: absolute; background: var(--mark); mix-blend-mode: multiply; border-radius: 4px; }
+    .sc-source { position: absolute; left: 60px; top: 44px; padding: 12px 24px; border-radius: 12px;
+      background: rgba(0, 0, 0, 0.85); color: var(--ink); font-size: 32px; font-weight: 700; }
+    .sc-center { position: absolute; left: 160px; top: 150px; width: 1600px; height: 700px; display: flex;
+      flex-direction: column; align-items: center; justify-content: center; gap: 26px; text-align: center; }
+    .sc-hero { font-family: "Playfair Display", serif; font-weight: 700; font-size: 300px; line-height: 0.95; }
+    .sc-statement { font-family: "Playfair Display", serif; font-weight: 700; font-size: 128px; line-height: 1.08; }
+    .sc-statement em, .sc-text em, .sc-big em { font-style: normal; color: var(--accent); }
+    .sc-rule { width: 140px; height: 8px; background: var(--accent); }
+    .sc-title { position: absolute; left: 0; top: 110px; width: 1920px; text-align: center;
+      font-family: "Playfair Display", serif; font-weight: 700; font-size: 104px; }
+    .sc-title span { display: inline-block; }
+    .sc-title em { font-style: normal; color: var(--accent); }
+    .sc-tile { position: absolute; top: 350px; width: 400px; height: 440px; border-radius: 18px;
+      border: 3px solid rgba(244, 238, 221, 0.28); background: #141414; padding: 30px 34px; }
+    .sc-tile .n { font-family: "Playfair Display", serif; font-weight: 700; font-size: 150px; line-height: 1; color: var(--accent); }
+    .sc-tile .t { margin-top: 26px; font-size: 46px; font-weight: 700; line-height: 1.15; }
+    .sc-tile .q { display: inline-block; margin-top: 6px; font-family: "Playfair Display", serif; font-size: 150px;
+      line-height: 1; opacity: 0.35; }
+    .sc-bars { position: absolute; left: 0; top: 300px; width: 1920px; height: 560px; }
+    .sc-bar { position: absolute; bottom: 70px; width: 320px; border-radius: 10px 10px 0 0; background: var(--ink); opacity: 0.45; }
+    .sc-bar.strong { opacity: 1; }
+    .sc-bar-value { position: absolute; width: 480px; text-align: center; font-family: "Playfair Display", serif;
+      font-weight: 700; font-size: 84px; }
+    .sc-bar-label { position: absolute; bottom: 0; width: 480px; text-align: center; font-size: 42px; font-weight: 700; opacity: 0.85; }
+    .sc-delta { position: absolute; left: 0; top: 250px; width: 1920px; text-align: center;
+      font-family: "Playfair Display", serif; font-weight: 700; font-size: 92px; color: var(--up); }
+    .sc-note { position: absolute; left: 0; top: 860px; width: 1920px; text-align: center; font-size: 30px; opacity: 0.7; }
+  </style>
+  <div id="root" data-composition-id="change-2" data-width="1920" data-height="1080">
+    <div id="change-2-k0" class="sc-shot clip" data-start="0.0" data-duration="5.162" data-track-index="1"><div class="sc-center"><div id="change-2-k0-v" class="sc-hero" style="font-size: 300px">2</div><div class="sc-rule"></div><div id="change-2-k0-t0" class="sc-statement">Working while you collect</div></div></div>
+    <video id="change-2-k1-vid" class="sc-video clip" data-start="5.162" data-duration="5.2" data-track-index="0" muted playsinline src="assets/stock/senior-woman-working-shop-1.mp4"></video>
+    <div id="change-2-k1" class="sc-shot sc-clear clip" data-start="5.162" data-duration="5.2" data-track-index="1"><div class="sc-over left"><div id="change-2-k1-t0" class="sc-small">Collecting benefits</div><div id="change-2-k1-t1" class="sc-big">and still working</div></div></div>
+    <div id="change-2-k2" class="sc-shot clip" data-start="10.362" data-duration="2.84" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-2-k2-img" src="assets/stock/pay-stub-paycheck-1.jpg" alt="" /></div><div class="sc-over right"><div id="change-2-k2-t0" class="sc-text">A limit on what you can earn</div></div></div>
+    <video id="change-2-k3-vid" class="sc-video clip" data-start="13.202" data-duration="5.56" data-track-index="0" muted playsinline src="assets/stock/counting-money-cash-1.mp4"></video>
+    <div id="change-2-k3" class="sc-shot sc-clear clip" data-start="13.202" data-duration="5.56" data-track-index="1"><div class="sc-over left"><div id="change-2-k3-t0" class="sc-text">Go over the limit</div><div id="change-2-k3-t1" class="sc-big">benefits held back</div></div></div>
+    <div id="change-2-k4" class="sc-shot clip" data-start="18.762" data-duration="3.32" data-track-index="1"><div class="sc-center"><div id="change-2-k4-t0" class="sc-small">The rule is called the</div><div id="change-2-k4-t1" class="sc-statement"><em>retirement earnings test</em></div></div></div>
+    <div id="change-2-k5" class="sc-shot sc-paper clip" data-start="22.082" data-duration="4.66" data-track-index="1"><div id="change-2-k5-pan" class="sc-pan" data-layout-allow-overflow><div class="sc-page" style="width: 2400px; height: 17289px; transform: scale(1.7455) translate(-0px, -230px)"><img src="assets/shots/federal-register.png" alt="" style="width: 2400px; height: 17289px" /><div id="change-2-k5-m0-0" class="sc-mark" style="left: 8px; top: 323px; width: 619px; height: 30px"></div></div></div><div class="sc-source" data-layout-allow-occlusion>Federal Register · October 26, 2026 · Social Security Administration</div></div>
+    <div id="change-2-k6" class="sc-shot clip" data-start="26.742" data-duration="3.52" data-track-index="1"><div class="sc-center"><div id="change-2-k6-t0" class="sc-statement">What is <em>full retirement age</em>?</div></div></div>
+    <video id="change-2-k7-vid" class="sc-video clip" data-start="30.262" data-duration="2.56" data-track-index="0" muted playsinline src="assets/stock/birthday-cake-candles-senior-1.mp4"></video>
+    <div id="change-2-k7" class="sc-shot sc-clear clip" data-start="30.262" data-duration="2.56" data-track-index="1"><div class="sc-over left"><div id="change-2-k7-t0" class="sc-text">It depends on the year you were born</div></div></div>
+    <div id="change-2-k8" class="sc-shot clip" data-start="32.822" data-duration="5.88" data-track-index="1"><div class="sc-center"><div id="change-2-k8-v" class="sc-hero" style="font-size: 120px">66 and 10 months</div><div class="sc-rule"></div><div id="change-2-k8-t0" class="sc-text">if you were born in 1959</div></div><div class="sc-note">Source: 20 CFR 404.409</div></div>
+    <div id="change-2-k9" class="sc-shot clip" data-start="38.702" data-duration="5.42" data-track-index="1"><div class="sc-center"><div id="change-2-k9-v" class="sc-hero" style="font-size: 300px">67</div><div class="sc-rule"></div><div id="change-2-k9-t0" class="sc-text">if you were born in 1960 or later</div></div><div class="sc-note">Source: 20 CFR 404.409</div></div>
+    <div id="change-2-k10" class="sc-shot clip" data-start="44.122" data-duration="5.08" data-track-index="1"><div class="sc-center"><div id="change-2-k10-t0" class="sc-statement"><em>Two</em> limits</div><div id="change-2-k10-t1" class="sc-small">Which one you get depends on your age</div></div></div>
+    <div id="change-2-k11" class="sc-shot clip" data-start="49.202" data-duration="5.4" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-2-k11-img" src="assets/stock/senior-man-working-4.jpg" alt="" /></div><div class="sc-over right"><div id="change-2-k11-t0" class="sc-num">1</div><div id="change-2-k11-t1" class="sc-text">Under full retirement age for the whole year</div></div></div>
+    <video id="change-2-k12-vid" class="sc-video clip" data-start="54.602" data-duration="2.04" data-track-index="0" muted playsinline src="assets/stock/senior-cashier-store-2.mp4"></video>
+    <div id="change-2-k12" class="sc-shot sc-clear clip" data-start="54.602" data-duration="2.04" data-track-index="1"><div class="sc-over left"><div id="change-2-k12-t0" class="sc-text">for the whole year</div></div></div>
+    <div id="change-2-k13" class="sc-shot clip" data-start="56.642" data-duration="2.5" data-track-index="1"><div class="sc-center"><div id="change-2-k13-t0" class="sc-statement">The limit in <em>2026</em></div></div></div>
+    <div id="change-2-k14" class="sc-shot clip" data-start="59.142" data-duration="4.52" data-track-index="1"><div class="sc-center"><div id="change-2-k14-v" class="sc-hero" style="font-size: 230px">$24,480</div><div class="sc-rule"></div><div id="change-2-k14-t0" class="sc-text">in 2026</div></div></div>
+    <div id="change-2-k15" class="sc-shot sc-paper clip" data-start="63.662" data-duration="6.34" data-track-index="1"><div id="change-2-k15-pan" class="sc-pan" data-layout-allow-overflow><div class="sc-page" style="width: 2400px; height: 17289px; transform: scale(1.7455) translate(-0px, -9800px)"><img src="assets/shots/federal-register.png" alt="" style="width: 2400px; height: 17289px" /><div id="change-2-k15-m0-0" class="sc-mark" style="left: 190px; top: 9908px; width: 448px; height: 30px"></div></div></div><div class="sc-source" data-layout-allow-occlusion>Federal Register · October 26, 2026 · Social Security Administration</div></div>
+    <div id="change-2-k16" class="sc-shot clip" data-start="70.002" data-duration="4.4" data-track-index="1"><div class="sc-center"><div id="change-2-k16-v" class="sc-hero" style="font-size: 230px">$2,130</div><div class="sc-rule"></div><div id="change-2-k16-t0" class="sc-text">a month</div></div><div class="sc-note">Source: Federal Register, October 26, 2026</div></div>
+    <div id="change-2-k17" class="sc-shot sc-paper clip" data-start="74.402" data-duration="4.78" data-track-index="1"><div id="change-2-k17-pan" class="sc-pan" data-layout-allow-overflow><div class="sc-page" style="width: 2400px; height: 17289px; transform: scale(1.7455) translate(-0px, -9250px)"><img src="assets/shots/federal-register.png" alt="" style="width: 2400px; height: 17289px" /><div id="change-2-k17-m0-0" class="sc-mark" style="left: 8px; top: 9368px; width: 426px; height: 30px"></div></div></div><div class="sc-source" data-layout-allow-occlusion>Federal Register · October 26, 2026 · Social Security Administration</div></div>
+    <div id="change-2-k18" class="sc-shot clip" data-start="79.182" data-duration="3.94" data-track-index="1"><div class="sc-center"><div id="change-2-k18-v" class="sc-hero" style="font-size: 120px">$1 of every $2</div><div class="sc-rule"></div><div id="change-2-k18-t0" class="sc-text">earned over the limit is withheld</div></div><div class="sc-note">Source: Federal Register, October 26, 2026</div></div>
+    <div id="change-2-k19" class="sc-shot clip" data-start="83.122" data-duration="4.74" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-2-k19-img" src="assets/stock/senior-worker-hardware-store-2.jpg" alt="" /></div><div class="sc-over left"><div id="change-2-k19-t0" class="sc-small">Example</div><div id="change-2-k19-t1" class="sc-big">Age 63</div><div id="change-2-k19-t2" class="sc-text">collecting benefits and working</div></div></div>
+    <div id="change-2-k20" class="sc-shot clip" data-start="87.862" data-duration="6.6" data-track-index="1"><div class="sc-center"><div id="change-2-k20-v" class="sc-hero" style="font-size: 230px">$35,560</div><div class="sc-rule"></div><div id="change-2-k20-t0" class="sc-text">earned at work in 2027</div></div></div>
+    <video id="change-2-k21-vid" class="sc-video clip" data-start="94.462" data-duration="3.22" data-track-index="0" muted playsinline src="assets/stock/accountant-calculator-laptop-2.mp4"></video>
+    <div id="change-2-k21" class="sc-shot sc-clear clip" data-start="94.462" data-duration="3.22" data-track-index="1"><div class="sc-over left"><div id="change-2-k21-t0" class="sc-big">$10,000</div><div id="change-2-k21-t1" class="sc-text">over the limit</div></div></div>
+    <div id="change-2-k22" class="sc-shot clip" data-start="97.682" data-duration="5.22" data-track-index="1"><div class="sc-center"><div id="change-2-k22-v" class="sc-hero" style="font-size: 230px">$5,000</div><div class="sc-rule"></div><div id="change-2-k22-t0" class="sc-text">held back from benefits</div></div></div>
+    <div id="change-2-k23" class="sc-shot clip" data-start="102.902" data-duration="4.46" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-2-k23-img" src="assets/stock/senior-couple-planning-finances-3.jpg" alt="" /></div><div class="sc-over left"><div id="change-2-k23-t0" class="sc-num">2</div><div id="change-2-k23-t1" class="sc-text">The year you reach full retirement age</div></div></div>
+    <video id="change-2-k24-vid" class="sc-video clip" data-start="107.362" data-duration="6.3" data-track-index="0" muted playsinline src="assets/stock/calendar-pages-1.mp4"></video>
+    <div id="change-2-k24" class="sc-shot sc-clear clip" data-start="107.362" data-duration="6.3" data-track-index="1"><div class="sc-over left"><div id="change-2-k24-t0" class="sc-small">Born in 1960?</div><div id="change-2-k24-t1" class="sc-big">That year is 2027</div></div></div>
+    <div id="change-2-k25" class="sc-shot clip" data-start="113.662" data-duration="3.66" data-track-index="1"><div class="sc-center"><div id="change-2-k25-t0" class="sc-statement">A much <em>higher</em> limit</div></div></div>
+    <div id="change-2-k26" class="sc-shot sc-paper clip" data-start="117.322" data-duration="3.04" data-track-index="1"><div id="change-2-k26-pan" class="sc-pan" data-layout-allow-overflow><div class="sc-page" style="width: 2400px; height: 17289px; transform: scale(1.7455) translate(-0px, -10020px)"><img src="assets/shots/federal-register.png" alt="" style="width: 2400px; height: 17289px" /><div id="change-2-k26-m0-0" class="sc-mark" style="left: 190px; top: 10133px; width: 458px; height: 30px"></div></div></div><div class="sc-source" data-layout-allow-occlusion>Federal Register · October 26, 2026 · Social Security Administration</div></div>
+    <div id="change-2-k27" class="sc-shot clip" data-start="120.362" data-duration="5.06" data-track-index="1"><div class="sc-center"><div id="change-2-k27-v" class="sc-hero" style="font-size: 230px">$67,920</div><div class="sc-rule"></div><div id="change-2-k27-t0" class="sc-text">the limit in that year</div></div><div class="sc-note">Source: Federal Register, October 26, 2026</div></div>
+    <div id="change-2-k28" class="sc-shot clip" data-start="125.422" data-duration="2.56" data-track-index="1"><div class="sc-center"><div id="change-2-k28-t0" class="sc-statement">A <em>gentler</em> rate</div></div></div>
+    <div id="change-2-k29" class="sc-shot sc-paper clip" data-start="127.982" data-duration="5.56" data-track-index="1"><div id="change-2-k29-pan" class="sc-pan" data-layout-allow-overflow><div class="sc-page" style="width: 2400px; height: 17289px; transform: scale(1.7455) translate(-0px, -9250px)"><img src="assets/shots/federal-register.png" alt="" style="width: 2400px; height: 17289px" /><div id="change-2-k29-m0-0" class="sc-mark" style="left: 8px; top: 9323px; width: 362px; height: 30px"></div></div></div><div class="sc-source" data-layout-allow-occlusion>Federal Register · October 26, 2026 · Social Security Administration</div></div>
+    <div id="change-2-k30" class="sc-shot clip" data-start="133.542" data-duration="6.1" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-2-k30-img" src="assets/stock/calendar-september-3.jpg" alt="" /></div><div class="sc-over right"><div id="change-2-k30-t0" class="sc-small">Example</div><div id="change-2-k30-t1" class="sc-big">67 in September</div><div id="change-2-k30-t2" class="sc-text">2027</div></div></div>
+    <div id="change-2-k31" class="sc-shot clip" data-start="139.642" data-duration="5.9" data-track-index="1"><div class="sc-center"><div id="change-2-k31-v" class="sc-hero" style="font-size: 230px">$73,920</div><div class="sc-rule"></div><div id="change-2-k31-t0" class="sc-text">earned from January to August</div></div></div>
+    <video id="change-2-k32-vid" class="sc-video clip" data-start="145.542" data-duration="3.96" data-track-index="0" muted playsinline src="assets/stock/calculator-paperwork-hands-1.mp4"></video>
+    <div id="change-2-k32" class="sc-shot sc-clear clip" data-start="145.542" data-duration="3.96" data-track-index="1"><div class="sc-over left"><div id="change-2-k32-t0" class="sc-big">$6,000</div><div id="change-2-k32-t1" class="sc-text">over the limit</div></div></div>
+    <div id="change-2-k33" class="sc-shot clip" data-start="149.502" data-duration="3.98" data-track-index="1"><div class="sc-center"><div id="change-2-k33-v" class="sc-hero" style="font-size: 230px">$2,000</div><div class="sc-rule"></div><div id="change-2-k33-t0" class="sc-text">held back</div></div></div>
+    <div id="change-2-k34" class="sc-shot clip" data-start="153.482" data-duration="2.28" data-track-index="1"><div class="sc-center"><div id="change-2-k34-t0" class="sc-statement"><em>Two</em> details</div></div></div>
+    <div id="change-2-k35" class="sc-shot clip" data-start="155.762" data-duration="3.6" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-2-k35-img" src="assets/stock/january-calendar-2.jpg" alt="" /></div><div class="sc-over left"><div id="change-2-k35-t0" class="sc-text">Only the months before full retirement age count</div></div></div>
+    <div id="change-2-k36" class="sc-shot clip" data-start="159.362" data-duration="4.94" data-track-index="1"><div class="sc-center"><div id="change-2-k36-t0" class="sc-statement">After that: <em>no limit</em></div><div id="change-2-k36-t1" class="sc-small">Source: 20 CFR 404.435</div></div></div>
+    <video id="change-2-k37-vid" class="sc-video clip" data-start="164.302" data-duration="5.0" data-track-index="0" muted playsinline src="assets/stock/senior-man-working-office-2.mp4"></video>
+    <div id="change-2-k37" class="sc-shot sc-clear clip" data-start="164.302" data-duration="5.0" data-track-index="1"><div class="sc-over left"><div id="change-2-k37-t0" class="sc-text">Earn any amount</div><div id="change-2-k37-t1" class="sc-big">nothing held back</div></div></div>
+    <div id="change-2-k38" class="sc-shot clip" data-start="169.302" data-duration="5.2" data-track-index="1"><div class="sc-center"><div id="change-2-k38-t0" class="sc-statement">What counts as <em>earnings</em>?</div></div></div>
+    <video id="change-2-k39-vid" class="sc-video clip" data-start="174.502" data-duration="2.24" data-track-index="0" muted playsinline src="assets/stock/senior-cashier-store-1.mp4"></video>
+    <div id="change-2-k39" class="sc-shot sc-clear clip" data-start="174.502" data-duration="2.24" data-track-index="1"><div class="sc-over left"><div id="change-2-k39-t0" class="sc-big">Wages</div><div id="change-2-k39-t1" class="sc-text">from a job</div></div></div>
+    <video id="change-2-k40-vid" class="sc-video clip" data-start="176.742" data-duration="3.04" data-track-index="0" muted playsinline src="assets/stock/senior-craftsman-workshop-1.mp4"></video>
+    <div id="change-2-k40" class="sc-shot sc-clear clip" data-start="176.742" data-duration="3.04" data-track-index="1"><div class="sc-over left"><div id="change-2-k40-t0" class="sc-text">plus net earnings from</div><div id="change-2-k40-t1" class="sc-big">self-employment</div></div></div>
+    <div id="change-2-k41" class="sc-shot clip" data-start="179.782" data-duration="4.16" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-2-k41-img" src="assets/stock/senior-business-owner-1.jpg" alt="" /></div><div class="sc-over right"><div id="change-2-k41-t0" class="sc-text">Money you earn by working</div><div id="change-2-k41-t1" class="sc-small">Source: 20 CFR 404.429</div></div></div>
+    <div id="change-2-k42" class="sc-shot clip" data-start="183.942" data-duration="3.3" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-2-k42-img" src="assets/stock/retired-man-fishing-1.jpg" alt="" /></div><div class="sc-over right"><div id="change-2-k42-t0" class="sc-text">A special rule for your first year</div></div></div>
+    <div id="change-2-k43" class="sc-shot clip" data-start="187.242" data-duration="3.28" data-track-index="1"><div class="sc-center"><div id="change-2-k43-t0" class="sc-small">The regulation calls it</div><div id="change-2-k43-t1" class="sc-statement">a <em>grace year</em></div></div></div>
+    <video id="change-2-k44-vid" class="sc-video clip" data-start="190.522" data-duration="3.48" data-track-index="0" muted playsinline src="assets/stock/senior-couple-kitchen-table-paperwork-2.mp4"></video>
+    <div id="change-2-k44" class="sc-shot sc-clear clip" data-start="190.522" data-duration="3.48" data-track-index="1"><div class="sc-over left"><div id="change-2-k44-t0" class="sc-text">Benefits are judged</div><div id="change-2-k44-t1" class="sc-big">month by month</div></div></div>
+    <div id="change-2-k45" class="sc-shot clip" data-start="194.002" data-duration="3.96" data-track-index="1"><div class="sc-center"><div id="change-2-k45-v" class="sc-hero" style="font-size: 230px">$2,130</div><div class="sc-rule"></div><div id="change-2-k45-t0" class="sc-text">wages under the monthly limit</div></div></div>
+    <div id="change-2-k46" class="sc-shot clip" data-start="197.962" data-duration="3.2" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-2-k46-img" src="assets/stock/senior-man-thinking-window-2.jpg" alt="" /></div><div class="sc-over left"><div id="change-2-k46-t0" class="sc-text">and no work in your own business</div></div></div>
+    <video id="change-2-k47-vid" class="sc-video clip" data-start="201.162" data-duration="4.96" data-track-index="0" muted playsinline src="assets/stock/calendar-pages-2.mp4"></video>
+    <div id="change-2-k47" class="sc-shot sc-clear clip" data-start="201.162" data-duration="4.96" data-track-index="1"><div class="sc-over left"><div id="change-2-k47-t0" class="sc-text">Earlier months do not matter</div><div id="change-2-k47-t1" class="sc-small">Source: 20 CFR 404.435</div></div></div>
+    <div id="change-2-k48" class="sc-shot clip" data-start="206.122" data-duration="5.44" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-2-k48-img" src="assets/stock/retired-man-fishing-2.jpg" alt="" /></div><div class="sc-over left"><div id="change-2-k48-t0" class="sc-text">Retiring in the middle of 2027?</div></div></div>
+    <div id="change-2-k49" class="sc-shot clip" data-start="211.562" data-duration="6.08" data-track-index="1"><div class="sc-center"><div id="change-2-k49-v" class="sc-hero" style="font-size: 230px">$2,130</div><div class="sc-rule"></div><div id="change-2-k49-t0" class="sc-text">a month: the figure to watch</div></div></div>
+    <div id="change-2-k50" class="sc-shot clip" data-start="217.642" data-duration="3.92" data-track-index="1"><div class="sc-center"><div id="change-2-k50-t0" class="sc-statement">The part many people <em>miss</em></div></div></div>
+    <video id="change-2-k51-vid" class="sc-video clip" data-start="221.562" data-duration="4.02" data-track-index="0" muted playsinline src="assets/stock/piggy-bank-coins-1.mp4"></video>
+    <div id="change-2-k51" class="sc-shot sc-clear clip" data-start="221.562" data-duration="4.02" data-track-index="1"><div class="sc-over left"><div id="change-2-k51-t0" class="sc-text">Money held back</div><div id="change-2-k51-t1" class="sc-big">is not gone</div></div></div>
+    <div id="change-2-k52" class="sc-shot clip" data-start="225.582" data-duration="5.06" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-2-k52-img" src="assets/stock/senior-woman-paperwork-3.jpg" alt="" /></div><div class="sc-over left"><div id="change-2-k52-t0" class="sc-text">Withheld months are not counted</div></div></div>
+    <div id="change-2-k53" class="sc-shot clip" data-start="230.642" data-duration="4.3" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-2-k53-img" src="assets/stock/tax-form-calculator-1.jpg" alt="" /></div><div class="sc-over left"><div id="change-2-k53-t0" class="sc-text">in your reduction for claiming early</div><div id="change-2-k53-t1" class="sc-small">Source: 20 CFR 404.412</div></div></div>
+    <div id="change-2-k54" class="sc-shot clip" data-start="234.942" data-duration="3.7" data-track-index="1"><div class="sc-center"><div id="change-2-k54-t0" class="sc-statement">The adjustment is <em>automatic</em></div></div></div>
+    <video id="change-2-k55-vid" class="sc-video clip" data-start="238.642" data-duration="3.94" data-track-index="0" muted playsinline src="assets/stock/senior-people-walking-park-1.mp4"></video>
+    <div id="change-2-k55" class="sc-shot sc-clear clip" data-start="238.642" data-duration="3.94" data-track-index="1"><div class="sc-over left"><div id="change-2-k55-t0" class="sc-text">Your benefit goes up</div><div id="change-2-k55-t1" class="sc-big">from that month</div></div></div>
+    <div id="change-2-k56" class="sc-shot clip" data-start="242.582" data-duration="5.9" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-2-k56-img" src="assets/stock/senior-couple-laptop-3.jpg" alt="" /></div><div class="sc-over left"><div id="change-2-k56-t0" class="sc-small">One more thing</div><div id="change-2-k56-t1" class="sc-text">A spouse or child on your record</div></div></div>
+    <video id="change-2-k57-vid" class="sc-video clip" data-start="248.482" data-duration="4.3" data-track-index="0" muted playsinline src="assets/stock/grandmother-with-grandchild-1.mp4"></video>
+    <div id="change-2-k57" class="sc-shot sc-clear clip" data-start="248.482" data-duration="4.3" data-track-index="1"><div class="sc-over left"><div id="change-2-k57-t0" class="sc-text">Your extra earnings can reduce their benefits too</div><div id="change-2-k57-t1" class="sc-small">Source: 20 CFR 404.415</div></div></div>
+    <div id="change-2-k58" class="sc-shot clip" data-start="252.782" data-duration="3.18" data-track-index="1"><div class="sc-center"><div id="change-2-k58-t0" class="sc-statement">What to <em>check</em></div></div></div>
+    <div id="change-2-k59" class="sc-shot clip" data-start="255.962" data-duration="4.66" data-track-index="1"><div class="sc-title"><span id="change-2-k59-title">Which limit applies to you?</span></div><div id="change-2-k59-tile0" class="sc-tile" style="left: 328.0px"><div class="n">1</div><div class="t">$25,560</div></div><div id="change-2-k59-tile1" class="sc-tile" style="left: 760.0px"><div class="n">2</div><div class="t">$67,920</div></div><div id="change-2-k59-tile2" class="sc-tile" style="left: 1192.0px"><div class="n">3</div><div class="t">None</div></div></div>
+    <div id="change-2-k60" class="sc-shot clip" data-start="260.622" data-duration="3.82" data-track-index="1"><div class="sc-center"><div id="change-2-k60-v" class="sc-hero" style="font-size: 230px">$25,560</div><div class="sc-rule"></div><div id="change-2-k60-t0" class="sc-text">under full retirement age all year</div></div></div>
+    <div id="change-2-k61" class="sc-shot clip" data-start="264.442" data-duration="4.36" data-track-index="1"><div class="sc-center"><div id="change-2-k61-v" class="sc-hero" style="font-size: 230px">$67,920</div><div class="sc-rule"></div><div id="change-2-k61-t0" class="sc-text">the year you reach it</div></div></div>
+    <video id="change-2-k62-vid" class="sc-video clip" data-start="268.802" data-duration="3.78" data-track-index="0" muted playsinline src="assets/stock/writing-checklist-notebook-1.mp4"></video>
+    <div id="change-2-k62" class="sc-shot sc-clear clip" data-start="268.802" data-duration="3.78" data-track-index="1"><div class="sc-over left"><div id="change-2-k62-t0" class="sc-num">2</div><div id="change-2-k62-t1" class="sc-text">Estimate next year&#x27;s earnings</div></div></div>
+    <video id="change-2-k63-vid" class="sc-video clip" data-start="272.582" data-duration="5.12" data-track-index="0" muted playsinline src="assets/stock/senior-phone-call-1.mp4"></video>
+    <div id="change-2-k63" class="sc-shot sc-clear clip" data-start="272.582" data-duration="5.12" data-track-index="1"><div class="sc-over left"><div id="change-2-k63-t0" class="sc-num">3</div><div id="change-2-k63-t1" class="sc-text">If it changed, tell Social Security</div></div></div>
+    <div id="change-2-k64" class="sc-shot clip" data-start="277.702" data-duration="4.58" data-track-index="1"><div class="sc-photo" data-layout-allow-overflow><img id="change-2-k64-img" src="assets/stock/elderly-man-reading-document-1.jpg" alt="" /></div><div class="sc-over left"><div id="change-2-k64-t0" class="sc-text">Withholding starts in January</div><div id="change-2-k64-t1" class="sc-small">based on your estimate · 20 CFR 404.434</div></div></div>
+    <div id="change-2-k65" class="sc-shot clip" data-start="282.282" data-duration="2.44" data-track-index="1"><div class="sc-center"><div id="change-2-k65-t0" class="sc-statement">From the <em>beginning</em> of the year</div></div></div>
+    <div id="change-2-k66" class="sc-shot clip" data-start="284.722" data-duration="3.349" data-track-index="1"><div class="sc-center"><div id="change-2-k66-t0" class="sc-statement">A good estimate avoids <em>surprises</em></div></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const land = (selector, at) => tl.fromTo(selector, { opacity: 0, x: 30, filter: "blur(10px)" },
+      { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, at);
+    const pop = (selector, at) => tl.fromTo(selector, { opacity: 0, scale: 0.8 },
+      { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)" }, at);
+    const zoom = (selector, at, duration, from, to) => tl.fromTo(selector, { scale: from }, { scale: to, duration, ease: "none" }, at);
+    const sweep = (selector, at) => tl.fromTo(selector, { scaleX: 0, transformOrigin: "0 50%" },
+      { scaleX: 1, duration: 0.55, ease: "power2.out" }, at);
+    const grow = (selector, at) => tl.fromTo(selector, { scaleY: 0, transformOrigin: "50% 100%" },
+      { scaleY: 1, duration: 0.8, ease: "power3.out" }, at);
+    const drift = (selector, at, duration, to) => tl.fromTo(selector, { y: 0 }, { y: to, duration, ease: "none" }, at);
+
+    pop("#change-2-k0-v", 0.3);
+    land("#change-2-k0-t0", 1.772);
+    land("#change-2-k1-t0", 5.462);
+    land("#change-2-k1-t1", 6.012);
+    land("#change-2-k2-t0", 10.502);
+    zoom("#change-2-k2-img", 10.362, 2.84, 1.02, 1.12);
+    land("#change-2-k3-t0", 13.502);
+    land("#change-2-k3-t1", 15.632);
+    land("#change-2-k4-t0", 19.062);
+    land("#change-2-k4-t1", 20.072);
+    sweep("#change-2-k5-m0-0", 22.482);
+    drift("#change-2-k5-pan", 22.082, 4.66, -61);
+    land("#change-2-k6-t0", 27.042);
+    land("#change-2-k7-t0", 30.362);
+    pop("#change-2-k8-v", 36.092);
+    land("#change-2-k8-t0", 36.392);
+    pop("#change-2-k9-v", 41.812);
+    land("#change-2-k9-t0", 42.112);
+    land("#change-2-k10-t0", 44.422);
+    land("#change-2-k10-t1", 46.202);
+    pop("#change-2-k11-t0", 49.502);
+    land("#change-2-k11-t1", 50.052);
+    zoom("#change-2-k11-img", 49.202, 5.4, 1.12, 1.02);
+    land("#change-2-k12-t0", 54.842);
+    land("#change-2-k13-t0", 56.942);
+    pop("#change-2-k14-v", 59.442);
+    land("#change-2-k14-t0", 59.992);
+    sweep("#change-2-k15-m0-0", 66.452);
+    drift("#change-2-k15-pan", 63.662, 6.34, -61);
+    pop("#change-2-k16-v", 70.302);
+    land("#change-2-k16-t0", 70.852);
+    sweep("#change-2-k17-m0-0", 76.972);
+    drift("#change-2-k17-pan", 74.402, 4.78, -61);
+    pop("#change-2-k18-v", 79.482);
+    land("#change-2-k18-t0", 80.032);
+    land("#change-2-k19-t0", 83.422);
+    land("#change-2-k19-t1", 85.192);
+    land("#change-2-k19-t2", 86.062);
+    zoom("#change-2-k19-img", 83.122, 4.74, 1.12, 1.02);
+    pop("#change-2-k20-v", 88.592);
+    land("#change-2-k20-t0", 88.892);
+    land("#change-2-k21-t0", 94.762);
+    land("#change-2-k21-t1", 95.312);
+    pop("#change-2-k22-v", 98.532);
+    land("#change-2-k22-t0", 98.832);
+    pop("#change-2-k23-t0", 103.202);
+    land("#change-2-k23-t1", 103.752);
+    zoom("#change-2-k23-img", 102.902, 4.46, 1.12, 1.02);
+    land("#change-2-k24-t0", 107.662);
+    land("#change-2-k24-t1", 110.492);
+    land("#change-2-k25-t0", 113.962);
+    sweep("#change-2-k26-m0-0", 119.662);
+    drift("#change-2-k26-pan", 117.322, 3.04, -61);
+    pop("#change-2-k27-v", 120.662);
+    land("#change-2-k27-t0", 121.212);
+    land("#change-2-k28-t0", 125.722);
+    sweep("#change-2-k29-m0-0", 128.382);
+    drift("#change-2-k29-pan", 127.982, 5.56, -61);
+    land("#change-2-k30-t0", 133.842);
+    land("#change-2-k30-t1", 135.732);
+    land("#change-2-k30-t2", 134.942);
+    zoom("#change-2-k30-img", 133.542, 6.1, 1.02, 1.12);
+    pop("#change-2-k31-v", 141.972);
+    land("#change-2-k31-t0", 142.272);
+    land("#change-2-k32-t0", 145.842);
+    land("#change-2-k32-t1", 146.392);
+    pop("#change-2-k33-v", 149.802);
+    land("#change-2-k33-t0", 150.352);
+    land("#change-2-k34-t0", 153.782);
+    land("#change-2-k35-t0", 156.062);
+    zoom("#change-2-k35-img", 155.762, 3.6, 1.12, 1.02);
+    land("#change-2-k36-t0", 159.662);
+    land("#change-2-k36-t1", 160.212);
+    land("#change-2-k37-t0", 164.602);
+    land("#change-2-k37-t1", 166.392);
+    land("#change-2-k38-t0", 169.602);
+    land("#change-2-k39-t0", 174.802);
+    land("#change-2-k39-t1", 175.242);
+    land("#change-2-k40-t0", 177.042);
+    land("#change-2-k40-t1", 178.292);
+    land("#change-2-k41-t0", 180.082);
+    land("#change-2-k41-t1", 180.632);
+    zoom("#change-2-k41-img", 179.782, 4.16, 1.12, 1.02);
+    land("#change-2-k42-t0", 184.242);
+    zoom("#change-2-k42-img", 183.942, 3.3, 1.02, 1.12);
+    land("#change-2-k43-t0", 187.542);
+    land("#change-2-k43-t1", 189.022);
+    land("#change-2-k44-t0", 190.822);
+    land("#change-2-k44-t1", 191.372);
+    pop("#change-2-k45-v", 194.302);
+    land("#change-2-k45-t0", 194.852);
+    land("#change-2-k46-t0", 198.262);
+    zoom("#change-2-k46-img", 197.962, 3.2, 1.02, 1.12);
+    land("#change-2-k47-t0", 201.462);
+    land("#change-2-k47-t1", 202.012);
+    land("#change-2-k48-t0", 206.422);
+    zoom("#change-2-k48-img", 206.122, 5.44, 1.02, 1.12);
+    pop("#change-2-k49-v", 211.862);
+    land("#change-2-k49-t0", 212.412);
+    land("#change-2-k50-t0", 217.942);
+    land("#change-2-k51-t0", 221.862);
+    land("#change-2-k51-t1", 223.712);
+    land("#change-2-k52-t0", 225.882);
+    zoom("#change-2-k52-img", 225.582, 5.06, 1.02, 1.12);
+    land("#change-2-k53-t0", 230.942);
+    land("#change-2-k53-t1", 231.492);
+    zoom("#change-2-k53-img", 230.642, 4.3, 1.12, 1.02);
+    land("#change-2-k54-t0", 235.242);
+    land("#change-2-k55-t0", 238.942);
+    land("#change-2-k55-t1", 239.492);
+    land("#change-2-k56-t0", 242.882);
+    land("#change-2-k56-t1", 244.232);
+    zoom("#change-2-k56-img", 242.582, 5.9, 1.02, 1.12);
+    land("#change-2-k57-t0", 248.782);
+    land("#change-2-k57-t1", 249.332);
+    land("#change-2-k58-t0", 253.082);
+    land("#change-2-k59-title", 256.062);
+    pop("#change-2-k59-tile0", 256.412);
+    pop("#change-2-k59-tile1", 256.712);
+    pop("#change-2-k59-tile2", 257.012);
+    pop("#change-2-k60-v", 260.922);
+    land("#change-2-k60-t0", 261.472);
+    pop("#change-2-k61-v", 264.742);
+    land("#change-2-k61-t0", 265.292);
+    pop("#change-2-k62-t0", 269.102);
+    land("#change-2-k62-t1", 269.652);
+    pop("#change-2-k63-t0", 272.882);
+    land("#change-2-k63-t1", 273.432);
+    land("#change-2-k64-t0", 278.002);
+    land("#change-2-k64-t1", 278.552);
+    zoom("#change-2-k64-img", 277.702, 4.58, 1.02, 1.12);
+    land("#change-2-k65-t0", 282.382);
+    land("#change-2-k66-t0", 285.022);
+    window.__timelines["change-2"] = tl;
+  </script>
+</template>

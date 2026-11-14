@@ -1,0 +1,56 @@
+[
+ {
+  "id": "hook",
+  "start": 0.0,
+  "end": 27.958,
+  "narrated": true
+ },
+ {
+  "id": "intro",
+  "start": 27.958,
+  "end": 33.958,
+  "narrated": false
+ },
+ {
+  "id": "change-1",
+  "start": 33.958,
+  "end": 118.548,
+  "narrated": true
+ },
+ {
+  "id": "change-2",
+  "start": 118.548,
+  "end": 406.619,
+  "narrated": true
+ },
+ {
+  "id": "change-3",
+  "start": 406.619,
+  "end": 562.726,
+  "narrated": true
+ },
+ {
+  "id": "change-4",
+  "start": 562.726,
+  "end": 705.254,
+  "narrated": true
+ },
+ {
+  "id": "who",
+  "start": 705.254,
+  "end": 781.345,
+  "narrated": true
+ },
+ {
+  "id": "why",
+  "start": 781.345,
+  "end": 832.3,
+  "narrated": true
+ },
+ {
+  "id": "recap",
+  "start": 832.3,
+  "end": 928.946,
+  "narrated": true
+ }
+]

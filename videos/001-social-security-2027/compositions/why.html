@@ -1,0 +1,112 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #000; font-family: "Inter", sans-serif;
+      --ink: #f4eedd; --accent: #d23232; --mark: #ffe14d; --up: #5fbf7f; }
+    .sc-shot { position: absolute; inset: 0; overflow: hidden; color: var(--ink);
+      background: radial-gradient(ellipse 70% 60% at 50% 40%, #1c1c1c 0%, #000 100%); }
+    .sc-shot.sc-clear { background: none; }
+    .sc-video { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+    .sc-photo { position: absolute; inset: 0; }
+    .sc-photo img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+    .sc-over { position: absolute; top: 140px; width: 860px; display: flex; flex-direction: column; gap: 16px; isolation: isolate;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.95), 0 0 26px rgba(0, 0, 0, 0.9), 0 0 70px rgba(0, 0, 0, 0.75); }
+    /* No panel: a soft dark glow behind the words keeps them readable on bright photos. */
+    .sc-over::before { content: ""; position: absolute; left: -160px; top: -130px; right: -120px; bottom: -150px; z-index: -1;
+      background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.4) 45%, rgba(0, 0, 0, 0) 100%); }
+    .sc-over.left { left: 110px; }
+    .sc-over.right { left: 950px; }
+    .sc-num { font-family: "Playfair Display", serif; font-weight: 700; font-size: 190px; line-height: 0.95; color: var(--accent); }
+    .sc-big { font-family: "Playfair Display", serif; font-weight: 700; font-size: 120px; line-height: 1; }
+    .sc-text { font-size: 66px; font-weight: 700; line-height: 1.14; }
+    .sc-small { font-size: 46px; font-weight: 700; line-height: 1.22; }
+    .sc-paper { background: #fff; }
+    .sc-pan { position: absolute; left: 0; top: 0; }
+    .sc-page { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+    .sc-page img { position: absolute; left: 0; top: 0; }
+    .sc-mark { position: absolute; background: var(--mark); mix-blend-mode: multiply; border-radius: 4px; }
+    .sc-source { position: absolute; left: 60px; top: 44px; padding: 12px 24px; border-radius: 12px;
+      background: rgba(0, 0, 0, 0.85); color: var(--ink); font-size: 32px; font-weight: 700; }
+    .sc-center { position: absolute; left: 160px; top: 150px; width: 1600px; height: 700px; display: flex;
+      flex-direction: column; align-items: center; justify-content: center; gap: 26px; text-align: center; }
+    .sc-hero { font-family: "Playfair Display", serif; font-weight: 700; font-size: 300px; line-height: 0.95; }
+    .sc-statement { font-family: "Playfair Display", serif; font-weight: 700; font-size: 128px; line-height: 1.08; }
+    .sc-statement em, .sc-text em, .sc-big em { font-style: normal; color: var(--accent); }
+    .sc-rule { width: 140px; height: 8px; background: var(--accent); }
+    .sc-title { position: absolute; left: 0; top: 110px; width: 1920px; text-align: center;
+      font-family: "Playfair Display", serif; font-weight: 700; font-size: 104px; }
+    .sc-title span { display: inline-block; }
+    .sc-title em { font-style: normal; color: var(--accent); }
+    .sc-tile { position: absolute; top: 350px; width: 400px; height: 440px; border-radius: 18px;
+      border: 3px solid rgba(244, 238, 221, 0.28); background: #141414; padding: 30px 34px; }
+    .sc-tile .n { font-family: "Playfair Display", serif; font-weight: 700; font-size: 150px; line-height: 1; color: var(--accent); }
+    .sc-tile .t { margin-top: 26px; font-size: 46px; font-weight: 700; line-height: 1.15; }
+    .sc-tile .q { display: inline-block; margin-top: 6px; font-family: "Playfair Display", serif; font-size: 150px;
+      line-height: 1; opacity: 0.35; }
+    .sc-bars { position: absolute; left: 0; top: 300px; width: 1920px; height: 560px; }
+    .sc-bar { position: absolute; bottom: 70px; width: 320px; border-radius: 10px 10px 0 0; background: var(--ink); opacity: 0.45; }
+    .sc-bar.strong { opacity: 1; }
+    .sc-bar-value { position: absolute; width: 480px; text-align: center; font-family: "Playfair Display", serif;
+      font-weight: 700; font-size: 84px; }
+    .sc-bar-label { position: absolute; bottom: 0; width: 480px; text-align: center; font-size: 42px; font-weight: 700; opacity: 0.85; }
+    .sc-delta { position: absolute; left: 0; top: 250px; width: 1920px; text-align: center;
+      font-family: "Playfair Display", serif; font-weight: 700; font-size: 92px; color: var(--up); }
+    .sc-note { position: absolute; left: 0; top: 860px; width: 1920px; text-align: center; font-size: 30px; opacity: 0.7; }
+  </style>
+  <div id="root" data-composition-id="why" data-width="1920" data-height="1080">
+    <div id="why-k0" class="sc-shot clip" data-start="0.0" data-duration="6.885" data-track-index="1"><div class="sc-center"><div id="why-k0-t0" class="sc-small">Before the checklist</div><div id="why-k0-t1" class="sc-statement">Why do these numbers <em>move</em>?</div></div></div>
+    <video id="why-k1-vid" class="sc-video clip" data-start="6.885" data-duration="2.68" data-track-index="0" muted playsinline src="assets/stock/senior-cashier-store-2.mp4"></video>
+    <div id="why-k1" class="sc-shot sc-clear clip" data-start="6.885" data-duration="2.68" data-track-index="1"><div class="sc-over left"><div id="why-k1-t0" class="sc-text">The raise follows</div><div id="why-k1-t1" class="sc-big">prices</div></div></div>
+    <video id="why-k2-vid" class="sc-video clip" data-start="9.565" data-duration="2.26" data-track-index="0" muted playsinline src="assets/stock/office-meeting-business-people-2.mp4"></video>
+    <div id="why-k2" class="sc-shot sc-clear clip" data-start="9.565" data-duration="2.26" data-track-index="1"><div class="sc-over left"><div id="why-k2-t0" class="sc-text">The other three follow</div><div id="why-k2-t1" class="sc-big">wages</div></div></div>
+    <div id="why-k3" class="sc-shot sc-paper clip" data-start="11.825" data-duration="5.82" data-track-index="1"><div id="why-k3-pan" class="sc-pan" data-layout-allow-overflow><div class="sc-page" style="width: 2400px; height: 17289px; transform: scale(1.7455) translate(-0px, -1130px)"><img src="assets/shots/federal-register.png" alt="" style="width: 2400px; height: 17289px" /><div id="why-k3-m0-0" class="sc-mark" style="left: 94px; top: 1223px; width: 544px; height: 30px"></div></div></div><div class="sc-source" data-layout-allow-occlusion>Federal Register · October 26, 2026 · Social Security Administration</div></div>
+    <div id="why-k4" class="sc-shot clip" data-start="17.645" data-duration="4.94" data-track-index="1"><div class="sc-center"><div id="why-k4-v" class="sc-hero" style="font-size: 230px">$72,800</div><div class="sc-rule"></div><div id="why-k4-t0" class="sc-text">national average wage index for 2025</div></div><div class="sc-note">Source: Federal Register, October 26, 2026</div></div>
+    <div id="why-k5" class="sc-shot clip" data-start="22.585" data-duration="3.7" data-track-index="1"><div class="sc-title"><span id="why-k5-title">Calculated from that figure</span></div><div id="why-k5-tile0" class="sc-tile" style="left: 328.0px"><div class="n">1</div><div class="t">The earnings limits</div></div><div id="why-k5-tile1" class="sc-tile" style="left: 760.0px"><div class="n">2</div><div class="t">The tax ceiling</div></div><div id="why-k5-tile2" class="sc-tile" style="left: 1192.0px"><div class="n">3</div><div class="t">The credit amount</div></div></div>
+    <div id="why-k6" class="sc-shot clip" data-start="26.285" data-duration="3.74" data-track-index="1"><div class="sc-center"><div id="why-k6-t0" class="sc-statement">All calculated from <em>one figure</em></div></div></div>
+    <video id="why-k7-vid" class="sc-video clip" data-start="30.025" data-duration="4.9" data-track-index="0" muted playsinline src="assets/stock/senior-man-working-office-1.mp4"></video>
+    <div id="why-k7" class="sc-shot sc-clear clip" data-start="30.025" data-duration="4.9" data-track-index="1"><div class="sc-over left"><div id="why-k7-t0" class="sc-text">When wages rise</div><div id="why-k7-t1" class="sc-big">all three rise</div></div></div>
+    <div id="why-k8" class="sc-shot sc-paper clip" data-start="34.925" data-duration="2.32" data-track-index="1"><div id="why-k8-pan" class="sc-pan" data-layout-allow-overflow><div class="sc-page" style="width: 2400px; height: 17289px; transform: scale(1.7455) translate(-0px, -0px)"><img src="assets/shots/federal-register.png" alt="" style="width: 2400px; height: 17289px" /><div id="why-k8-m0-0" class="sc-mark" style="left: 19px; top: 8px; width: 287px; height: 30px"></div></div></div><div class="sc-source" data-layout-allow-occlusion>Federal Register · October 26, 2026 · Social Security Administration</div></div>
+    <video id="why-k9-vid" class="sc-video clip" data-start="37.245" data-duration="4.8" data-track-index="0" muted playsinline src="assets/stock/calendar-pages-2.mp4"></video>
+    <div id="why-k9" class="sc-shot sc-clear clip" data-start="37.245" data-duration="4.8" data-track-index="1"><div class="sc-over left"><div id="why-k9-t0" class="sc-text">Published every autumn</div><div id="why-k9-t1" class="sc-small">in the Federal Register, before November</div></div></div>
+    <div id="why-k10" class="sc-shot clip" data-start="42.045" data-duration="4.14" data-track-index="1"><div class="sc-center"><div id="why-k10-t0" class="sc-statement">Ten minutes, every <em>autumn</em></div></div></div>
+    <div id="why-k11" class="sc-shot clip" data-start="46.185" data-duration="4.77" data-track-index="1"><div class="sc-center"><div id="why-k11-t0" class="sc-statement">The rules stay the same.</div><div id="why-k11-t1" class="sc-statement">The <em>numbers</em> do not.</div></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const land = (selector, at) => tl.fromTo(selector, { opacity: 0, x: 30, filter: "blur(10px)" },
+      { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, at);
+    const pop = (selector, at) => tl.fromTo(selector, { opacity: 0, scale: 0.8 },
+      { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.7)" }, at);
+    const zoom = (selector, at, duration, from, to) => tl.fromTo(selector, { scale: from }, { scale: to, duration, ease: "none" }, at);
+    const sweep = (selector, at) => tl.fromTo(selector, { scaleX: 0, transformOrigin: "0 50%" },
+      { scaleX: 1, duration: 0.55, ease: "power2.out" }, at);
+    const grow = (selector, at) => tl.fromTo(selector, { scaleY: 0, transformOrigin: "50% 100%" },
+      { scaleY: 1, duration: 0.8, ease: "power3.out" }, at);
+    const drift = (selector, at, duration, to) => tl.fromTo(selector, { y: 0 }, { y: to, duration, ease: "none" }, at);
+
+    land("#why-k0-t0", 0.3);
+    land("#why-k0-t1", 3.115);
+    land("#why-k1-t0", 7.185);
+    land("#why-k1-t1", 7.735);
+    land("#why-k2-t0", 9.865);
+    land("#why-k2-t1", 10.415);
+    sweep("#why-k3-m0-0", 15.055);
+    drift("#why-k3-pan", 11.825, 5.82, -61);
+    pop("#why-k4-v", 19.715);
+    land("#why-k4-t0", 20.015);
+    land("#why-k5-title", 22.685);
+    pop("#why-k5-tile0", 23.035);
+    pop("#why-k5-tile1", 23.335);
+    pop("#why-k5-tile2", 23.635);
+    land("#why-k6-t0", 26.585);
+    land("#why-k7-t0", 30.325);
+    land("#why-k7-t1", 32.755);
+    sweep("#why-k8-m0-0", 35.325);
+    drift("#why-k8-pan", 34.925, 2.32, -61);
+    land("#why-k9-t0", 37.545);
+    land("#why-k9-t1", 38.935);
+    land("#why-k10-t0", 42.345);
+    land("#why-k11-t0", 46.485);
+    land("#why-k11-t1", 48.775);
+    window.__timelines["why"] = tl;
+  </script>
+</template>

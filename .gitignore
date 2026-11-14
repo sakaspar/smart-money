@@ -1,0 +1,17 @@
+# Secrets
+.env
+
+# Tooling
+node_modules/
+.hyperframes/
+__pycache__/
+
+# Renders and downloaded media: rebuilt by the pipeline, too large or not ours to redistribute
+*.mp4
+music/
+videos/*/audio/
+videos/*/assets/audio/
+videos/*/assets/stock/*
+!videos/*/assets/stock/sources.json
+voices/*.mp3
+voices/ref/

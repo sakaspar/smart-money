@@ -1,0 +1,3120 @@
+{
+ "music": "mixkit-secret-garden-595.mp3",
+ "sections": {
+  "hook": [
+   {
+    "type": "photo",
+    "src": "stock/group-of-senior-people-1.jpg",
+    "side": "right",
+    "text": [
+     {
+      "style": "small",
+      "text": "This January, nearly"
+     },
+     {
+      "style": "big",
+      "text": "72 million",
+      "at": "72 million"
+     },
+     {
+      "style": "text",
+      "text": "Americans on Social Security",
+      "at": "Americans"
+     }
+    ]
+   },
+   {
+    "at": "get a 3.6%",
+    "type": "article",
+    "src": "shots/ssa-release.png",
+    "view": {
+     "x": 690,
+     "y": 700,
+     "width": 1020
+    },
+    "source": "Social Security Administration · news release · October 14, 2026",
+    "marks": [
+     {
+      "phrase": "3.6 Percent",
+      "boxes": [
+       1
+      ],
+      "at": "3.6%"
+     },
+     {
+      "phrase": "Nearly 72 million"
+     },
+     {
+      "phrase": "beginning in January 2027"
+     }
+    ]
+   },
+   {
+    "at": "But the raise",
+    "type": "tiles",
+    "title": "*4* changes for 2027",
+    "tiles": [
+     "The 3.6% raise",
+     null,
+     null,
+     null
+    ]
+   },
+   {
+    "at": "One of them decides",
+    "type": "photo",
+    "src": "stock/senior-man-working-1.jpg",
+    "side": "right",
+    "text": [
+     {
+      "style": "num",
+      "text": "2"
+     },
+     {
+      "style": "text",
+      "text": "How much you can earn at work",
+      "at": "how much you can earn"
+     },
+     {
+      "style": "small",
+      "text": "before benefits are held back",
+      "at": "before your benefits"
+     }
+    ]
+   },
+   {
+    "at": "Another raises",
+    "type": "photo",
+    "src": "stock/tax-form-calculator-3.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "num",
+      "text": "3"
+     },
+     {
+      "style": "text",
+      "text": "A bigger tax bill for higher earners"
+     }
+    ]
+   },
+   {
+    "at": "And one changes",
+    "type": "photo",
+    "src": "stock/senior-woman-paperwork-4.jpg",
+    "side": "right",
+    "text": [
+     {
+      "style": "num",
+      "text": "4"
+     },
+     {
+      "style": "text",
+      "text": "What it takes to earn a credit",
+      "at": "how much work it takes"
+     },
+     {
+      "style": "small",
+      "text": "toward your Social Security",
+      "at": "Social Security credit"
+     }
+    ]
+   },
+   {
+    "at": "By the end",
+    "type": "photo",
+    "src": "stock/senior-couple-laptop-1.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Which of the four"
+     },
+     {
+      "style": "big",
+      "text": "apply to you?",
+      "at": "you will know"
+     }
+    ]
+   },
+   {
+    "at": "and what to check",
+    "type": "photo",
+    "src": "stock/january-calendar-1.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "What to check"
+     },
+     {
+      "style": "big",
+      "text": "before January",
+      "at": "before January"
+     }
+    ]
+   }
+  ],
+  "change-1": [
+   {
+    "type": "number",
+    "value": "1",
+    "text": [
+     {
+      "style": "statement",
+      "text": "The raise",
+      "at": "The raise"
+     }
+    ]
+   },
+   {
+    "at": "On October 14",
+    "type": "article",
+    "src": "shots/ssa-release.png",
+    "view": {
+     "x": 690,
+     "y": 390,
+     "width": 1020
+    },
+    "source": "Social Security Administration · news release",
+    "marks": [
+     {
+      "phrase": "Wednesday, October 14, 2026",
+      "at": "October 14"
+     }
+    ]
+   },
+   {
+    "at": "announced a 3.6%",
+    "type": "article",
+    "src": "shots/ssa-release.png",
+    "view": {
+     "x": 690,
+     "y": 720,
+     "width": 1020
+    },
+    "source": "Social Security Administration · news release · October 14, 2026",
+    "marks": [
+     {
+      "phrase": "3.6 percent benefit increase for 2027",
+      "boxes": [
+       1,
+       2
+      ],
+      "at": "3.6% increase"
+     }
+    ]
+   },
+   {
+    "at": "On average",
+    "type": "article",
+    "src": "shots/ssa-release.png",
+    "view": {
+     "x": 690,
+     "y": 840,
+     "width": 1020
+    },
+    "source": "Social Security Administration · news release · October 14, 2026",
+    "marks": [
+     {
+      "phrase": "increase by $75 per month",
+      "at": "retirement benefits"
+     }
+    ]
+   },
+   {
+    "at": "by $75 a month",
+    "type": "number",
+    "value": "+$75",
+    "text": [
+     {
+      "style": "text",
+      "text": "a month, on average"
+     }
+    ],
+    "note": "Source: Social Security Administration news release, October 14, 2026"
+   },
+   {
+    "at": "But $75 is",
+    "type": "video",
+    "src": "stock/senior-people-walking-park-3.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "big",
+      "text": "$75"
+     },
+     {
+      "style": "text",
+      "text": "is only an average",
+      "at": "an average"
+     }
+    ]
+   },
+   {
+    "at": "Your raise is",
+    "type": "photo",
+    "src": "stock/senior-woman-paperwork-2.jpg",
+    "side": "right",
+    "text": [
+     {
+      "style": "small",
+      "text": "Your raise is"
+     },
+     {
+      "style": "big",
+      "text": "3.6%",
+      "at": "3.6% of your"
+     },
+     {
+      "style": "text",
+      "text": "of your own benefit",
+      "at": "of your own benefit"
+     }
+    ]
+   },
+   {
+    "at": "If you receive",
+    "type": "video",
+    "src": "stock/calculator-paperwork-hands-3.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "small",
+      "text": "For example"
+     },
+     {
+      "style": "big",
+      "text": "$2,000",
+      "at": "$2,000"
+     },
+     {
+      "style": "text",
+      "text": "a month today",
+      "at": "a month today"
+     }
+    ]
+   },
+   {
+    "at": "that is $72",
+    "type": "number",
+    "value": "+$72",
+    "text": [
+     {
+      "style": "text",
+      "text": "a month, on a $2,000 benefit"
+     }
+    ],
+    "at_value": "$72 more"
+   },
+   {
+    "at": "And that is before",
+    "type": "statement",
+    "text": [
+     {
+      "style": "small",
+      "text": "And that is"
+     },
+     {
+      "text": "before *deductions*",
+      "at": "before deductions"
+     }
+    ]
+   },
+   {
+    "at": "Your notice lists",
+    "type": "article",
+    "src": "shots/ssa-release.png",
+    "view": {
+     "x": 690,
+     "y": 1690,
+     "width": 1020
+    },
+    "source": "Social Security Administration · news release",
+    "marks": [
+     {
+      "phrase": "any deductions",
+      "at": "any deductions"
+     }
+    ]
+   },
+   {
+    "at": "and for people on Medicare",
+    "type": "article",
+    "src": "shots/ssa-release.png",
+    "view": {
+     "x": 690,
+     "y": 1840,
+     "width": 1020
+    },
+    "source": "Social Security Administration · news release",
+    "marks": [
+     {
+      "phrase": "the 2027 premium amount",
+      "at": "2027 premium"
+     }
+    ]
+   },
+   {
+    "at": "arrives in the same",
+    "type": "video",
+    "src": "stock/senior-using-laptop-3.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Medicare premium for 2027:"
+     },
+     {
+      "style": "big",
+      "text": "same place",
+      "at": "same place"
+     }
+    ]
+   },
+   {
+    "at": "So the number",
+    "type": "statement",
+    "text": [
+     {
+      "style": "small",
+      "text": "The number that matters is"
+     },
+     {
+      "text": "not *3.6%*",
+      "at": "not 3.6%"
+     }
+    ]
+   },
+   {
+    "at": "It is the dollar",
+    "type": "photo",
+    "src": "stock/elderly-man-reading-document-3.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "small",
+      "text": "It is the"
+     },
+     {
+      "style": "big",
+      "text": "dollar amount",
+      "at": "dollar amount"
+     },
+     {
+      "style": "text",
+      "text": "on your own notice",
+      "at": "on your own notice"
+     }
+    ]
+   },
+   {
+    "at": "Here is what",
+    "type": "statement",
+    "text": [
+     {
+      "text": "What to *check*"
+     }
+    ]
+   },
+   {
+    "at": "Social Security sends",
+    "type": "photo",
+    "src": "stock/senior-reading-letter-1.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "small",
+      "text": "Every beneficiary gets"
+     },
+     {
+      "style": "big",
+      "text": "a one-page notice",
+      "at": "one-page notice"
+     }
+    ]
+   },
+   {
+    "at": "with the exact",
+    "type": "article",
+    "src": "shots/ssa-release.png",
+    "view": {
+     "x": 690,
+     "y": 1690,
+     "width": 1020
+    },
+    "source": "Social Security Administration · news release",
+    "marks": [
+     {
+      "phrase": "one-page COLA notice"
+     },
+     {
+      "phrase": "exact dates and dollar amounts",
+      "at": "exact dates"
+     }
+    ]
+   },
+   {
+    "at": "People who enrolled",
+    "type": "article",
+    "src": "shots/ssa-release.png",
+    "view": {
+     "x": 690,
+     "y": 1420,
+     "width": 1020
+    },
+    "source": "Social Security Administration · news release",
+    "marks": [
+     {
+      "phrase": "enroll in paperless notices by November 18",
+      "at": "paperless notices"
+     }
+    ]
+   },
+   {
+    "at": "see it online",
+    "type": "video",
+    "src": "stock/senior-using-laptop-2.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Online first"
+     },
+     {
+      "style": "big",
+      "text": "late November",
+      "at": "late November"
+     }
+    ]
+   },
+   {
+    "at": "That is up to",
+    "type": "number",
+    "value": "3 weeks",
+    "at_value": "three weeks",
+    "text": [
+     {
+      "style": "text",
+      "text": "before the paper copy",
+      "at": "before the paper"
+     }
+    ],
+    "note": "Source: Social Security Administration news release, October 14, 2026"
+   },
+   {
+    "at": "Everyone else",
+    "type": "video",
+    "src": "stock/opening-mailbox-letters-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Everyone else: by mail"
+     },
+     {
+      "style": "big",
+      "text": "in December",
+      "at": "in December"
+     }
+    ]
+   },
+   {
+    "at": "When it arrives",
+    "type": "video",
+    "src": "stock/senior-people-walking-park-2.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "small",
+      "text": "When it arrives, read the"
+     },
+     {
+      "style": "big",
+      "text": "dollar amount",
+      "at": "dollar amount"
+     },
+     {
+      "style": "text",
+      "text": "not the percentage",
+      "at": "not the percentage"
+     }
+    ]
+   }
+  ],
+  "change-2": [
+   {
+    "type": "number",
+    "value": "2",
+    "text": [
+     {
+      "style": "statement",
+      "text": "Working while you collect",
+      "at": "Working while"
+     }
+    ]
+   },
+   {
+    "at": "If you take Social Security",
+    "type": "video",
+    "src": "stock/senior-woman-working-shop-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "small",
+      "text": "Collecting benefits"
+     },
+     {
+      "style": "big",
+      "text": "and still working"
+     }
+    ]
+   },
+   {
+    "at": "there is a limit",
+    "type": "photo",
+    "src": "stock/pay-stub-paycheck-1.jpg",
+    "side": "right",
+    "text": [
+     {
+      "style": "text",
+      "text": "A limit on what you can earn"
+     }
+    ]
+   },
+   {
+    "at": "Go over it",
+    "type": "video",
+    "src": "stock/counting-money-cash-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Go over the limit"
+     },
+     {
+      "style": "big",
+      "text": "benefits held back",
+      "at": "holds back"
+     }
+    ]
+   },
+   {
+    "at": "The rule is called",
+    "type": "statement",
+    "text": [
+     {
+      "style": "small",
+      "text": "The rule is called the"
+     },
+     {
+      "style": "statement",
+      "text": "*retirement earnings test*",
+      "at": "retirement earnings test"
+     }
+    ]
+   },
+   {
+    "at": "In 2027, the limit",
+    "type": "article",
+    "src": "shots/federal-register.png",
+    "view": {
+     "x": 0,
+     "y": 230,
+     "width": 1100
+    },
+    "source": "Federal Register · October 26, 2026 · Social Security Administration",
+    "marks": [
+     {
+      "phrase": "Cost-of-Living Increase and Other Determinations for 2027"
+     }
+    ]
+   },
+   {
+    "at": "First, what is",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "What is *full retirement age*?"
+     }
+    ]
+   },
+   {
+    "at": "It depends on the year",
+    "type": "video",
+    "src": "stock/birthday-cake-candles-senior-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "It depends on the year you were born"
+     }
+    ]
+   },
+   {
+    "at": "If you were born in 1959",
+    "type": "number",
+    "value": "66 and 10 months",
+    "text": [
+     {
+      "style": "text",
+      "text": "if you were born in 1959"
+     }
+    ],
+    "note": "Source: 20 CFR 404.409",
+    "at_value": "66 and 10"
+   },
+   {
+    "at": "If you were born in 1960",
+    "type": "number",
+    "value": "67",
+    "text": [
+     {
+      "style": "text",
+      "text": "if you were born in 1960 or later"
+     }
+    ],
+    "note": "Source: 20 CFR 404.409",
+    "at_value": "it is 67"
+   },
+   {
+    "at": "There are two limits",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "*Two* limits"
+     },
+     {
+      "style": "small",
+      "text": "Which one you get depends on your age",
+      "at": "depends on where"
+     }
+    ]
+   },
+   {
+    "at": "The first limit",
+    "type": "photo",
+    "src": "stock/senior-man-working-4.jpg",
+    "side": "right",
+    "text": [
+     {
+      "style": "num",
+      "text": "1"
+     },
+     {
+      "style": "text",
+      "text": "Under full retirement age for the whole year"
+     }
+    ]
+   },
+   {
+    "at": "for the whole year",
+    "type": "video",
+    "src": "stock/senior-cashier-store-2.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "for the whole year"
+     }
+    ]
+   },
+   {
+    "at": "In 2026, that limit",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "The limit in *2026*"
+     }
+    ]
+   },
+   {
+    "at": "is $24,480",
+    "type": "number",
+    "value": "$24,480",
+    "text": [
+     {
+      "style": "text",
+      "text": "in 2026"
+     }
+    ]
+   },
+   {
+    "at": "In 2027, it rises",
+    "type": "article",
+    "src": "shots/federal-register.png",
+    "view": {
+     "x": 0,
+     "y": 9800,
+     "width": 1100
+    },
+    "source": "Federal Register · October 26, 2026 · Social Security Administration",
+    "marks": [
+     {
+      "phrase": "The lower annual exempt amount is $25,560",
+      "at": "$25,560"
+     }
+    ]
+   },
+   {
+    "at": "That is $2,130",
+    "type": "number",
+    "value": "$2,130",
+    "text": [
+     {
+      "style": "text",
+      "text": "a month"
+     }
+    ],
+    "note": "Source: Federal Register, October 26, 2026"
+   },
+   {
+    "at": "Above that line",
+    "type": "article",
+    "src": "shots/federal-register.png",
+    "view": {
+     "x": 0,
+     "y": 9250,
+     "width": 1100
+    },
+    "source": "Federal Register · October 26, 2026 · Social Security Administration",
+    "marks": [
+     {
+      "phrase": "$1 in benefits for every $2 of earnings",
+      "at": "withholds $1"
+     }
+    ]
+   },
+   {
+    "at": "for every $2",
+    "type": "number",
+    "value": "$1 of every $2",
+    "text": [
+     {
+      "style": "text",
+      "text": "earned over the limit is withheld"
+     }
+    ],
+    "note": "Source: Federal Register, October 26, 2026"
+   },
+   {
+    "at": "Here is an example",
+    "type": "photo",
+    "src": "stock/senior-worker-hardware-store-2.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "small",
+      "text": "Example"
+     },
+     {
+      "style": "big",
+      "text": "Age 63",
+      "at": "You are 63"
+     },
+     {
+      "style": "text",
+      "text": "collecting benefits and working",
+      "at": "you collect benefits"
+     }
+    ]
+   },
+   {
+    "at": "and you earn $35,560",
+    "type": "number",
+    "value": "$35,560",
+    "text": [
+     {
+      "style": "text",
+      "text": "earned at work in 2027"
+     }
+    ],
+    "at_value": "$35,560"
+   },
+   {
+    "at": "That is $10,000",
+    "type": "video",
+    "src": "stock/accountant-calculator-laptop-2.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "big",
+      "text": "$10,000"
+     },
+     {
+      "style": "text",
+      "text": "over the limit"
+     }
+    ]
+   },
+   {
+    "at": "Half of it",
+    "type": "number",
+    "value": "$5,000",
+    "text": [
+     {
+      "style": "text",
+      "text": "held back from benefits"
+     }
+    ],
+    "at_value": "$5,000"
+   },
+   {
+    "at": "The second limit",
+    "type": "photo",
+    "src": "stock/senior-couple-planning-finances-3.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "num",
+      "text": "2"
+     },
+     {
+      "style": "text",
+      "text": "The year you reach full retirement age"
+     }
+    ]
+   },
+   {
+    "at": "If you were born in 1960, that year",
+    "type": "video",
+    "src": "stock/calendar-pages-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "small",
+      "text": "Born in 1960?"
+     },
+     {
+      "style": "big",
+      "text": "That year is 2027",
+      "at": "that year is 2027"
+     }
+    ]
+   },
+   {
+    "at": "For that year",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "A much *higher* limit"
+     }
+    ]
+   },
+   {
+    "at": "It rises from $65,160",
+    "type": "article",
+    "src": "shots/federal-register.png",
+    "view": {
+     "x": 0,
+     "y": 10020,
+     "width": 1100
+    },
+    "source": "Federal Register · October 26, 2026 · Social Security Administration",
+    "marks": [
+     {
+      "phrase": "The higher annual exempt amount is $67,920",
+      "at": "$67,920"
+     }
+    ]
+   },
+   {
+    "at": "to $67,920",
+    "type": "number",
+    "value": "$67,920",
+    "text": [
+     {
+      "style": "text",
+      "text": "the limit in that year"
+     }
+    ],
+    "note": "Source: Federal Register, October 26, 2026"
+   },
+   {
+    "at": "And the rate is gentler",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "A *gentler* rate"
+     }
+    ]
+   },
+   {
+    "at": "Social Security withholds $1 for every $3",
+    "type": "article",
+    "src": "shots/federal-register.png",
+    "view": {
+     "x": 0,
+     "y": 9250,
+     "width": 1100
+    },
+    "source": "Federal Register · October 26, 2026 · Social Security Administration",
+    "marks": [
+     {
+      "phrase": "benefits for every $3 of earnings"
+     }
+    ]
+   },
+   {
+    "at": "Another example",
+    "type": "photo",
+    "src": "stock/calendar-september-3.jpg",
+    "side": "right",
+    "text": [
+     {
+      "style": "small",
+      "text": "Example"
+     },
+     {
+      "style": "big",
+      "text": "67 in September",
+      "at": "You turn 67"
+     },
+     {
+      "style": "text",
+      "text": "2027"
+     }
+    ]
+   },
+   {
+    "at": "From January to August",
+    "type": "number",
+    "value": "$73,920",
+    "text": [
+     {
+      "style": "text",
+      "text": "earned from January to August"
+     }
+    ],
+    "at_value": "$73,920"
+   },
+   {
+    "at": "That is $6,000",
+    "type": "video",
+    "src": "stock/calculator-paperwork-hands-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "big",
+      "text": "$6,000"
+     },
+     {
+      "style": "text",
+      "text": "over the limit"
+     }
+    ]
+   },
+   {
+    "at": "so $2,000",
+    "type": "number",
+    "value": "$2,000",
+    "text": [
+     {
+      "style": "text",
+      "text": "held back"
+     }
+    ]
+   },
+   {
+    "at": "Two details",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "*Two* details"
+     }
+    ]
+   },
+   {
+    "at": "Only the months",
+    "type": "photo",
+    "src": "stock/january-calendar-2.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Only the months before full retirement age count"
+     }
+    ]
+   },
+   {
+    "at": "And from the month",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "After that: *no limit*"
+     },
+     {
+      "style": "small",
+      "text": "Source: 20 CFR 404.435"
+     }
+    ]
+   },
+   {
+    "at": "You can earn any amount",
+    "type": "video",
+    "src": "stock/senior-man-working-office-2.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Earn any amount"
+     },
+     {
+      "style": "big",
+      "text": "nothing held back",
+      "at": "nothing is held back"
+     }
+    ]
+   },
+   {
+    "at": "Now, what counts",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "What counts as *earnings*?"
+     }
+    ]
+   },
+   {
+    "at": "It is your wages",
+    "type": "video",
+    "src": "stock/senior-cashier-store-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "big",
+      "text": "Wages"
+     },
+     {
+      "style": "text",
+      "text": "from a job"
+     }
+    ]
+   },
+   {
+    "at": "plus your net earnings",
+    "type": "video",
+    "src": "stock/senior-craftsman-workshop-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "plus net earnings from"
+     },
+     {
+      "style": "big",
+      "text": "self-employment",
+      "at": "self-employment"
+     }
+    ]
+   },
+   {
+    "at": "The test looks",
+    "type": "photo",
+    "src": "stock/senior-business-owner-1.jpg",
+    "side": "right",
+    "text": [
+     {
+      "style": "text",
+      "text": "Money you earn by working"
+     },
+     {
+      "style": "small",
+      "text": "Source: 20 CFR 404.429"
+     }
+    ]
+   },
+   {
+    "at": "There is also a rule",
+    "type": "photo",
+    "src": "stock/retired-man-fishing-1.jpg",
+    "side": "right",
+    "text": [
+     {
+      "style": "text",
+      "text": "A special rule for your first year"
+     }
+    ]
+   },
+   {
+    "at": "The regulation calls it",
+    "type": "statement",
+    "text": [
+     {
+      "style": "small",
+      "text": "The regulation calls it"
+     },
+     {
+      "style": "statement",
+      "text": "a *grace year*",
+      "at": "grace year"
+     }
+    ]
+   },
+   {
+    "at": "In that year",
+    "type": "video",
+    "src": "stock/senior-couple-kitchen-table-paperwork-2.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Benefits are judged"
+     },
+     {
+      "style": "big",
+      "text": "month by month"
+     }
+    ]
+   },
+   {
+    "at": "for any month in which",
+    "type": "number",
+    "value": "$2,130",
+    "text": [
+     {
+      "style": "text",
+      "text": "wages under the monthly limit"
+     }
+    ]
+   },
+   {
+    "at": "and you are not working",
+    "type": "photo",
+    "src": "stock/senior-man-thinking-window-2.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "and no work in your own business"
+     }
+    ]
+   },
+   {
+    "at": "What you earned earlier",
+    "type": "video",
+    "src": "stock/calendar-pages-2.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Earlier months do not matter"
+     },
+     {
+      "style": "small",
+      "text": "Source: 20 CFR 404.435"
+     }
+    ]
+   },
+   {
+    "at": "So if you retire",
+    "type": "photo",
+    "src": "stock/retired-man-fishing-2.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Retiring in the middle of 2027?"
+     }
+    ]
+   },
+   {
+    "at": "the figure to watch",
+    "type": "number",
+    "value": "$2,130",
+    "text": [
+     {
+      "style": "text",
+      "text": "a month: the figure to watch"
+     }
+    ]
+   },
+   {
+    "at": "And here is the part",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "The part many people *miss*"
+     }
+    ]
+   },
+   {
+    "at": "Money held back",
+    "type": "video",
+    "src": "stock/piggy-bank-coins-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Money held back"
+     },
+     {
+      "style": "big",
+      "text": "is not gone",
+      "at": "not simply gone"
+     }
+    ]
+   },
+   {
+    "at": "Under the regulations",
+    "type": "photo",
+    "src": "stock/senior-woman-paperwork-3.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Withheld months are not counted"
+     }
+    ]
+   },
+   {
+    "at": "when Social Security works out",
+    "type": "photo",
+    "src": "stock/tax-form-calculator-1.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "in your reduction for claiming early"
+     },
+     {
+      "style": "small",
+      "text": "Source: 20 CFR 404.412"
+     }
+    ]
+   },
+   {
+    "at": "When you reach full retirement age, the adjustment",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "The adjustment is *automatic*"
+     }
+    ]
+   },
+   {
+    "at": "and your benefit goes up",
+    "type": "video",
+    "src": "stock/senior-people-walking-park-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Your benefit goes up"
+     },
+     {
+      "style": "big",
+      "text": "from that month"
+     }
+    ]
+   },
+   {
+    "at": "One more thing",
+    "type": "photo",
+    "src": "stock/senior-couple-laptop-3.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "small",
+      "text": "One more thing"
+     },
+     {
+      "style": "text",
+      "text": "A spouse or child on your record",
+      "at": "If your spouse"
+     }
+    ]
+   },
+   {
+    "at": "your extra earnings",
+    "type": "video",
+    "src": "stock/grandmother-with-grandchild-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Your extra earnings can reduce their benefits too"
+     },
+     {
+      "style": "small",
+      "text": "Source: 20 CFR 404.415"
+     }
+    ]
+   },
+   {
+    "at": "So what should you check",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "What to *check*"
+     }
+    ]
+   },
+   {
+    "at": "First, find out",
+    "type": "tiles",
+    "title": "Which limit applies to you?",
+    "tiles": [
+     "$25,560",
+     "$67,920",
+     "None"
+    ]
+   },
+   {
+    "at": "$25,560, $67,920",
+    "type": "number",
+    "value": "$25,560",
+    "text": [
+     {
+      "style": "text",
+      "text": "under full retirement age all year"
+     }
+    ]
+   },
+   {
+    "at": "$67,920, or none",
+    "type": "number",
+    "value": "$67,920",
+    "text": [
+     {
+      "style": "text",
+      "text": "the year you reach it"
+     }
+    ]
+   },
+   {
+    "at": "Second, estimate",
+    "type": "video",
+    "src": "stock/writing-checklist-notebook-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "num",
+      "text": "2"
+     },
+     {
+      "style": "text",
+      "text": "Estimate next year's earnings"
+     }
+    ]
+   },
+   {
+    "at": "Third, if that estimate",
+    "type": "video",
+    "src": "stock/senior-phone-call-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "num",
+      "text": "3"
+     },
+     {
+      "style": "text",
+      "text": "If it changed, tell Social Security"
+     }
+    ]
+   },
+   {
+    "at": "The agency withholds",
+    "type": "photo",
+    "src": "stock/elderly-man-reading-document-1.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Withholding starts in January"
+     },
+     {
+      "style": "small",
+      "text": "based on your estimate · 20 CFR 404.434"
+     }
+    ]
+   },
+   {
+    "at": "starting from the beginning",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "From the *beginning* of the year"
+     }
+    ]
+   },
+   {
+    "at": "A good estimate",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "A good estimate avoids *surprises*"
+     }
+    ]
+   }
+  ],
+  "change-3": [
+   {
+    "type": "number",
+    "value": "3",
+    "text": [
+     {
+      "style": "statement",
+      "text": "The tax cap",
+      "at": "The tax cap"
+     }
+    ]
+   },
+   {
+    "at": "This one affects",
+    "type": "video",
+    "src": "stock/office-meeting-business-people-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Still working"
+     },
+     {
+      "style": "big",
+      "text": "high income",
+      "at": "high income"
+     }
+    ]
+   },
+   {
+    "at": "Social Security tax is not",
+    "type": "photo",
+    "src": "stock/dollar-bills-money-1.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Not every dollar is taxed"
+     }
+    ]
+   },
+   {
+    "at": "It stops at a ceiling",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "It stops at a *ceiling*"
+     }
+    ]
+   },
+   {
+    "at": "The official name",
+    "type": "article",
+    "src": "shots/federal-register.png",
+    "view": {
+     "x": 0,
+     "y": 1200,
+     "width": 1100
+    },
+    "source": "Federal Register · October 26, 2026 · Social Security Administration",
+    "marks": [
+     {
+      "phrase": "contribution and benefit base will be $192,300"
+     }
+    ]
+   },
+   {
+    "at": "In 2026, that ceiling",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "The ceiling in *2026*"
+     }
+    ]
+   },
+   {
+    "at": "is $184,500",
+    "type": "number",
+    "value": "$184,500",
+    "text": [
+     {
+      "style": "text",
+      "text": "in 2026"
+     }
+    ]
+   },
+   {
+    "at": "In 2027, it rises",
+    "type": "article",
+    "src": "shots/federal-register.png",
+    "view": {
+     "x": 0,
+     "y": 8800,
+     "width": 1100
+    },
+    "source": "Federal Register · October 26, 2026 · Social Security Administration",
+    "marks": [
+     {
+      "phrase": "base amount of $184,500"
+     }
+    ]
+   },
+   {
+    "at": "That is $7,800",
+    "type": "number",
+    "value": "+$7,800",
+    "text": [
+     {
+      "style": "text",
+      "text": "more of your pay can be taxed"
+     }
+    ],
+    "note": "Source: Federal Register, October 26, 2026"
+   },
+   {
+    "at": "The rate, according",
+    "type": "article",
+    "src": "shots/irs-751.png",
+    "view": {
+     "x": 600,
+     "y": 560,
+     "width": 1500
+    },
+    "source": "Internal Revenue Service · Topic no. 751",
+    "marks": [
+     {
+      "phrase": "6.2% for the employer and 6.2% for the employee"
+     }
+    ]
+   },
+   {
+    "at": "6.2% for the employee",
+    "type": "number",
+    "value": "6.2%",
+    "text": [
+     {
+      "style": "text",
+      "text": "from the employee, and 6.2% from the employer"
+     }
+    ],
+    "note": "Source: IRS Topic no. 751"
+   },
+   {
+    "at": "So let us do the math",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "The *math*"
+     }
+    ]
+   },
+   {
+    "at": "At $184,500",
+    "type": "photo",
+    "src": "stock/dollar-bills-money-2.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "At a pay of"
+     },
+     {
+      "style": "big",
+      "text": "$184,500"
+     }
+    ]
+   },
+   {
+    "at": "the most an employee pays",
+    "type": "number",
+    "value": "$11,439",
+    "text": [
+     {
+      "style": "text",
+      "text": "the most an employee pays in 2026"
+     }
+    ],
+    "at_value": "$11,439"
+   },
+   {
+    "at": "At $192,300",
+    "type": "video",
+    "src": "stock/accountant-calculator-laptop-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "At a pay of"
+     },
+     {
+      "style": "big",
+      "text": "$192,300"
+     }
+    ]
+   },
+   {
+    "at": "it is $11,922.60",
+    "type": "number",
+    "value": "$11,922.60",
+    "text": [
+     {
+      "style": "text",
+      "text": "the most in 2027"
+     }
+    ]
+   },
+   {
+    "at": "That is $483.60",
+    "type": "number",
+    "value": "+$483.60",
+    "text": [
+     {
+      "style": "text",
+      "text": "more in 2027"
+     }
+    ]
+   },
+   {
+    "at": "for someone who earns",
+    "type": "photo",
+    "src": "stock/employer-office-building-3.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "for earnings at or above the new ceiling"
+     }
+    ]
+   },
+   {
+    "at": "Two quick examples",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "Two *examples*"
+     }
+    ]
+   },
+   {
+    "at": "If you earn $150,000",
+    "type": "video",
+    "src": "stock/senior-man-working-office-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "big",
+      "text": "$150,000"
+     },
+     {
+      "style": "text",
+      "text": "nothing changes",
+      "at": "nothing changes"
+     }
+    ]
+   },
+   {
+    "at": "You were already under",
+    "type": "photo",
+    "src": "stock/senior-man-working-3.jpg",
+    "side": "right",
+    "text": [
+     {
+      "style": "text",
+      "text": "Already under the ceiling"
+     }
+    ]
+   },
+   {
+    "at": "If you earn $250,000",
+    "type": "video",
+    "src": "stock/office-meeting-business-people-2.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Earning"
+     },
+     {
+      "style": "big",
+      "text": "$250,000"
+     }
+    ]
+   },
+   {
+    "at": "you pay the full",
+    "type": "number",
+    "value": "+$483.60",
+    "text": [
+     {
+      "style": "text",
+      "text": "the full increase"
+     }
+    ]
+   },
+   {
+    "at": "There is a second side",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "A *second* side"
+     }
+    ]
+   },
+   {
+    "at": "The same number is also",
+    "type": "article",
+    "src": "shots/federal-register.png",
+    "view": {
+     "x": 0,
+     "y": 8420,
+     "width": 1100
+    },
+    "source": "Federal Register · October 26, 2026 · Social Security Administration",
+    "marks": [
+     {
+      "phrase": "also the maximum annual earnings used in determining"
+     }
+    ]
+   },
+   {
+    "at": "when it works out your benefit",
+    "type": "photo",
+    "src": "stock/senior-woman-paperwork-1.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "when your benefit is worked out"
+     }
+    ]
+   },
+   {
+    "at": "So a higher ceiling",
+    "type": "photo",
+    "src": "stock/senior-couple-planning-finances-1.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "High earners pay more in"
+     }
+    ]
+   },
+   {
+    "at": "and also have more earnings",
+    "type": "video",
+    "src": "stock/senior-people-walking-park-3.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "More earnings counted"
+     },
+     {
+      "style": "big",
+      "text": "toward the benefit"
+     }
+    ]
+   },
+   {
+    "at": "Here is what to check",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "What to *check*"
+     }
+    ]
+   },
+   {
+    "at": "If you have one employer",
+    "type": "photo",
+    "src": "stock/handshake-office-1.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "One employer"
+     },
+     {
+      "style": "small",
+      "text": "payroll handles it",
+      "at": "your payroll"
+     }
+    ]
+   },
+   {
+    "at": "The Social Security line",
+    "type": "photo",
+    "src": "stock/pay-stub-paycheck-3.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "The Social Security line on your pay stub"
+     }
+    ]
+   },
+   {
+    "at": "once you pass $192,300",
+    "type": "number",
+    "value": "$192,300",
+    "text": [
+     {
+      "style": "text",
+      "text": "where that line should stop"
+     }
+    ]
+   },
+   {
+    "at": "If you have two or more",
+    "type": "photo",
+    "src": "stock/employer-office-building-2.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Two or more employers?"
+     },
+     {
+      "style": "big",
+      "text": "Look closer",
+      "at": "look closer"
+     }
+    ]
+   },
+   {
+    "at": "The IRS says",
+    "type": "article",
+    "src": "shots/irs-608.png",
+    "view": {
+     "x": 780,
+     "y": 980,
+     "width": 1300
+    },
+    "source": "Internal Revenue Service · Topic no. 608",
+    "marks": [
+     {
+      "phrase": "more than one employer",
+      "boxes": [
+       1
+      ]
+     }
+    ]
+   },
+   {
+    "at": "the total withheld",
+    "type": "photo",
+    "src": "stock/tax-form-calculator-2.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "The total withheld can pass the maximum"
+     }
+    ]
+   },
+   {
+    "at": "In that case",
+    "type": "article",
+    "src": "shots/irs-608.png",
+    "view": {
+     "x": 780,
+     "y": 1000,
+     "width": 1300
+    },
+    "source": "Internal Revenue Service · Topic no. 608",
+    "marks": [
+     {
+      "phrase": "claim the excess as a credit against your income tax",
+      "boxes": [
+       1,
+       2
+      ]
+     }
+    ]
+   },
+   {
+    "at": "on your income tax return",
+    "type": "photo",
+    "src": "stock/tax-form-calculator-4.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "A credit on your tax return"
+     }
+    ]
+   },
+   {
+    "at": "So keep every W-2",
+    "type": "video",
+    "src": "stock/signing-tax-form-2.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Keep every"
+     },
+     {
+      "style": "big",
+      "text": "W-2"
+     }
+    ]
+   }
+  ],
+  "change-4": [
+   {
+    "type": "number",
+    "value": "4",
+    "text": [
+     {
+      "style": "statement",
+      "text": "The work credit",
+      "at": "The work credit"
+     }
+    ]
+   },
+   {
+    "at": "To receive retirement",
+    "type": "video",
+    "src": "stock/senior-cashier-store-2.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "You need enough"
+     },
+     {
+      "style": "big",
+      "text": "work credits",
+      "at": "work credits"
+     }
+    ]
+   },
+   {
+    "at": "Social Security calls them",
+    "type": "statement",
+    "text": [
+     {
+      "style": "small",
+      "text": "The official name"
+     },
+     {
+      "style": "statement",
+      "text": "*quarters of coverage*",
+      "at": "quarters of coverage"
+     }
+    ]
+   },
+   {
+    "at": "You earn them by working",
+    "type": "video",
+    "src": "stock/senior-craftsman-workshop-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Earned by working and paying in"
+     }
+    ]
+   },
+   {
+    "at": "In 2026, you need",
+    "type": "article",
+    "src": "shots/federal-register.png",
+    "view": {
+     "x": 0,
+     "y": 13130,
+     "width": 1100
+    },
+    "source": "Federal Register · October 26, 2026 · Social Security Administration",
+    "marks": [
+     {
+      "phrase": "current amount of $1,890",
+      "at": "$1,890"
+     }
+    ]
+   },
+   {
+    "at": "$1,890 in earnings",
+    "type": "number",
+    "value": "$1,890",
+    "text": [
+     {
+      "style": "text",
+      "text": "for one credit in 2026"
+     }
+    ]
+   },
+   {
+    "at": "In 2027, it takes",
+    "type": "number",
+    "value": "$1,970",
+    "text": [
+     {
+      "style": "text",
+      "text": "for one credit in 2027"
+     }
+    ],
+    "note": "Source: Federal Register, October 26, 2026",
+    "at_value": "$1,970"
+   },
+   {
+    "at": "You can earn at most",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "At most *four* credits a year"
+     }
+    ]
+   },
+   {
+    "at": "no matter how much",
+    "type": "video",
+    "src": "stock/counting-money-cash-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "no matter how much you make"
+     },
+     {
+      "style": "small",
+      "text": "Source: 20 CFR 404.143"
+     }
+    ]
+   },
+   {
+    "at": "So for a full year",
+    "type": "video",
+    "src": "stock/calendar-pages-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "A full year of credits in 2027"
+     }
+    ]
+   },
+   {
+    "at": "you need $7,880",
+    "type": "number",
+    "value": "$7,880",
+    "text": [
+     {
+      "style": "text",
+      "text": "in earnings, for all four credits"
+     }
+    ]
+   },
+   {
+    "at": "That is $320",
+    "type": "number",
+    "value": "+$320",
+    "text": [
+     {
+      "style": "text",
+      "text": "more than this year"
+     }
+    ]
+   },
+   {
+    "at": "How many do you need",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "How many do you *need*?"
+     }
+    ]
+   },
+   {
+    "at": "For anyone reaching 62",
+    "type": "number",
+    "value": "40",
+    "text": [
+     {
+      "style": "text",
+      "text": "credits, for anyone reaching 62 now"
+     }
+    ],
+    "note": "Source: 20 CFR 404.110",
+    "at_value": "40 credits"
+   },
+   {
+    "at": "At four a year",
+    "type": "video",
+    "src": "stock/senior-man-working-office-2.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "big",
+      "text": "10 years"
+     },
+     {
+      "style": "text",
+      "text": "of work"
+     }
+    ]
+   },
+   {
+    "at": "Who should care",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "Who should *care*?"
+     }
+    ]
+   },
+   {
+    "at": "Most people who worked",
+    "type": "video",
+    "src": "stock/senior-people-walking-park-2.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Worked full time for decades?"
+     },
+     {
+      "style": "big",
+      "text": "Already past 40",
+      "at": "passed 40"
+     }
+    ]
+   },
+   {
+    "at": "For them, this change",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "For them, *nothing* changes"
+     }
+    ]
+   },
+   {
+    "at": "But it matters",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "But it matters for *some*"
+     }
+    ]
+   },
+   {
+    "at": "If you spent years out",
+    "type": "photo",
+    "src": "stock/mother-with-children-home-1.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Years out of paid work"
+     },
+     {
+      "style": "small",
+      "text": "raising children",
+      "at": "raising children"
+     }
+    ]
+   },
+   {
+    "at": "or caring for a parent",
+    "type": "video",
+    "src": "stock/caring-for-elderly-parent-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "or caring for a parent"
+     }
+    ]
+   },
+   {
+    "at": "If you worked in a job",
+    "type": "photo",
+    "src": "stock/senior-man-working-2.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "A job that did not pay into Social Security"
+     }
+    ]
+   },
+   {
+    "at": "If you came to the United States",
+    "type": "video",
+    "src": "stock/family-arriving-airport-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Came to the United States later in life"
+     }
+    ]
+   },
+   {
+    "at": "Here is how the math",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "How the *math* works"
+     }
+    ]
+   },
+   {
+    "at": "With 36 credits",
+    "type": "number",
+    "value": "36",
+    "text": [
+     {
+      "style": "text",
+      "text": "credits: you need four more"
+     }
+    ],
+    "at_value": "36 credits"
+   },
+   {
+    "at": "That is one year",
+    "type": "number",
+    "value": "$7,880",
+    "text": [
+     {
+      "style": "text",
+      "text": "one year of earnings"
+     }
+    ]
+   },
+   {
+    "at": "With 30 credits",
+    "type": "number",
+    "value": "30",
+    "text": [
+     {
+      "style": "text",
+      "text": "credits: you need ten more"
+     }
+    ],
+    "at_value": "30 credits"
+   },
+   {
+    "at": "That is two and a half",
+    "type": "video",
+    "src": "stock/calendar-pages-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "big",
+      "text": "2½ years"
+     },
+     {
+      "style": "text",
+      "text": "of work"
+     }
+    ]
+   },
+   {
+    "at": "And the credit is based",
+    "type": "photo",
+    "src": "stock/january-calendar-1.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Based on the year's earnings"
+     },
+     {
+      "style": "small",
+      "text": "not on which months you worked",
+      "at": "not on which months"
+     }
+    ]
+   },
+   {
+    "at": "Earn $7,880 in 2027",
+    "type": "video",
+    "src": "stock/senior-woman-working-shop-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "big",
+      "text": "$7,880"
+     },
+     {
+      "style": "text",
+      "text": "even in a few months: all four credits",
+      "at": "even in a few"
+     }
+    ]
+   },
+   {
+    "at": "and you get all four",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "All *four* credits"
+     }
+    ]
+   },
+   {
+    "at": "Self-employment counts",
+    "type": "photo",
+    "src": "stock/senior-business-owner-1.jpg",
+    "side": "right",
+    "text": [
+     {
+      "style": "text",
+      "text": "Self-employment counts too"
+     },
+     {
+      "style": "small",
+      "text": "if the income is reported"
+     }
+    ]
+   },
+   {
+    "at": "Here is what to check",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "What to *check*"
+     }
+    ]
+   },
+   {
+    "at": "Sign in to your",
+    "type": "video",
+    "src": "stock/senior-using-laptop-3.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "my Social Security account"
+     },
+     {
+      "style": "big",
+      "text": "earnings record",
+      "at": "earnings record"
+     }
+    ]
+   },
+   {
+    "at": "Count your credits",
+    "type": "photo",
+    "src": "stock/checklist-clipboard-pen-3.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Count your credits"
+     }
+    ]
+   },
+   {
+    "at": "Then look at each year",
+    "type": "photo",
+    "src": "stock/senior-woman-laptop-home-2.jpg",
+    "side": "right",
+    "text": [
+     {
+      "style": "text",
+      "text": "Check each year for mistakes"
+     }
+    ]
+   },
+   {
+    "at": "A missing year",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "A missing year can mean *missing credits*"
+     }
+    ]
+   }
+  ],
+  "who": [
+   {
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "Which apply to *you*?"
+     }
+    ]
+   },
+   {
+    "at": "It depends on your situation",
+    "type": "tiles",
+    "title": "Four common situations",
+    "tiles": [
+     "Retired, not working",
+     "Collecting and working",
+     "Working, high salary",
+     "Short work history"
+    ]
+   },
+   {
+    "at": "You are retired",
+    "type": "photo",
+    "src": "stock/retired-man-fishing-1.jpg",
+    "side": "right",
+    "text": [
+     {
+      "style": "small",
+      "text": "Situation 1"
+     },
+     {
+      "style": "text",
+      "text": "Retired, collecting, not working"
+     }
+    ]
+   },
+   {
+    "at": "Only the first change",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "Only change *1*"
+     },
+     {
+      "style": "small",
+      "text": "Read your notice when it arrives",
+      "at": "Read your notice"
+     }
+    ]
+   },
+   {
+    "at": "You collect Social Security and you still work",
+    "type": "video",
+    "src": "stock/senior-cashier-store-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "small",
+      "text": "Situation 2"
+     },
+     {
+      "style": "text",
+      "text": "Collecting and still working"
+     }
+    ]
+   },
+   {
+    "at": "Changes one and two",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "Changes *1* and *2*"
+     }
+    ]
+   },
+   {
+    "at": "The raise lifts",
+    "type": "photo",
+    "src": "stock/senior-worker-hardware-store-2.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "The raise lifts your benefit"
+     },
+     {
+      "style": "small",
+      "text": "the earnings limit decides how much you keep",
+      "at": "the earnings limit"
+     }
+    ]
+   },
+   {
+    "at": "You are still working, you have not claimed",
+    "type": "video",
+    "src": "stock/office-meeting-business-people-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "small",
+      "text": "Situation 3"
+     },
+     {
+      "style": "text",
+      "text": "Still working, high salary"
+     }
+    ]
+   },
+   {
+    "at": "Change three applies",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "Change *3*"
+     }
+    ]
+   },
+   {
+    "at": "If your pay is above",
+    "type": "number",
+    "value": "$184,500",
+    "text": [
+     {
+      "style": "text",
+      "text": "above this, your tax goes up next year"
+     }
+    ]
+   },
+   {
+    "at": "your Social Security tax goes up",
+    "type": "video",
+    "src": "stock/signing-tax-form-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Your Social Security tax goes up"
+     },
+     {
+      "style": "small",
+      "text": "next year"
+     }
+    ]
+   },
+   {
+    "at": "You have a short work history",
+    "type": "photo",
+    "src": "stock/mother-with-children-home-2.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "small",
+      "text": "Situation 4"
+     },
+     {
+      "style": "text",
+      "text": "A short work history in the United States"
+     }
+    ]
+   },
+   {
+    "at": "Change four applies",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "Change *4*"
+     }
+    ]
+   },
+   {
+    "at": "Check how many credits",
+    "type": "video",
+    "src": "stock/writing-checklist-notebook-2.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "How many credits you have"
+     },
+     {
+      "style": "small",
+      "text": "and how many you still need",
+      "at": "how many you still"
+     }
+    ]
+   },
+   {
+    "at": "And if you have already",
+    "type": "video",
+    "src": "stock/senior-woman-working-shop-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Past full retirement age and still working?"
+     }
+    ]
+   },
+   {
+    "at": "here is the good news",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "The *good news*"
+     }
+    ]
+   },
+   {
+    "at": "The earnings limit no longer",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "*No* earnings limit at all"
+     }
+    ]
+   }
+  ],
+  "why": [
+   {
+    "type": "statement",
+    "text": [
+     {
+      "style": "small",
+      "text": "Before the checklist"
+     },
+     {
+      "style": "statement",
+      "text": "Why do these numbers *move*?",
+      "at": "Why do these numbers"
+     }
+    ]
+   },
+   {
+    "at": "The raise follows prices",
+    "type": "video",
+    "src": "stock/senior-cashier-store-2.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "The raise follows"
+     },
+     {
+      "style": "big",
+      "text": "prices"
+     }
+    ]
+   },
+   {
+    "at": "The other three follow wages",
+    "type": "video",
+    "src": "stock/office-meeting-business-people-2.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "The other three follow"
+     },
+     {
+      "style": "big",
+      "text": "wages"
+     }
+    ]
+   },
+   {
+    "at": "Each year, Social Security publishes",
+    "type": "article",
+    "src": "shots/federal-register.png",
+    "view": {
+     "x": 0,
+     "y": 1130,
+     "width": 1100
+    },
+    "source": "Federal Register · October 26, 2026 · Social Security Administration",
+    "marks": [
+     {
+      "phrase": "national average wage index for 2025 is $72,800.33",
+      "at": "national average wage index"
+     }
+    ]
+   },
+   {
+    "at": "For 2025, it is",
+    "type": "number",
+    "value": "$72,800",
+    "text": [
+     {
+      "style": "text",
+      "text": "national average wage index for 2025"
+     }
+    ],
+    "note": "Source: Federal Register, October 26, 2026",
+    "at_value": "$72,800"
+   },
+   {
+    "at": "The earnings limits",
+    "type": "tiles",
+    "title": "Calculated from that figure",
+    "tiles": [
+     "The earnings limits",
+     "The tax ceiling",
+     "The credit amount"
+    ]
+   },
+   {
+    "at": "are all calculated",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "All calculated from *one figure*"
+     }
+    ]
+   },
+   {
+    "at": "So when average wages rise",
+    "type": "video",
+    "src": "stock/senior-man-working-office-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "When wages rise"
+     },
+     {
+      "style": "big",
+      "text": "all three rise",
+      "at": "all three rise"
+     }
+    ]
+   },
+   {
+    "at": "It happens almost every year",
+    "type": "article",
+    "src": "shots/federal-register.png",
+    "view": {
+     "x": 0,
+     "y": 0,
+     "width": 1100
+    },
+    "source": "Federal Register · October 26, 2026 · Social Security Administration",
+    "marks": [
+     {
+      "phrase": "Federal Register Volume 91"
+     }
+    ]
+   },
+   {
+    "at": "and it is published",
+    "type": "video",
+    "src": "stock/calendar-pages-2.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Published every autumn"
+     },
+     {
+      "style": "small",
+      "text": "in the Federal Register, before November",
+      "at": "Federal Register"
+     }
+    ]
+   },
+   {
+    "at": "That is why",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "Ten minutes, every *autumn*"
+     }
+    ]
+   },
+   {
+    "at": "The rules stay the same",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "The rules stay the same."
+     },
+     {
+      "style": "statement",
+      "text": "The *numbers* do not.",
+      "at": "The numbers do not"
+     }
+    ]
+   }
+  ],
+  "recap": [
+   {
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "Before January: *4 checks*"
+     }
+    ]
+   },
+   {
+    "at": "One. Your notice",
+    "type": "number",
+    "value": "1",
+    "text": [
+     {
+      "style": "text",
+      "text": "Your notice"
+     }
+    ]
+   },
+   {
+    "at": "Read the new dollar amount",
+    "type": "photo",
+    "src": "stock/elderly-man-reading-document-3.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Read the dollar amount"
+     },
+     {
+      "style": "small",
+      "text": "after deductions",
+      "at": "after deductions"
+     }
+    ]
+   },
+   {
+    "at": "It arrives online",
+    "type": "video",
+    "src": "stock/senior-using-laptop-3.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Online in late November"
+     },
+     {
+      "style": "small",
+      "text": "or by mail in December",
+      "at": "or by mail"
+     }
+    ]
+   },
+   {
+    "at": "Two. If you work",
+    "type": "number",
+    "value": "2",
+    "text": [
+     {
+      "style": "text",
+      "text": "Know your earnings limit"
+     }
+    ]
+   },
+   {
+    "at": "$25,560, or",
+    "type": "number",
+    "value": "$25,560",
+    "text": [
+     {
+      "style": "text",
+      "text": "under full retirement age all year"
+     }
+    ]
+   },
+   {
+    "at": "$67,920 in the year",
+    "type": "number",
+    "value": "$67,920",
+    "text": [
+     {
+      "style": "text",
+      "text": "in the year you reach it"
+     }
+    ]
+   },
+   {
+    "at": "Then update your earnings",
+    "type": "video",
+    "src": "stock/senior-phone-call-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Update your estimate with Social Security"
+     }
+    ]
+   },
+   {
+    "at": "Three. If you earn",
+    "type": "number",
+    "value": "3",
+    "text": [
+     {
+      "style": "text",
+      "text": "The tax ceiling"
+     }
+    ]
+   },
+   {
+    "at": "expect up to $483.60",
+    "type": "number",
+    "value": "+$483.60",
+    "text": [
+     {
+      "style": "text",
+      "text": "more tax if you earn over $184,500"
+     }
+    ]
+   },
+   {
+    "at": "in Social Security tax next year",
+    "type": "photo",
+    "src": "stock/dollar-bills-money-2.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "in Social Security tax next year"
+     }
+    ]
+   },
+   {
+    "at": "With two employers",
+    "type": "video",
+    "src": "stock/signing-tax-form-1.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Two employers?"
+     },
+     {
+      "style": "big",
+      "text": "Keep your W-2s",
+      "at": "keep your W-2"
+     }
+    ]
+   },
+   {
+    "at": "Four. If you are short",
+    "type": "number",
+    "value": "4",
+    "text": [
+     {
+      "style": "text",
+      "text": "Your work credits"
+     }
+    ]
+   },
+   {
+    "at": "plan for $7,880",
+    "type": "number",
+    "value": "$7,880",
+    "text": [
+     {
+      "style": "text",
+      "text": "earns all four credits in 2027"
+     }
+    ]
+   },
+   {
+    "at": "and check your earnings record",
+    "type": "video",
+    "src": "stock/senior-using-laptop-2.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Check your earnings record"
+     },
+     {
+      "style": "small",
+      "text": "for missing years",
+      "at": "for missing years"
+     }
+    ]
+   },
+   {
+    "at": "Not all four will apply",
+    "type": "photo",
+    "src": "stock/senior-couple-laptop-2.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Pick the ones that apply to you"
+     }
+    ]
+   },
+   {
+    "at": "and put a date",
+    "type": "photo",
+    "src": "stock/january-calendar-1.jpg",
+    "side": "left",
+    "text": [
+     {
+      "style": "text",
+      "text": "Put a date on your calendar"
+     }
+    ]
+   },
+   {
+    "at": "This video explains",
+    "type": "statement",
+    "text": [
+     {
+      "style": "small",
+      "text": "This video explains the published rules."
+     },
+     {
+      "style": "small",
+      "text": "It is not personal financial advice.",
+      "at": "It is not personal"
+     }
+    ]
+   },
+   {
+    "at": "The link to every source",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "Sources in the *description*"
+     }
+    ]
+   },
+   {
+    "at": "If this was useful",
+    "type": "video",
+    "src": "stock/senior-people-walking-park-3.mp4",
+    "side": "left",
+    "text": [
+     {
+      "style": "big",
+      "text": "Subscribe"
+     },
+     {
+      "style": "text",
+      "text": "One set of rules every week",
+      "at": "Every week"
+     }
+    ]
+   },
+   {
+    "at": "Every week we take",
+    "type": "statement",
+    "text": [
+     {
+      "style": "statement",
+      "text": "One set of rules, *every week*"
+     }
+    ]
+   }
+  ]
+ }
+}

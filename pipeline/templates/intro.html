@@ -1,0 +1,230 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      font-family: "Inter", sans-serif;
+      --ground: #000000;
+      --ink: #f4eedd;
+      --accent: #d23232;
+    }
+    #intro-ground {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 38%, #1c1c1c 0%, var(--ground) 100%);
+    }
+    #intro-stage {
+      position: absolute;
+      inset: 0;
+    }
+    #intro-chart {
+      position: absolute;
+      inset: 0;
+    }
+    #intro-chart svg {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+    }
+    .intro-grid {
+      stroke: var(--ink);
+      stroke-width: 2;
+      opacity: 0.1;
+    }
+    #intro-axis {
+      stroke: var(--ink);
+      stroke-width: 3;
+      opacity: 0.45;
+    }
+    #intro-line-before {
+      fill: none;
+      stroke: var(--ink);
+      stroke-width: 7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0.4;
+    }
+    #intro-line-after {
+      fill: none;
+      stroke: var(--ink);
+      stroke-width: 9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    #intro-marker {
+      stroke: var(--accent);
+      stroke-width: 4;
+    }
+    #intro-dot {
+      fill: var(--accent);
+    }
+    .intro-age {
+      position: absolute;
+      top: 948px;
+      width: 160px;
+      margin-left: -80px;
+      text-align: center;
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .intro-age span {
+      display: inline-block;
+      opacity: 0.5;
+    }
+    #intro-age-50 span {
+      color: var(--accent);
+      opacity: 1;
+    }
+    .intro-line {
+      position: absolute;
+      left: 0;
+      width: 1920px;
+      text-align: center;
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      font-size: 168px;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+    #intro-title-1 {
+      top: 172px;
+      color: var(--ink);
+    }
+    #intro-title-2 {
+      top: 352px;
+      color: var(--accent);
+    }
+    #intro-tagline {
+      position: absolute;
+      left: 0;
+      top: 566px;
+      width: 1920px;
+      text-align: center;
+      font-size: 46px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+    }
+    .intro-line span,
+    #intro-tagline span {
+      display: inline-block;
+    }
+  </style>
+
+  <div
+    id="root"
+    data-composition-id="intro"
+    data-width="1920"
+    data-height="1080"
+    data-composition-variables='[
+      {"id":"titleTop","type":"string","label":"Title, first line","default":"Smart Money"},
+      {"id":"titleBottom","type":"string","label":"Title, second line","default":"After 50"},
+      {"id":"tagline","type":"string","label":"Tagline","default":"Clear numbers. Calm decisions."}
+    ]'
+  >
+    <div id="intro-ground"></div>
+
+    <div id="intro-stage">
+      <div id="intro-chart" class="clip" data-start="0" data-duration="6" data-track-index="1">
+        <svg viewBox="0 0 1920 1080" data-layout-ignore>
+          <line class="intro-grid" x1="260" y1="830" x2="1660" y2="830" />
+          <line class="intro-grid" x1="260" y1="730" x2="1660" y2="730" />
+          <line id="intro-axis" x1="260" y1="930" x2="1660" y2="930" />
+          <line id="intro-marker" x1="960" y1="930" x2="960" y2="800" />
+          <path
+            id="intro-line-before"
+           
+            d="M260,900 L330,885 L400,892 L470,868 L540,874 L610,850 L680,858 L750,832 L820,838 L890,812 L960,800"
+          />
+          <path
+            id="intro-line-after"
+           
+            d="M960,800 L1030,780 L1100,790 L1170,756 L1240,764 L1310,728 L1380,738 L1450,696 L1520,704 L1590,660 L1660,640"
+          />
+          <circle id="intro-dot" cx="960" cy="800" r="16" />
+        </svg>
+      </div>
+
+      <div id="intro-age-30" class="intro-age clip" style="left: 260px" data-start="0" data-duration="6" data-track-index="2"><span>30</span></div>
+      <div id="intro-age-40" class="intro-age clip" style="left: 610px" data-start="0" data-duration="6" data-track-index="2"><span>40</span></div>
+      <div id="intro-age-50" class="intro-age clip" style="left: 960px" data-start="0" data-duration="6" data-track-index="2"><span>50</span></div>
+      <div id="intro-age-60" class="intro-age clip" style="left: 1310px" data-start="0" data-duration="6" data-track-index="2"><span>60</span></div>
+      <div id="intro-age-70" class="intro-age clip" style="left: 1660px" data-start="0" data-duration="6" data-track-index="2"><span>70</span></div>
+
+      <div id="intro-title-1" class="intro-line clip" data-start="1.9" data-duration="4.1" data-track-index="3">
+        <span data-var-text="titleTop">Smart Money</span>
+      </div>
+      <div id="intro-title-2" class="intro-line clip" data-start="2.2" data-duration="3.8" data-track-index="4">
+        <span data-var-text="titleBottom">After 50</span>
+      </div>
+      <div id="intro-tagline" class="clip" data-start="3.1" data-duration="2.9" data-track-index="5">
+        <span data-var-text="tagline">Clear numbers. Calm decisions.</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Draw-on: each stroke starts hidden behind a dash as long as itself.
+    const draw = (selector, duration, ease, at) => {
+      const path = document.querySelector(selector);
+      const length = path.getTotalLength();
+      // The gap is longer than the stroke so its round cap stays hidden before the draw starts.
+      gsap.set(path, { strokeDasharray: length + " " + (length + 40) });
+      tl.fromTo(path, { strokeDashoffset: length + 20 }, { strokeDashoffset: 0, duration, ease }, at);
+    };
+
+    // Chart builds: axis labels, then the line climbs to age 50.
+    tl.fromTo("#intro-chart svg", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.out" }, 0);
+    tl.fromTo(
+      ".intro-age span",
+      { opacity: 0, y: 14 },
+      { opacity: (i) => (i === 2 ? 1 : 0.5), y: 0, duration: 0.45, ease: "power3.out", stagger: 0.06 },
+      0.1,
+    );
+    draw("#intro-line-before", 1.3, "power2.inOut", 0.3);
+
+    // Age 50 lights up: marker rises, dot lands, the number grows.
+    draw("#intro-marker", 0.35, "power3.out", 1.45);
+    tl.fromTo(
+      "#intro-dot",
+      { scale: 0, transformOrigin: "50% 50%" },
+      { scale: 1, duration: 0.5, ease: "back.out(2.2)" },
+      1.55,
+    );
+    tl.fromTo("#intro-age-50 span", { scale: 1 }, { scale: 1.35, duration: 0.5, ease: "back.out(1.6)" }, 1.55);
+
+    // The gold line keeps climbing behind the title for the rest of the intro.
+    draw("#intro-line-after", 3.5, "power1.out", 1.8);
+
+    // Title lands and stays still.
+    tl.fromTo(
+      "#intro-title-1 span",
+      { opacity: 0, filter: "blur(14px)" },
+      { opacity: 1, filter: "blur(0px)", duration: 0.5, ease: "power3.out" },
+      1.9,
+    );
+    tl.fromTo(
+      "#intro-title-2 span",
+      { opacity: 0, scale: 1.12, filter: "blur(10px)" },
+      { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.6, ease: "expo.out" },
+      2.2,
+    );
+    tl.fromTo("#intro-tagline span", { opacity: 0 }, { opacity: 0.85, duration: 0.7, ease: "power2.out" }, 3.1);
+
+    // Exit to the plain ground so the video can start on a clean frame.
+    tl.fromTo(
+      "#intro-stage",
+      { opacity: 1, filter: "blur(0px)" },
+      { opacity: 0, filter: "blur(10px)", duration: 0.45, ease: "power2.in", immediateRender: false },
+      5.5,
+    );
+
+    window.__timelines["intro"] = tl;
+  </script>
+</template>
